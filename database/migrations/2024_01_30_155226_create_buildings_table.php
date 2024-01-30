@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')
+            $table->foreignId('user_id')
             ->references('id')
             ->on('users')
-            ->onDelete('set null')
+            // ->onDelete('set null')
             ->onUpdate('cascade');
             $table->string('title');
             $table->unsignedInteger('rooms');
