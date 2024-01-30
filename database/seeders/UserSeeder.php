@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Franco',
                 'email'=> 'cicciofranco@gmail.com',
                 'password'=> 'cicciofranco',
-                'date_of_birth'=> '01/02/2001',
+                'date_of_birth'=> '2019-10-11 1:23:45',
             ],
 
             [
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Rossi',
                 'email' => 'mariorossi@gmail.com',
                 'password' => 'mariorossi',
-                'date_of_birth' => '15/05/1995',
+                'date_of_birth' => '2019-10-11 1:23:45',
             ],
 
             [
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Verdi',
                 'email' => 'luigiverdi@gmail.com',
                 'password' => 'luigiverdi',
-                'date_of_birth' => '22/09/1988',
+                'date_of_birth' => '1999-10-11 1:23:45',
             ],
 
             [
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Bianchi',
                 'email' => 'giovannabianchi@gmail.com',
                 'password' => 'giovannabianchi',
-                'date_of_birth' => '10/11/1990',
+                'date_of_birth' => '1998-08-11 1:23:45',
             ],
 
             [
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Neri',
                 'email' => 'francescaneri@gmail.com',
                 'password' => 'francescaneri',
-                'date_of_birth' => '03/07/1985',
+                'date_of_birth' => '1997-10-11 1:23:45',
             ],
 
             [
@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Marrone',
                 'email' => 'paolomarrone@gmail.com',
                 'password' => 'paolomarrone',
-                'date_of_birth' => '18/04/1998',
+                'date_of_birth' => '1998-10-11 1:23:45',
             ],
 
             [
@@ -68,7 +68,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Rosa',
                 'email' => 'alessiarosa@gmail.com',
                 'password' => 'alessiarosa',
-                'date_of_birth' => '25/12/1982',
+                'date_of_birth' => '1999-07-11 1:23:45',
             ],
 
             [
@@ -76,7 +76,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Gialli',
                 'email' => 'davidegialli@gmail.com',
                 'password' => 'davidegialli',
-                'date_of_birth' => '07/09/1993',
+                'date_of_birth' => '2000-10-11 1:23:45',
             ],
         ];
 
