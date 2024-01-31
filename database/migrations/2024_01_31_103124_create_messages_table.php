@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('building_id')
+                ->references('id')
+                ->on('buildings');
+            $table->string('guest_email');
+            $table->string('name');
+            $table->string('surname');
+            $table->text('text');
+
             $table->timestamps();
         });
     }
