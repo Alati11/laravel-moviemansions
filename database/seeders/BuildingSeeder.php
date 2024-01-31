@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Building;
+use App\Models\Sponsorship;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 class BuildingSeeder extends Seeder
@@ -12,7 +14,7 @@ class BuildingSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
         $buildings = [
 
@@ -421,6 +423,9 @@ class BuildingSeeder extends Seeder
             ]
         ];
 
+        $sponsorships = Sponsorship::all();
+        $sponsorship_ids = $sponsorships->pluck('id');
+
         foreach ($buildings as $building) {
 
             $new_building = new Building();
@@ -440,6 +445,9 @@ class BuildingSeeder extends Seeder
             $new_building->slug = Str::slug($building['title'], '-');
 
             $new_building->save();
+
+            $new_building->sponsorships()
+                ->attach($faker->optional()->randomElement($sponsorship_ids));
         }
     }
 }
