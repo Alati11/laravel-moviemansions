@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Building;
 use App\Models\Sponsorship;
+use DateTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -21,8 +22,8 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Harry Potter’s childhood house',
                 'user_id' => 3,
-                'rooms' => 6,
-                'beds' => 8,
+                'rooms' => 15,
+                'beds' => 4,
                 'description' => 'This is the house used to represent the interiors of Privet Drive, Little Whinging, Surrey: that is to say, Harry Potter’s childhood home! For paying guests, there are two rooms with four beds each, a fireplace, and an inner garden, in addition to an English breakfast included with every stay.',
                 'bathrooms' => 2,
                 'sqm' => 150,
@@ -38,10 +39,10 @@ class BuildingSeeder extends Seeder
 
                 'title' => 'Tony Stark lakeside cottage',
                 'user_id' => 6,
-                'rooms' => 4,
-                'beds' => 6,
+                'rooms' => 9,
+                'beds' => 2,
                 'description' => "If your dream is to live like an Avenger in  every way, there's a novelty that could make it partly come  true. In fact, for some time now, it has been possible to rent  the bungalow where Tony Stark retired at the beginning of  Avengers: Endgame. It's a lakeside cabin, a wooden construction  resembling a bungalow overlooking a peaceful lake. Located in  the heart of Bouckart Farm, just a 30-minute drive from  Atlanta, the residence offers three bedrooms and three  bathrooms and can accommodate up to six people.",
-                'bathrooms' => 3,
+                'bathrooms' => 2,
                 'sqm' => 100,
                 'address' => '9445 Browns Lake Rd, Fairburn, GA',
                 'latitude' => 200,
@@ -55,10 +56,10 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Home alone: the home',
                 'user_id' => 5,
-                'rooms' => 12,
-                'beds' => 8,
+                'rooms' => 22,
+                'beds' => 4,
                 'description' => "The building has many spacious rooms, perfect  for Christmas decorations and funny traps. The house is the one  made famous by the movie 'Home Alone' directed by Chris  Columbus. There are four bedrooms, as well as four bathrooms,  making for a total area of 400 square meters.",
-                'bathrooms' => 4,
+                'bathrooms' => 5,
                 'sqm' => 400,
                 'address' => '671 Lincoln Avenue, Winnetka, IL 60093-2345',
                 'latitude' => 345,
@@ -71,8 +72,8 @@ class BuildingSeeder extends Seeder
             [
                 'title' => "Mrs Doubtfire's perfect house",
                 'user_id' => 4,
-                'rooms' => 10,
-                'beds' => 8,
+                'rooms' => 16,
+                'beds' => 2,
                 'description' => "A splendid Victorian house in San Francisco, California,which still today attracts fans of the late Robin Williams. This is where they filmed 'Mrs. Doubtfire.' The house features 4 bedrooms and 4 bathrooms arranged over 300 square meters.",
                 'bathrooms' => 4,
                 'sqm' => 300,
@@ -87,10 +88,10 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Padme Palace (Casino included)',
                 'user_id' => 8,
-                'rooms' => 25,
-                'beds' => 30,
+                'rooms' => 86,
+                'beds' => 12,
                 'description' => "We're not in Naboo, but on the Como Lake, and this isn't the palace of Queen Padmé Amidala (who marries Anakin Skywalker right here), but Villa del Balbianello in Lenno, now a heritage site of FAI (Italian Environmental Fund). It has also been one of the locations in '007 - Casino Royale.",
-                'bathrooms' => 12,
+                'bathrooms' => 22,
                 'sqm' => 1500,
                 'address' => '22016 Tremezzina CO',
                 'latitude' => 321,
@@ -104,10 +105,10 @@ class BuildingSeeder extends Seeder
                 'title' => 'Welcome to Hogwarts (archery field added)',
                 'user_id' => 7,
                 'rooms' => 150,
-                'beds' => 130,
+                'beds' => 110,
                 'description' => "Maybe you won't learn to fly on a broom, but Hogwarts Castle does exist. The name of the famous structure is actually Alnwick Castle. Before Harry Potter, the castle had already been selected as a set for other films like Robin Hood: Prince of Thieves. The building boasts around 150 rooms, a multitude of beds, and a corridor truly filled with armors – just beware of the second-floor bathroom, Moaning Myrtle doesn't like visitors.",
                 'bathrooms' => 32,
-                'sqm' => 217, 800,
+                'sqm' => 217.800,
                 'address' => 'Alnwick NE66 1NQ, Regno Unito',
                 'latitude' => 943,
                 'longitude' => 521,
@@ -119,7 +120,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Home of Walter White – Location Breaking Bad',
                 'user_id' => 1,
-                'rooms' => 6,
+                'rooms' => 9,
                 'beds' => 3,
                 'description' => "The house of Walter White is the ideal destination for every Breaking Bad fan. Located in Albuquerque, New Mexico, it is one of the most iconic locations in the series, where some of the key and most intense scenes take place. It is the residence where Walter lives with his wife Skyler, son Walter Junior, and little Holly.",
                 'bathrooms' => 2,
@@ -135,7 +136,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Home Cohen - The O.C.',
                 'user_id' => 2,
-                'rooms' => 4,
+                'rooms' => 16,
                 'beds' => 6,
                 'description' => "The Cohen house is an elegant two-story building with a Mediterranean architectural style. The house is spacious, featuring open and modern furnishings with carefully crafted architectural details. The living room is welcoming. The backyard is also a focal point, with a pool and a lounge area, reflecting the luxury and comfort of life in Orange County, California. The Cohen house becomes a recognizable element in the series, contributing to the visual character and representation of the world in which the characters live.",
                 'bathrooms' => 6,
@@ -151,7 +152,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Creel House  - Stranger Things',
                 'user_id' => 5,
-                'rooms' => 4,
+                'rooms' => 24,
                 'beds' => 7,
                 'description' => "Located in the city of Rome, Georgia, more precisely at 906 East 2nd Avenue, and built in 1882, this is an old Victorian-style residence boasting a surface area of 460 square meters. It features five bedrooms, five bathrooms, eight fireplaces, an attic, and an annex with two bedrooms and a bathroom. Not only that, but it also includes an extensive surrounding land.",
                 'bathrooms' => 6,
@@ -167,7 +168,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'The House of Jimmy  - Pulp Fiction',
                 'user_id' => 8,
-                'rooms' => 2,
+                'rooms' => 8,
                 'beds' => 3,
                 'description' => "The house measures 158 square meters and internally comprises 3 bedrooms and 2 bathrooms. But Pulp Fiction fans will not forget two other spaces used in that sequence. Firstly, the garage, then the garden. In the garage, the car was parked, and the body of the victim was cleaned. In the garden, Vincent and Jules, completely naked, are forced to wash themselves with the cold water hose used for watering the flowers.",
                 'bathrooms' => 2,
@@ -199,7 +200,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => "Montalbano's House in Marinella",
                 'user_id' => 2,
-                'rooms' => 14,
+                'rooms' => 17,
                 'beds' => 8,
                 'description' => "The house of Commissioner Montalbano in Marinella is actually a B&B in Punta Secca, a charming fishing village a few kilometers from Santa Croce Camerina. Lucky him who can enjoy that stunning view from his beautiful little terrace every day!",
                 'bathrooms' => 6,
@@ -279,7 +280,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => "The 'Scarface' mansion",
                 'user_id' => 8,
-                'rooms' => 20,
+                'rooms' => 50,
                 'beds' => 14,
                 'description' => "Although according to the setting of the film the house is located in Miami, in reality the villa is located in a luxurious neighborhood of Santa Barbara in California. The property boasts 109 years of existence, a long period during which multiple owners have followed one another and which has enriched the villa with history.
                 This little paradise was designed by the well-known North American architect Bertram Goodhue, who wanted to recreate a Mediterranean style on four hectares of land. The villa is surrounded by lush gardens, is embellished with a beautiful swimming pool and offers a spectacular view of the Pacific Ocean.",
@@ -328,7 +329,7 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Ghostbusters - Fire Station',
                 'user_id' => 7,
-                'rooms' => 20,
+                'rooms' => 40,
                 'beds' => 15,
                 'description' => "It's not exactly a residence, but a fire station located in Manhattan. Impossible not to recognize it: it's the headquarters of the Ghostbusters in the 1984 film. It is still in function, but occasionally it hosts conventions, video clips shootings and other events.",
                 'bathrooms' => 8,
@@ -344,8 +345,8 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Back to the Future - McFly House',
                 'user_id' => 4,
-                'rooms' => 6,
-                'beds' => 6,
+                'rooms' => 17,
+                'beds' => 5,
                 'description' => "The house from 'Back to the Future' remains the same throughout the entire trilogy: it actually exists and is located on a quiet residential street in the suburb of Los Angeles, in the neighborhood of Arleta. After 30 years or more since the filming, not much has changed in the quiet suburb of Arleta, including the daily pilgrimage of fans who invade the driveway and the privacy of the owner, Mrs. Fentriss. On more than one occasion, she has stated that choosing to lend her house for the film was the biggest mistake of her life.",
                 'bathrooms' => 3,
                 'sqm' => 400,
@@ -360,10 +361,10 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Overlook Hotel - Shining',
                 'user_id' => 5,
-                'rooms' => 77,
-                'beds' => 8,
+                'rooms' => 80,
+                'beds' => 77,
                 'description' => 'In reality it is called Timberline Lodge. This snow-covered hotel was the set of one of the most famous scary films in cinema history. In fiction he was in the Rocky Mountains, in Colorado, while in reality he was in Oregon.',
-                'bathrooms' => 10,
+                'bathrooms' => 77,
                 'sqm' => 400,
                 'address' => ' 27500 E Timberline Road, Government Camp, OR 97028, Stati Uniti',
                 'latitude' => 2322,
@@ -376,10 +377,10 @@ class BuildingSeeder extends Seeder
             [
                 'title' => 'Villa Balbiano - House of Gucci',
                 'user_id' => 3,
-                'rooms' => 14,
+                'rooms' => 113,
                 'beds' => 26,
                 'description' => "Villa Balbiano is one of the major architectural jewels on Lake Como, nestled on its shores in a strategic position with breathtaking views of the mountains and lake landscape. The villa has become the ideal home for parties, receptions, private events, fashion shootings, weddings of the rich and famous and for film shoots such as the film House of Gucci.",
-                'bathrooms' => 12,
+                'bathrooms' => 21,
                 'sqm' => 6460,
                 'address' => 'Piazza Cardinal Durini, 22010 Ossuccio CO',
                 'latitude' => 423,
@@ -425,6 +426,8 @@ class BuildingSeeder extends Seeder
 
         $sponsorships = Sponsorship::all();
         $sponsorship_ids = $sponsorships->pluck('id');
+        // $sponsorship_duration = $sponsorships->pluck('duration');
+
 
         foreach ($buildings as $building) {
 
@@ -448,6 +451,19 @@ class BuildingSeeder extends Seeder
 
             $new_building->sponsorships()
                 ->attach($faker->optional()->randomElement($sponsorship_ids));
+
+            // $sponsorshipId = $faker->optional()->randomElement($sponsorship_ids);
+
+            // $start_date = $faker->dateTimeBetween('-24 hours', 'now');
+
+            // if ($sponsorshipId) {
+            //     // Aggiungi l'entry alla tabella ponte con starting_date e ending_date
+            //     $new_building->sponsorships()->attach([
+            //         'sponsorship_id' => $sponsorshipId,
+            //         // 'starting_date' => '2024-01-28 15:30:45',
+            //         // 'ending_date' => '2024-02-28 16:30:45',
+            //     ]);
+            // }
         }
     }
 }

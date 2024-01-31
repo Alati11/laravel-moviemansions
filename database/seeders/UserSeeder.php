@@ -14,13 +14,13 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [ 
-            [ 
+        $users = [
+            [
                 'name' => 'Ciccio',
                 'surname' => 'Franco',
-                'email'=> 'cicciofranco@gmail.com',
-                'password'=> 'cicciofranco',
-                'date_of_birth'=> '2019-10-11 1:23:45',
+                'email' => 'cicciofranco@gmail.com',
+                'password' => 'cicciofranco',
+                'date_of_birth' => '2019-10-11 1:23:45',
             ],
 
             [
@@ -80,8 +80,8 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        foreach($users as $user){
-            $new_user= new User();
+        foreach ($users as $user) {
+            $new_user = new User();
 
             $new_user->name = $user['name'];
             $new_user->surname = $user['surname'];
@@ -90,14 +90,14 @@ class UserSeeder extends Seeder
             $new_user->date_of_birth = $user['date_of_birth'];
 
             $new_user->save();
-
         };
+
         // $user= new User();
         //     $user->name = 'Admin';
         //     $user->surname = 'Admin';
         //     $user->email = 'admin@gmail.com';
         //     $user->password = 'admin';
-    
+
         //     $user->save();
 
     }
