@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('buildings', function (Blueprint $table) {
+
             $table->id();
             $table->foreignId('user_id')
-            ->references('id')
-            ->on('users')
-            // ->onDelete('set null')
-            ->onUpdate('cascade');
+                ->references('id')
+                ->on('users');
             $table->string('title');
             $table->unsignedInteger('rooms');
             $table->unsignedInteger('beds');
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->string('image');
             $table->boolean('available');
             $table->string('slug')->unique();
-
             $table->timestamps();
         });
     }
