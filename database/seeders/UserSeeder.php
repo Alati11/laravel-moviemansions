@@ -92,13 +92,13 @@ class UserSeeder extends Seeder
             $new_user->save();
         };
 
-        // $user= new User();
-        //     $user->name = 'Admin';
-        //     $user->surname = 'Admin';
-        //     $user->email = 'admin@gmail.com';
-        //     $user->password = 'admin';
+        $user= new User();
+            $user->name = 'Admin';
+            $user->surname = 'Admin';
+            $user->email = 'admin@gmail.com';
+            $user->password = 'admin';
 
-        //     $user->save();
+            $user->save();
 
     }
 }
