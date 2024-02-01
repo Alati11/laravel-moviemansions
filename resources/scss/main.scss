@@ -1,0 +1,17 @@
+body {
+    font-family: "Quicksand", sans-serif;
+}
+
+.tbl {
+    border-bottom: solid 1px lightgray;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.tbl-item {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+}
