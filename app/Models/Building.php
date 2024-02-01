@@ -9,6 +9,24 @@ class Building extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'rooms',
+        'beds',
+        'bathrooms',
+        'sqm',
+        'latitude',
+        'longitude',
+        'description',
+        'address',
+        'image',
+        'available',
+        'service_id',
+        'sponsorship_id',
+        'image_id',
+        'slug'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -18,8 +18,8 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        $buildings = Building::all(); 
-        
+        $buildings = Building::all();
+
         return view('admin.buildings.index', compact('buildings'));
     }
 
@@ -28,9 +28,9 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        $images = Image::all(); 
-        $services= Service::all();
-        $sponsorships= Sponsorship::all();
+        $images = Image::all();
+        $services = Service::all();
+        $sponsorships = Sponsorship::all();
 
         return view('admin.buildings.create', compact(['images', 'services', 'sponsorships']));
     }
@@ -42,21 +42,34 @@ class BuildingController extends Controller
     {
         $data = $request->all();
 
-        // $request->validate(
-        //     [
-        //         "title"=> "required"
-        //     ]
-        // );
+        $request->validate(
+            [
+                "title" => "required|max:255|string|",
+                "rooms" => "required|numeric|min:1",
+                "beds" => "required|numeric|min:1",
+                "bathrooms" => "required|numeric|min:1",
+                "sqm" => "required|numeric|min:1",
+                "latitude" => "required|string",
+                "longitude" => "required|string",
+                "description" => "required|text|min:20|max:500",
+                "address" => "required|string|min:5|max:255",
+                "image" => "required|string|image",
+                "available" => "required|boolean",
+                "service_id" => "exists:services,id",
+                "sponsorship_id" => "nullable|exists:sponsorships,id",
+                "image_id" => "exists:images,id",
+            ]
+        );
 
         $data['slug'] = Str::slug($data['title'], '-');
 
         $new_building = Building::create($data);
 
-        if($request->has('services')){
+        if ($request->has('services')) {
             $new_building->services()->attach($data['services']);
         }
 
-        if($request->has('sponsorships')){
+        if ($request->has('sponsorships')) {
             $new_building->sponsorships()->attach($data['sponsorships']);
         }
 
@@ -76,9 +89,9 @@ class BuildingController extends Controller
      */
     public function edit(Building $building)
     {
-        $images = Image::all(); 
-        $services= Service::all();
-        $sponsorships= Sponsorship::all();
+        $images = Image::all();
+        $services = Service::all();
+        $sponsorships = Sponsorship::all();
 
         return view('admin.buildings.edit', compact('building', 'images', 'services', 'sponsorships'));
     }
@@ -88,11 +101,24 @@ class BuildingController extends Controller
      */
     public function update(UpdateBuildingRequest $request, Building $building)
     {
-        // $request->validate(
-        //     [
-        //         "title"=> "required"
-        //     ]
-        // );
+        $request->validate(
+            [
+                "title" => "required|max:255|string|",
+                "rooms" => "required|numeric|min:1",
+                "beds" => "required|numeric|min:1",
+                "bathrooms" => "required|numeric|min:1",
+                "sqm" => "required|numeric|min:1",
+                "latitude" => "required|string",
+                "longitude" => "required|string",
+                "description" => "required|text|min:20|max:500",
+                "address" => "required|string|min:5|max:255",
+                "image" => "required|string|image",
+                "available" => "required|boolean",
+                "service_id" => "exists:services,id",
+                "sponsorship_id" => "nullable|exists:sponsorships,id",
+                "image_id" => "exists:images,id",
+            ]
+        );
 
         $data = $request->all();
 
@@ -100,20 +126,19 @@ class BuildingController extends Controller
 
         $building->update($data);
 
-        if($request->has('services')){
+        if ($request->has('services')) {
             $building->services()->sync($data['services']);
         } else {
             $building->services()->detach();
         }
 
-        if($request->has('sponsorships')){
+        if ($request->has('sponsorships')) {
             $building->sponsorships()->attach($data['sponsorships']);
-        }else {
+        } else {
             $building->sponsorships()->detach();
         }
 
         return redirect()->route('admin.buildings.show', $building->id);
-
     }
 
     /**
