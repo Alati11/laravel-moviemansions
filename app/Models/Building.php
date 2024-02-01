@@ -24,7 +24,8 @@ class Building extends Model
         'service_id',
         'sponsorship_id',
         'image_id',
-        'slug'
+        'slug',
+        'user_id'
     ];
 
     public function user()

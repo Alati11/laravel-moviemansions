@@ -10,6 +10,8 @@ use App\Models\Image;
 use App\Models\Service;
 use App\Models\Sponsorship;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BuildingController extends Controller
 {
@@ -32,13 +34,13 @@ class BuildingController extends Controller
         $services = Service::all();
         $sponsorships = Sponsorship::all();
 
-        return view('admin.buildings.create', compact(['images', 'services', 'sponsorships']));
+        return view('admin.buildings.create', compact('images', 'services', 'sponsorships'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBuildingRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
 
@@ -49,19 +51,34 @@ class BuildingController extends Controller
                 "beds" => "required|numeric|min:1",
                 "bathrooms" => "required|numeric|min:1",
                 "sqm" => "required|numeric|min:1",
-                "latitude" => "required|string",
-                "longitude" => "required|string",
-                "description" => "required|text|min:20|max:500",
+                "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
-                "image" => "required|string|image",
-                "available" => "required|boolean",
+                "image" => "required|string|url",
+                "available" => "boolean",
                 "service_id" => "exists:services,id",
                 "sponsorship_id" => "nullable|exists:sponsorships,id",
                 "image_id" => "exists:images,id",
             ]
         );
 
+        // Slug
         $data['slug'] = Str::slug($data['title'], '-');
+
+        // User
+        $user_id = Auth::id();
+
+        $data['user_id'] = $user_id;
+
+        //Longitude Latitude
+        $data['longitude'] = -73.985664;
+
+        $data['latitude'] = 40.748441;
+
+        if ($request->has('available')) {
+            $data['available'] = 1;
+        } else {
+            $data['available'] = 0;
+        }
 
         $new_building = Building::create($data);
 
@@ -99,7 +116,7 @@ class BuildingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBuildingRequest $request, Building $building)
+    public function update(Request $request, Building $building)
     {
         $request->validate(
             [
@@ -108,12 +125,10 @@ class BuildingController extends Controller
                 "beds" => "required|numeric|min:1",
                 "bathrooms" => "required|numeric|min:1",
                 "sqm" => "required|numeric|min:1",
-                "latitude" => "required|string",
-                "longitude" => "required|string",
-                "description" => "required|text|min:20|max:500",
+                "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
-                "image" => "required|string|image",
-                "available" => "required|boolean",
+                "image" => "required|string|url",
+                "available" => "boolean",
                 "service_id" => "exists:services,id",
                 "sponsorship_id" => "nullable|exists:sponsorships,id",
                 "image_id" => "exists:images,id",
@@ -133,7 +148,7 @@ class BuildingController extends Controller
         }
 
         if ($request->has('sponsorships')) {
-            $building->sponsorships()->attach($data['sponsorships']);
+            $building->sponsorships()->sync($data['sponsorships']);
         } else {
             $building->sponsorships()->detach();
         }

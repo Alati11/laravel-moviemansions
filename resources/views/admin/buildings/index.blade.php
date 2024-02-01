@@ -20,9 +20,8 @@
                             </div>
                             
                             <div class="col tbl-item">
-                                <p>buttons</p>
+                                <span><a href="{{route('admin.buildings.show', $building->id)}}" class="btn btn-sm btn-primary">Vedi</a></span>
                             </div>
-
                         </div>
                     @endforeach
                 </div>

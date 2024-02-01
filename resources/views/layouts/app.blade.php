@@ -52,6 +52,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.buildings.index') }}">{{ __('Appartamenti') }}</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.buildings.create') }}">{{ __('Crea appartamento') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
