@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Building;
+use App\Models\Service;
 use App\Models\Sponsorship;
 use DateTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -444,8 +445,11 @@ class BuildingSeeder extends Seeder
 
             $new_building->save();
 
+            // Sponsor
+
             $sponsorships = Sponsorship::all();
             $sponsorship_ids = $sponsorships->pluck('id');
+
 
             $sponsorshipId = $faker->optional()->randomElement($sponsorship_ids);
 
@@ -476,6 +480,18 @@ class BuildingSeeder extends Seeder
                         ]
                     );
             }
+
+            // Services
+
+            $services = Service::all();
+            // pluck id recupera una collection, ma a noi serve un array
+            $service_ids = $services->pluck('id');
+
+            $numOfServices = count($services);
+
+            $new_building->services()->attach(
+                $service_ids->random(rand(1, $numOfServices))->all()
+            );
         }
     }
 }
