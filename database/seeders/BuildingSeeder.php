@@ -424,11 +424,6 @@ class BuildingSeeder extends Seeder
             ]
         ];
 
-        $sponsorships = Sponsorship::all();
-        $sponsorship_ids = $sponsorships->pluck('id');
-        // $sponsorship_duration = $sponsorships->pluck('duration');
-
-
         foreach ($buildings as $building) {
 
             $new_building = new Building();
@@ -449,21 +444,38 @@ class BuildingSeeder extends Seeder
 
             $new_building->save();
 
-            $new_building->sponsorships()
-                ->attach($faker->optional()->randomElement($sponsorship_ids));
+            $sponsorships = Sponsorship::all();
+            $sponsorship_ids = $sponsorships->pluck('id');
 
-            // $sponsorshipId = $faker->optional()->randomElement($sponsorship_ids);
+            $sponsorshipId = $faker->optional()->randomElement($sponsorship_ids);
 
-            // $start_date = $faker->dateTimeBetween('-24 hours', 'now');
+            if ($sponsorshipId) {
+                $startingDate = now();
 
-            // if ($sponsorshipId) {
-            //     // Aggiungi l'entry alla tabella ponte con starting_date e ending_date
-            //     $new_building->sponsorships()->attach([
-            //         'sponsorship_id' => $sponsorshipId,
-            //         // 'starting_date' => '2024-01-28 15:30:45',
-            //         // 'ending_date' => '2024-02-28 16:30:45',
-            //     ]);
-            // }
+                switch ($sponsorshipId) {
+                    case 1:
+                        $endingDate = $startingDate->copy()->addHours(24);
+                        break;
+                    case 2:
+                        $endingDate = $startingDate->copy()->addHours(72);
+                        break;
+                    case 3:
+                        $endingDate = $startingDate->copy()->addHours(144);
+                        break;
+                    default:
+                        $endingDate = $startingDate->copy()->addHours(24);
+                        break;
+                }
+
+                $new_building->sponsorships()
+                    ->attach(
+                        $sponsorshipId,
+                        [
+                            'starting_date' => $startingDate,
+                            'ending_date' => $endingDate,
+                        ]
+                    );
+            }
         }
     }
 }
