@@ -57,7 +57,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" >
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -71,7 +71,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" min="8">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -79,6 +80,20 @@
                                 </span>
                                 @enderror
                             </div>
+                            <div class="col-1">
+                                <div class="btn-group dropend">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        &#9432;
+                                    </button>
+                                    <ul class="dropdown-menu p-2">
+                                        <li>La password deve avere almeno 8 caratteri</li>
+                                        <li>La password deve avere almeno una lettera maiuscola ed una minuscola</li>
+                                        <li>La password deve contenere almeno un numero</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            
                         </div>
 
                         <div class="mb-4 row">
