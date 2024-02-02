@@ -22,8 +22,8 @@ return new class extends Migration
             $table->unsignedInteger('beds');
             $table->unsignedInteger('bathrooms');
             $table->unsignedInteger('sqm');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->decimal('latitude');
+            $table->decimal('longitude');
             $table->text('description');
             $table->string('address');
             $table->string('image');

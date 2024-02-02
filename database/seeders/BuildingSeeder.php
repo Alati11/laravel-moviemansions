@@ -31,7 +31,7 @@ class BuildingSeeder extends Seeder
                 'address' => '12 Picket Post Close, Martins Heron, Bracknell, Berkshire, RG12 9BX, Regno Unito',
                 'latitude' => 111,
                 'longitude' => 111,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -48,7 +48,7 @@ class BuildingSeeder extends Seeder
                 'address' => '9445 Browns Lake Rd, Fairburn, GA',
                 'latitude' => 200,
                 'longitude' => 123,
-                'image' => 'https://media.printables.com/media/prints/473105  images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs  cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
 
@@ -65,7 +65,7 @@ class BuildingSeeder extends Seeder
                 'address' => '671 Lincoln Avenue, Winnetka, IL 60093-2345',
                 'latitude' => 345,
                 'longitude' => 678,
-                'image' => 'https://media.printables.com/media/prints/473105      images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs  cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -81,7 +81,7 @@ class BuildingSeeder extends Seeder
                 'address' => '2640 Steiner Street, San Francisco, California CA',
                 'latitude' => 232,
                 'longitude' => 112,
-                'image' => 'https://media.printables.com/media/prints/473105/ images/            3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/            welcomehome_homerender.   webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -97,7 +97,7 @@ class BuildingSeeder extends Seeder
                 'address' => '22016 Tremezzina CO',
                 'latitude' => 321,
                 'longitude' => 333,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -113,7 +113,7 @@ class BuildingSeeder extends Seeder
                 'address' => 'Alnwick NE66 1NQ, Regno Unito',
                 'latitude' => 943,
                 'longitude' => 521,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -129,7 +129,7 @@ class BuildingSeeder extends Seeder
                 'address' => '3828 Piermont Dr NE, Albuquerque, NM 87111',
                 'latitude' => 111,
                 'longitude' => 222,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -145,7 +145,7 @@ class BuildingSeeder extends Seeder
                 'address' => '6205 Ocean Breeze Drive, Malibu.',
                 'latitude' => 3765,
                 'longitude' => 4236,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.web',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -161,7 +161,7 @@ class BuildingSeeder extends Seeder
                 'address' => '906 East 2nd Avenue, Rome, Giorgia.',
                 'latitude' => 12547,
                 'longitude' => 14789,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -177,7 +177,7 @@ class BuildingSeeder extends Seeder
                 'address' => '414 Kraft Avenue, Studio City, CA 91604.',
                 'latitude' => 4321,
                 'longitude' => 144,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -193,7 +193,7 @@ class BuildingSeeder extends Seeder
                 'address' => 'Oheka Castle,135 West Gate Drive,Huntington, NY 11743',
                 'latitude' => 9432,
                 'longitude' => 2765,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -209,7 +209,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' Corso Aldo Moro, 44, 97017 Punta Secca RG, Italy',
                 'latitude' => 4458,
                 'longitude' => 7896,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -225,7 +225,7 @@ class BuildingSeeder extends Seeder
                 'address' => 'Piazza del colosseo 9,00184 Roma, Italia ',
                 'latitude' => 3232,
                 'longitude' => 1423,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -241,7 +241,7 @@ class BuildingSeeder extends Seeder
                 'address' => 'Great North Rd., Hatfield AL9 5HX, Regno Unito',
                 'latitude' => 5476,
                 'longitude' => 998,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -257,7 +257,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' 184 6th St, St. Helens, Oregon, USA.',
                 'latitude' => 1423,
                 'longitude' => 6589,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -273,7 +273,7 @@ class BuildingSeeder extends Seeder
                 'address' => '2 Wollaton Hall, Nottingham NG8 2AE, Regno Unito',
                 'latitude' => 5897,
                 'longitude' => 4523,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -290,7 +290,7 @@ class BuildingSeeder extends Seeder
                 'address' => 'Montecito, CA 93108, Stati Uniti',
                 'latitude' => 8596,
                 'longitude' => 4156,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -306,7 +306,7 @@ class BuildingSeeder extends Seeder
                 'address' => '5 Pin Oak Court, Old Brookville, Long Island, New York, USA.',
                 'latitude' => 9632,
                 'longitude' => 8524,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -322,7 +322,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' 110 Longfellow Avenue, Staten Island, New York, USA.',
                 'latitude' => 4222,
                 'longitude' => 674,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -338,7 +338,7 @@ class BuildingSeeder extends Seeder
                 'address' => '14 N Moore St TriBeCa, New York City, NY 10013-2413',
                 'latitude' => 972,
                 'longitude' => 1532,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -354,7 +354,7 @@ class BuildingSeeder extends Seeder
                 'address' => '9303 Roslyndale Avenue, Arleta, California',
                 'latitude' => 7845,
                 'longitude' => 0234,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -370,7 +370,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' 27500 E Timberline Road, Government Camp, OR 97028, Stati Uniti',
                 'latitude' => 2322,
                 'longitude' => 876,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -386,7 +386,7 @@ class BuildingSeeder extends Seeder
                 'address' => 'Piazza Cardinal Durini, 22010 Ossuccio CO',
                 'latitude' => 423,
                 'longitude' => 843,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -402,7 +402,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' 251, North Bristol Avenue a Brentwood',
                 'latitude' => 4233,
                 'longitude' => 854,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
@@ -419,7 +419,7 @@ class BuildingSeeder extends Seeder
                 'address' => '72 Water St, Lavenham, Sudbury CO10 9RW, Regno Unito',
                 'latitude' => 423,
                 'longitude' => 843,
-                'image' => 'https://media.printables.com/media/prints/473105/images/3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/welcomehome_homerender.webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ]

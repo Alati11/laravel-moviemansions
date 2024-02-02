@@ -1,5 +1,31 @@
 @extends('layouts.app');
 
 @section('content')
-    <h1>Index Buildings</h1>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-9">
+                    @foreach ($buildings as $building)
+                        <div class="row tbl">
+                            <div class="col-1 tbl-item">
+                                <p><b>{{$building->id}}</b></p>
+                            </div>
+                            
+                            <div class="col tbl-item">
+                                <h5>{{$building->title}}</h5>
+                            </div>
+
+                            <div class="col tbl-item">
+                                <p>{{$building->address}}</p>
+                            </div>
+                            
+                            <div class="col tbl-item">
+                                <span><a href="{{route('admin.buildings.show', $building->id)}}" class="btn btn-sm btn-primary">Vedi</a></span>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
