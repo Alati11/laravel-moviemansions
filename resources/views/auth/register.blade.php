@@ -47,7 +47,7 @@
 
                                 @error('date_of_birth')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong>Your age must be between 16 and 100 years old</strong>
                                 </span>
                                 @enderror
                             </div>
