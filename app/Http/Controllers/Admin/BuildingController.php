@@ -126,7 +126,7 @@ class BuildingController extends Controller
         }
 
         // Attach Sponsors
-        if ($request->has('sponsorship_id')) {
+        if ($request->has('sponsorship_id') & $data['sponsorship_id'] !== null) {
             $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
         }
 

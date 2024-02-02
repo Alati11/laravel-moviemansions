@@ -71,7 +71,7 @@
         
 
             <select name="sponsorship_id" class="form-control mb-3" id="sponsorship_id">
-                <option>Scegli una Sponsorizzazione (Opzionale)</option>
+                <option value="">Scegli una Sponsorizzazione (Opzionale)</option>
                 @foreach($sponsorships as $sponsorship)
                     <option @selected(old('sponsorship_id') == $sponsorship->id) value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>
                 @endforeach
