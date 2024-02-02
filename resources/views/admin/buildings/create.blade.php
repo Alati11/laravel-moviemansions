@@ -19,6 +19,11 @@
                 <input type="file" class="form-control" name="image" id="image">
             </div>
 
+            {{-- <div class="mb-3">
+                <label for="images[]" class="form-label">Carica altre Immagini</label>
+                <input type="file" class="form-control" name="images[]" id="images" multiple>
+            </div> --}}
+
             <div class="mb-3">
                 <label for="address" class="form-label">Indirizzo Appartamento</label>
                 <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}">
