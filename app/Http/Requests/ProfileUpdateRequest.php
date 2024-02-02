@@ -18,6 +18,8 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'surname' => ['required', 'string', 'max:255'],
+            'date_of_birth' => ['required', 'date_format:Y-m-d', 'after:'. date('Y-m-d', strtotime('-100 years')), 'before:' . date('Y-m-d', strtotime('-16 years'))],
         ];
     }
 }

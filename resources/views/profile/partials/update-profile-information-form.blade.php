@@ -39,10 +39,11 @@
 
         <div class="mb-2">
             <label for="date_of_birth">{{__('Date of birth')}}</label>
-            <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="date_of_birth" value="{{old('date_of_birth', $user->date_of_birth)}}" required autofocus>
+            <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="date_of_birth" value="{{old('date_of_birth', $user->date_of_birth)}}" autofocus>
             @error('date_of_birth')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->get('date_of_birth')}}</strong>
+                <strong>User age must be between 16 and 100 years old</strong>
+                {{-- <strong>{{$errors->get('date_of_birth')}}</strong> --}}
             </span>
             @enderror
         </div>
@@ -92,6 +93,10 @@
                 }
             </script>
             <p id='profile-status' class="fs-5 text-muted">{{ __('Saved.') }}</p>
+                
+            @else
+                <p id='profile-status' class="fs-5 text-muted">Not saved</p>
+                
             @endif
         </div>
     </form>
