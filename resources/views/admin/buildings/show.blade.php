@@ -1,5 +1,18 @@
 @extends('layouts.app');
 
 @section('content')
-    <h1>Show Building</h1>
+    <section>
+        <div class="container">
+
+            <div class="row">
+                <h2>{{$building->title}}</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <img src="{{ asset('storage/'. $building->image)}}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
