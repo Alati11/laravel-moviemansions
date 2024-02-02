@@ -12,6 +12,9 @@ use App\Models\Sponsorship;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\File;
 
 class BuildingController extends Controller
 {
@@ -53,7 +56,12 @@ class BuildingController extends Controller
                 "sqm" => "required|numeric|min:1",
                 "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
-                "image" => "required|string|url",
+                "image" => [
+                    "required",
+                    File::image()
+                        ->min('1kb')
+                        ->max('4mb')
+                ],
                 "available" => "boolean",
                 "service_id" => "exists:services,id",
                 "sponsorship_id" => "nullable|exists:sponsorships,id",
@@ -80,14 +88,46 @@ class BuildingController extends Controller
             $data['available'] = 0;
         }
 
+        // Inserisci immagine
+        if ($request->hasFile('image')) {
+
+            $file_path = Storage::put('img', $request->image);
+
+            $data['image'] = $file_path;
+
+            // dd($request);
+        }
+
         $new_building = Building::create($data);
 
+        // Attach services
         if ($request->has('services')) {
             $new_building->services()->attach($data['services']);
         }
 
-        if ($request->has('sponsorships')) {
-            $new_building->sponsorships()->attach($data['sponsorships']);
+        // Controllo per l'attach sponsorships
+        if ($data['sponsorship_id']) {
+            $startingDate = now();
+
+            switch ($data['sponsorship_id']) {
+                case 1:
+                    $endingDate = $startingDate->copy()->addHours(24);
+                    break;
+                case 2:
+                    $endingDate = $startingDate->copy()->addHours(72);
+                    break;
+                case 3:
+                    $endingDate = $startingDate->copy()->addHours(144);
+                    break;
+                default:
+                    $endingDate = $startingDate->copy()->addHours(24);
+                    break;
+            }
+        }
+
+        // Attach Sponsors
+        if ($request->has('sponsorship_id')) {
+            $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
         }
 
         return redirect()->route('admin.buildings.show', $new_building->id);
@@ -148,7 +188,7 @@ class BuildingController extends Controller
         }
 
         if ($request->has('sponsorships')) {
-            $building->sponsorships()->sync($data['sponsorships']);
+            $building->sponsorships()->attach($data['sponsorships']);
         } else {
             $building->sponsorships()->detach();
         }

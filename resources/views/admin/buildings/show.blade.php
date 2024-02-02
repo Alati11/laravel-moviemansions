@@ -10,7 +10,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-10">
-                    altro
+                    <img src="{{ asset('storage/'. $building->image)}}" alt="">
                 </div>
             </div>
         </div>

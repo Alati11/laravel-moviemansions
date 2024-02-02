@@ -5,7 +5,7 @@
 <section>
     <div class="container">
         <h1> Aggiungi un Appartamento</h1>
-        <form action="{{route('admin.buildings.store')}}" method="POST">
+        <form action="{{route('admin.buildings.store')}}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -15,8 +15,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">Url Immagine Appartamento</label>
-                <input type="text" class="form-control" name="image" id="image" value="{{old('image')}}">
+                <label for="image" class="form-label">Carica un'immagine di Copertina</label>
+                <input type="file" class="form-control" name="image" id="image">
             </div>
 
             <div class="mb-3">
@@ -68,12 +68,12 @@
                 </div>    
             @endforeach
             </div>
-            
-    
+        
+
             <select name="sponsorship_id" class="form-control mb-3" id="sponsorship_id">
                 <option>Scegli una Sponsorizzazione (Opzionale)</option>
                 @foreach($sponsorships as $sponsorship)
-                    <option @selected( old('sponsorship_id') == $sponsorship->id ) value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>
+                    <option @selected(old('sponsorship_id') == $sponsorship->id) value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>
                 @endforeach
             </select>
     

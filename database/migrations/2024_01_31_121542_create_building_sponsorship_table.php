@@ -21,8 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('sponsorship_id');
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships');
 
-            $table->dateTime('starting_date');
-            $table->dateTime('ending_date');
+            $table->datetime('starting_date');
+            $table->datetime('ending_date');
 
             $table->primary(['building_id', 'sponsorship_id']);
         });
