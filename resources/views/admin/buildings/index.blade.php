@@ -2,6 +2,14 @@
 
 @section('content')
     <section>
+        @if(session()->has('message_destroy'))
+            <div class="container p-2 w-50 mx-auto">
+                <div class="alert alert-danger text-center">
+                    <i class="fa-solid fa-circle-check"></i>
+                    {{ session()->get('message_destroy') }}
+                </div>
+            </div>
+        @endif
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-9">
