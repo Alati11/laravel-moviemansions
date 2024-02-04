@@ -56,6 +56,8 @@ class BuildingController extends Controller
                 "sqm" => "required|numeric|min:1",
                 "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
+                "latitude" => "required|numeric",
+                "longitude" => "required|numeric",
                 "image" => [
                     "required",
                     File::image()
@@ -77,10 +79,6 @@ class BuildingController extends Controller
 
         $data['user_id'] = $user_id;
 
-        //Longitude Latitude
-        $data['longitude'] = -73.985664;
-
-        $data['latitude'] = 40.748441;
 
         if ($request->has('available')) {
             $data['available'] = 1;
@@ -130,7 +128,7 @@ class BuildingController extends Controller
             $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
         }
 
-        return redirect()->route('admin.buildings.show', $new_building->id);
+        return redirect()->route('admin.buildings.show', $new_building->id)->with('message_create', "$new_building->title aggiunto correttamente");
     }
 
     /**
@@ -193,7 +191,7 @@ class BuildingController extends Controller
             $building->sponsorships()->detach();
         }
 
-        return redirect()->route('admin.buildings.show', $building->id);
+        return redirect()->route('admin.buildings.show', $building->id)->with('message_edit', "$building->title modificato correttamente");
     }
 
     /**
@@ -206,6 +204,6 @@ class BuildingController extends Controller
 
         $building->delete();
 
-        return redirect()->route('admin.buildings.index');
+        return redirect()->route('admin.buildings.index')->with('message_destroy', "$building->title eliminato correttamente");
     }
 }
