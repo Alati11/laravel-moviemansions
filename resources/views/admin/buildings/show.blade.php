@@ -12,6 +12,9 @@
                 <div class="col-10">
                     <img src="{{ asset('storage/'. $building->image)}}" alt="">
                 </div>
+                <div class="col-10">
+                    <img src="{{ asset('storage/img/buildings/batman.jpg')}}" alt="">
+                </div>
             </div>
         </div>
     </section>
