@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <div id="map" style="width: 1000px; height: 500px"></div>
+            <div id="map" class="map-container mt-2"></div>
             <p id="address">{{ $building->address }}</p>
         </div>
     </section>
@@ -55,8 +55,8 @@
                 console.log("Latitudine:", latitude);
                 console.log("Longitudine:", longitude);
 
-                let v3 = { lon: longitude, lat: latitude };
-                let center = v3;
+                let coordinates = { lon: longitude, lat: latitude };
+                let center = coordinates;
                 let map = null;
                 map = tt.map({
                     key: apiKey,
@@ -65,7 +65,7 @@
                     zoom: 14,
                 })
                 map.on('load', () => {
-                    const marker = new tt.Marker().setLngLat(center, v3).addTo(map);
+                    const marker = new tt.Marker().setLngLat(center, coordinates).addTo(map);
                     marker.setPopup(new tt.Popup().setHTML(`<h6>${address}</h6>`));
                     map.addControl(new tt.FullscreenControl());
                     map.addControl(new tt.NavigationControl());
