@@ -13,6 +13,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 
@@ -56,8 +58,6 @@ class BuildingController extends Controller
                 "sqm" => "required|numeric|min:10",
                 "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
-                "latitude" => "required|numeric",
-                "longitude" => "required|numeric",
                 "image" => [
                     "required",
                     File::image()
@@ -73,6 +73,11 @@ class BuildingController extends Controller
 
         // Slug
         $data['slug'] = Str::slug($data['title'], '-');
+
+        $geocodeData = $this->geocodeAddress($data['address']);
+        $data['latitude'] = $geocodeData['latitude'];
+        $data['longitude'] = $geocodeData['longitude'];
+
 
         // User
         $user_id = Auth::id();
@@ -141,6 +146,35 @@ class BuildingController extends Controller
         }
 
         return redirect()->route('admin.buildings.show', $new_building->id)->with('message_create', "$new_building->title aggiunto correttamente");
+    }
+
+    private function geocodeAddress($address)
+    {
+        $apiKey = "pqHD68XXAijUehCtM4HFFAVamZjQMA1W";
+
+        $url = "https://api.tomtom.com/search/2/search/{$address}.json?key={$apiKey}";
+
+        $response = Http::withOptions(['verify' => false])->get($url);
+
+        // Decodifica la risposta JSON
+        $data = $response->json();
+
+        // Verifica se ci sono risultati validi
+        if ($data && isset($data['results']) && !empty($data['results'])) {
+            // Estrai le coordinate dal primo risultato
+            $firstResult = $data['results'][0];
+            $position = $firstResult['position'];
+
+            // Restituisci le coordinate come array associativo
+            return [
+                'latitude' => $position['lat'],
+                'longitude' => $position['lon'],
+            ];
+        }
+        return [
+            'latitude' => 40.7128,
+            'longitude' => -74.0060,
+        ];
     }
 
     /**
