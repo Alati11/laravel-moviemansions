@@ -60,7 +60,7 @@
                 
             </div>
 
-            <div id="map" style="width: 1000px; height: 500px"></div>
+            <div id="map" class="map-container"></div>
             <p id="address">{{ $building->address }}</p>
         </div>
     </section>
@@ -70,9 +70,10 @@
 
     <script>
         const apiKey = 'pqHD68XXAijUehCtM4HFFAVamZjQMA1W';
-        const address = document.getElementById('address');
+        const addressElement = document.getElementById('address');
+        const address = addressElement.textContent || addressElement.innerText;
         console.log(address);
-        const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address.value)}.json?key=${apiKey}`;
+        const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address)}.json?key=${apiKey}`;
         console.log(url);
         fetch(url)
             .then(response => response.json())
