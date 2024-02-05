@@ -21,7 +21,7 @@ class Building extends Model
         'address',
         'image',
         'available',
-        'image_id',
+        // 'image_id',
         'slug',
         'user_id'
     ];
