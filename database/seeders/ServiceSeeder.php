@@ -17,56 +17,56 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 "name" => "Wi-Fi",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/wifi.png"
             ],
 
             [
                 "name" => "Piscina",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/piscina.png"
             ],
 
             [
                 "name" => "Ristorante",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/ristorante.png"
             ],
 
             [
                 "name" => "Palestra",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/palestra.png"
             ],
 
             [
                 "name" => "Servizio in camera",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/camera.png"
             ],
 
             [
                 "name" => "Colazione inclusa",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/colazione.png"
             ],
 
             [
                 "name" => "Parcheggio",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/parcheggio.png"
             ],
             [
                 "name" => "Centro benessere",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/spa.png"
             ],
 
             [
                 "name" => "Navetta aeroportuale",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/bus.png"
             ],
 
             [
                 "name" => "Animali ammessi",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/animali.png"
             ],
 
             [
                 "name" => "Reception 24 ore",
-                "url" => "https://static-00.iconduck.com/assets.00/perspective-dice-six-faces-random-icon-2048x2048-9uct7e7b.png"
+                "url" => "img/services/reception.png"
             ]
         ];
 
