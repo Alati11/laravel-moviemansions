@@ -32,7 +32,7 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '2',
-                'url' => '/img/buildings/tony_stark_cottage_1.jpg'
+                'url' => '/img/buildings/tony_stark_cottage_1.png'
             ],
 
             [

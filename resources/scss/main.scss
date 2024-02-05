@@ -2,6 +2,10 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
+.header-logo {
+    width: 100px;
+}
+
 .tbl {
     border-bottom: solid 1px lightgray;
 
@@ -13,7 +17,6 @@ body {
 .tbl-item {
     display: flex;
     align-items: center;
-    // justify-content: center;
 }
 
 .dropdown-menu {
@@ -29,4 +32,8 @@ body {
 
 .img-plus {
     width: 600px;
+}
+
+.service-icon {
+    width: 36px;
 }

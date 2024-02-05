@@ -20,7 +20,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="images[]" class="form-label">Carica altre Immagini</label>
+                <label for="images" class="form-label">Carica altre Immagini</label>
                 <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*">
                 {{-- accept= validazione che specifica file immagini, *= qualunque estensione --}}
             </div>

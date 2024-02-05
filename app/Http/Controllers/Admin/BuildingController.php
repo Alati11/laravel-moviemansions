@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 
@@ -51,18 +50,18 @@ class BuildingController extends Controller
 
         $request->validate(
             [
-                "title" => "required|max:255|string|",
-                "rooms" => "required|numeric|min:1",
+                "title" => "required|max:255|string",
+                "rooms" => "required|numeric|min:3",
                 "beds" => "required|numeric|min:1",
                 "bathrooms" => "required|numeric|min:1",
-                "sqm" => "required|numeric|min:1",
+                "sqm" => "required|numeric|min:10",
                 "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
                 "image" => [
                     "required",
                     File::image()
                         ->min('1kb')
-                        ->max('4mb')
+                        ->max('10mb')
                 ],
                 "available" => "boolean",
                 "service_id" => "exists:services,id",
@@ -97,8 +96,6 @@ class BuildingController extends Controller
             $file_path = Storage::put('img', $request->image);
 
             $data['image'] = $file_path;
-
-            // dd($data);
         }
 
         $new_building = Building::create($data);
@@ -132,11 +129,10 @@ class BuildingController extends Controller
         if ($request->has('sponsorship_id') & $data['sponsorship_id'] !== null) {
             $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
         }
-        // dd($data);
+
         //Attach images
         if ($request->hasFile('images')) {
-            $imagePaths = [];
-    
+
             foreach ($request->file('images') as $image) {
                 $imagePath = Storage::put('img/buildings', $image);
                 $new_building->images()->create([
@@ -144,10 +140,6 @@ class BuildingController extends Controller
                     'url' => $imagePath,
                 ]);
             }
-            // Aggiungi i percorsi delle immagini al dato del form
-            // $data['images'] = $imagePaths;
-            
-
         }
 
         return redirect()->route('admin.buildings.show', $new_building->id)->with('message_create', "$new_building->title aggiunto correttamente");
