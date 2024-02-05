@@ -81,7 +81,7 @@ class BuildingSeeder extends Seeder
                 'address' => '2640 Steiner Street, San Francisco, California CA',
                 'latitude' => 37.79408367834632,
                 'longitude' => -122.43639351840825,
-                'image' => 'https://media.printables.com/media/prints/473105/ images/            3873468_0a11439e-aaf3-4775-9612-becc6f4b6f6d/thumbs/cover/800x800/png/            welcomehome_homerender.   webp',
+                'image' => '/img/casa-copertina.webp',
                 'available' => true,
                 'slug' => ''
             ],
