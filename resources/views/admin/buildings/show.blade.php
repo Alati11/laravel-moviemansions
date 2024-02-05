@@ -19,7 +19,7 @@
         @endif
         <div class="container">
 
-            <div class="row p-5">
+            <div class="row p-5 text-center">
                 <h2>{{$building->title}}</h2>
             </div>
 
@@ -51,17 +51,21 @@
                     @endif
                 </p>
                 <p>Servizi:</p>
-                <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap align-items-center gap-4">
                     @foreach($building->services as $service)
-                        <img class="service-icon" src="{{ asset('storage/'. $service->icon)}}">
+                        <div>
+                            <img class="service-icon" src="{{ asset('storage/'. $service->icon)}}">
                         <span class="p-2">{{$service->name}}</span>
+                        </div>
                     @endforeach
                 </div>
                 
             </div>
 
-            <div id="map" class="map-container"></div>
-            <p id="address">{{ $building->address }}</p>
+            <div class="d-flex flex-column align-items-center pt-3">
+                <div id="map" class="map-container"></div>
+                <p id="address" class="pt-3">{{ $building->address }}</p>
+            </div>
         </div>
     </section>
 @endsection
@@ -86,8 +90,8 @@
                 console.log("Latitudine:", latitude);
                 console.log("Longitudine:", longitude);
 
-                let v3 = { lon: longitude, lat: latitude };
-                let center = v3;
+                let coordinates = { lon: longitude, lat: latitude };
+                let center = coordinates;
                 let map = null;
                 map = tt.map({
                     key: apiKey,
@@ -96,7 +100,7 @@
                     zoom: 14,
                 })
                 map.on('load', () => {
-                    const marker = new tt.Marker().setLngLat(center, v3).addTo(map);
+                    const marker = new tt.Marker().setLngLat(center, coordinates).addTo(map);
                     marker.setPopup(new tt.Popup().setHTML(`<h6>${address}</h6>`));
                     map.addControl(new tt.FullscreenControl());
                     map.addControl(new tt.NavigationControl());

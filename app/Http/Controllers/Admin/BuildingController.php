@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 
@@ -97,8 +96,6 @@ class BuildingController extends Controller
             $file_path = Storage::put('img', $request->image);
 
             $data['image'] = $file_path;
-
-            // dd($data);
         }
 
         $new_building = Building::create($data);
@@ -132,7 +129,7 @@ class BuildingController extends Controller
         if ($request->has('sponsorship_id') & $data['sponsorship_id'] !== null) {
             $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
         }
-        // dd($data);
+
         //Attach images
         if ($request->hasFile('images')) {
 
