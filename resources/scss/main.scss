@@ -2,6 +2,10 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
+.header-logo {
+    width: 100px;
+}
+
 .tbl {
     border-bottom: solid 1px lightgray;
 
@@ -13,13 +17,16 @@ body {
 .tbl-item {
     display: flex;
     align-items: center;
-    // justify-content: center;
 }
 
 .dropdown-menu {
-    --bs-dropdown-min-width:25rem;  
+    --bs-dropdown-min-width: 25rem;
 }
 
-.img-plus{
-    width: 600px; 
+.img-plus {
+    width: 600px;
+}
+
+.service-icon {
+    width: 50px;
 }

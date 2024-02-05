@@ -17,56 +17,56 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 "name" => "Wi-Fi",
-                "url" => "img/services/wifi.png"
+                "url" => "/img/services/wifi.png"
             ],
 
             [
                 "name" => "Piscina",
-                "url" => "img/services/piscina.png"
+                "url" => "/img/services/piscina.png"
             ],
 
             [
                 "name" => "Ristorante",
-                "url" => "img/services/ristorante.png"
+                "url" => "/img/services/ristorante.png"
             ],
 
             [
                 "name" => "Palestra",
-                "url" => "img/services/palestra.png"
+                "url" => "/img/services/palestra.png"
             ],
 
             [
                 "name" => "Servizio in camera",
-                "url" => "img/services/camera.png"
+                "url" => "/img/services/camera.png"
             ],
 
             [
                 "name" => "Colazione inclusa",
-                "url" => "img/services/colazione.png"
+                "url" => "/img/services/colazione.png"
             ],
 
             [
                 "name" => "Parcheggio",
-                "url" => "img/services/parcheggio.png"
+                "url" => "/img/services/parcheggio.png"
             ],
             [
                 "name" => "Centro benessere",
-                "url" => "img/services/spa.png"
+                "url" => "/img/services/spa.png"
             ],
 
             [
                 "name" => "Navetta aeroportuale",
-                "url" => "img/services/bus.png"
+                "url" => "/img/services/bus.png"
             ],
 
             [
                 "name" => "Animali ammessi",
-                "url" => "img/services/animali.png"
+                "url" => "/img/services/animali.png"
             ],
 
             [
                 "name" => "Reception 24 ore",
-                "url" => "img/services/reception.png"
+                "url" => "/img/services/reception.png"
             ]
         ];
 

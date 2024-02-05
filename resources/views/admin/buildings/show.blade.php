@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
     <section>
@@ -42,7 +42,7 @@
                 <p>{{$building->description}}</p>
                 <p>Numero stanze: {{$building->rooms}}</p>
                 <p>Numero bagni: {{$building->bathrooms}}</p>
-                <p>Numero metri quadrati: {{$building->sqm}}</p>
+                <p>Metri quadrati: {{$building->sqm}}</p>
                 <p>Dispondibile:  
                     @if ($building->available)
                         <span>Si</span>
@@ -53,7 +53,7 @@
                 <p>Servizi:</p>
                 <div class="d-flex flex-wrap">
                     @foreach($building->services as $service)
-                        <img src={{$service['url']}}>
+                        <img class="service-icon" src="{{ asset('storage/'. $service->icon)}}">
                         <span class="p-2">{{$service->name}}</span>
                     @endforeach
                 </div>

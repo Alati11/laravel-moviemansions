@@ -49,11 +49,11 @@ class BuildingController extends Controller
 
         $request->validate(
             [
-                "title" => "required|max:255|string|",
-                "rooms" => "required|numeric|min:1",
+                "title" => "required|max:255|string",
+                "rooms" => "required|numeric|min:3",
                 "beds" => "required|numeric|min:1",
                 "bathrooms" => "required|numeric|min:1",
-                "sqm" => "required|numeric|min:1",
+                "sqm" => "required|numeric|min:10",
                 "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
                 "latitude" => "required|numeric",
@@ -62,7 +62,7 @@ class BuildingController extends Controller
                     "required",
                     File::image()
                         ->min('1kb')
-                        ->max('4mb')
+                        ->max('10mb')
                 ],
                 "available" => "boolean",
                 "service_id" => "exists:services,id",
@@ -130,8 +130,7 @@ class BuildingController extends Controller
         // dd($data);
         //Attach images
         if ($request->hasFile('images')) {
-            $imagePaths = [];
-    
+
             foreach ($request->file('images') as $image) {
                 $imagePath = Storage::put('img/buildings', $image);
                 $new_building->images()->create([
@@ -139,10 +138,6 @@ class BuildingController extends Controller
                     'url' => $imagePath,
                 ]);
             }
-            // Aggiungi i percorsi delle immagini al dato del form
-            // $data['images'] = $imagePaths;
-            
-
         }
 
         return redirect()->route('admin.buildings.show', $new_building->id)->with('message_create', "$new_building->title aggiunto correttamente");
