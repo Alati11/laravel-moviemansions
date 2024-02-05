@@ -9,6 +9,11 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable= [
+        "building_id",
+        "url"
+    ];
+
     public function building()
     {
         return $this->belongsTo(Building::class);

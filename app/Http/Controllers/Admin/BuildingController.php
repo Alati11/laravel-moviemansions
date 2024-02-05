@@ -93,7 +93,7 @@ class BuildingController extends Controller
 
             $data['image'] = $file_path;
 
-            // dd($request);
+            // dd($data);
         }
 
         $new_building = Building::create($data);
@@ -127,6 +127,23 @@ class BuildingController extends Controller
         if ($request->has('sponsorship_id') & $data['sponsorship_id'] !== null) {
             $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
         }
+        // dd($data);
+        //Attach images
+        if ($request->hasFile('images')) {
+            $imagePaths = [];
+    
+            foreach ($request->file('images') as $image) {
+                $imagePath = Storage::put('img/buildings', $image);
+                $new_building->images()->create([
+                    'building_id' => $new_building->id,
+                    'url' => $imagePath,
+                ]);
+            }
+            // Aggiungi i percorsi delle immagini al dato del form
+            // $data['images'] = $imagePaths;
+            
+
+        }
 
         return redirect()->route('admin.buildings.show', $new_building->id)->with('message_create', "$new_building->title aggiunto correttamente");
     }
@@ -136,7 +153,11 @@ class BuildingController extends Controller
      */
     public function show(Building $building)
     {
-        return view('admin.buildings.show', compact('building'));
+        $images = Image::all();
+        $services = Service::all();
+        $sponsorships = Sponsorship::all();
+
+        return view('admin.buildings.show', compact('building', 'images', 'services', 'sponsorships'));
     }
 
     /**

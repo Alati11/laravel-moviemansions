@@ -19,14 +19,45 @@
         @endif
         <div class="container">
 
-            <div class="row">
+            <div class="row p-5">
                 <h2>{{$building->title}}</h2>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center p-4">
                 <div class="col-10">
                     <img src="{{ asset('storage/'. $building->image)}}" alt="">
                 </div>
+            </div>
+
+            <div class="row p-4">
+                @foreach($building->images as $image)
+                    <div class="col-6">
+                        <img class="img-plus" src="{{ asset('storage/'. $image->url)}}" alt="">
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="row p-4">
+                <p>{{$building->address}}</p>
+                <p>{{$building->description}}</p>
+                <p>Numero stanze: {{$building->rooms}}</p>
+                <p>Numero bagni: {{$building->bathrooms}}</p>
+                <p>Numero metri quadrati: {{$building->sqm}}</p>
+                <p>Dispondibile:  
+                    @if ($building->available)
+                        <span>Si</span>
+                    @else
+                        <span>No</span>
+                    @endif
+                </p>
+                <p>Servizi:</p>
+                <div class="d-flex flex-wrap">
+                    @foreach($building->services as $service)
+                        <img src={{$service['url']}}>
+                        <span class="p-2">{{$service->name}}</span>
+                    @endforeach
+                </div>
+                
             </div>
 
             <div id="map" style="width: 1000px; height: 500px"></div>
