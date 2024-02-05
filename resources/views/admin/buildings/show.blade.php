@@ -37,11 +37,12 @@
 
 @section('javascript')
 
-    <script>
+    <script type="text/javascript">
         const apiKey = 'pqHD68XXAijUehCtM4HFFAVamZjQMA1W';
-        const address = document.getElementById('address');
+        const addressElement = document.getElementById('address');
+        const address = addressElement.textContent || addressElement.innerText;
         console.log(address);
-        const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address.value)}.json?key=${apiKey}`;
+        const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address)}.json?key=${apiKey}`;
         console.log(url);
         fetch(url)
             .then(response => response.json())

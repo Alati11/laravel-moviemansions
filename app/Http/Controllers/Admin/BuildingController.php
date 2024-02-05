@@ -74,6 +74,9 @@ class BuildingController extends Controller
         // Slug
         $data['slug'] = Str::slug($data['title'], '-');
 
+        // $latitude = $data['latitude'];
+        // $longitude = $data['longitude'];
+
         // User
         $user_id = Auth::id();
 
