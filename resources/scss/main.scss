@@ -17,9 +17,16 @@ body {
 }
 
 .dropdown-menu {
-    --bs-dropdown-min-width:25rem;  
+    --bs-dropdown-min-width: 25rem;
 }
 
-.img-plus{
-    width: 600px; 
+.map-container {
+    width: 600px;
+    height: 600px;
+    border: 1px solid grey;
+    box-shadow: 0px 3px 4px 2px lightgray;
+}
+
+.img-plus {
+    width: 600px;
 }

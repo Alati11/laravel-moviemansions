@@ -27,19 +27,8 @@
 
             <div class="mb-3">
                 <label for="address" class="form-label">Indirizzo Appartamento</label>
-                <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required min="5">
-                <div id="menuAutoComplete" class="card position-absolute w-100 radius d-none">
-                    <ul class="list">
-
-                    </ul>
-                </div>
-            </div>
-
-            <input type="hidden" name="latitude" id="latitude" value="">
-
-            <input type="hidden" name="longitude" id="longitude" value="">
-
-           
+                <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}">
+            </div>           
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
@@ -114,104 +103,4 @@
     </div>
 </section>
 
-@endsection
-
-@section('javascript')
-    <script>
-        console.log('ok');
-
-
-        const apiKey = "pqHD68XXAijUehCtM4HFFAVamZjQMA1W";
-        const lat = '';
-        const lon = '';
-        
-
-        // const search = document.getElementById('address');
-        // const latitude = document.getElementById('latitude');
-        // const longitude = document.getElementById('longitude');
-
-        // search.addEventListener('input', function() {
-        //     if (search.value.trim() !== '') {
-        //         getApiProjects(search.value);
-        //     }
-        // });
-
-        // function getApiProjects(address) {
-        //     fetch(
-        //         `https://api.tomtom.com/search/2/search/${address}.json?key=${apiKey}`
-        //     )
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data.results);
-
-        //         if (data.results && data.results.length > 0) {
-        //             const firstResult = data.results[0];
-        //             const { lat, lon } = firstResult.position;
-
-        //             // Inserisci latitudine e longitudine nei campi di input nascosti
-        //             latitude.value = lat;
-        //             longitude.value = lon;
-
-        //             // Puoi anche aggiornare l'input 'search' con l'indirizzo selezionato, se lo desideri
-        //             // search.value = firstResult.address.freeformAddress;
-        //         }
-        //     });
-        // }
-
-
-        // Soluzione con AUTOCOMPLETAMENTO
-
-        const search = document.getElementById('address');
-        const menuAutoComplete = document.getElementById('menuAutoComplete');
-        const menuAutoCompleteClass = menuAutoComplete.classList;
-        const ulList = document.querySelector('ul.list');
-
-        const latitude = document.getElementById('latitude');
-        const longitude = document.getElementById('longitude');
-
-        search.addEventListener('input', function() {
-            if (search.value != '')
-                getApiProjects(search.value);
-            addRemoveClass();
-
-        })
-
-        function addRemoveClass() {
-            console.log(menuAutoCompleteClass);
-            if (search.value == '')
-                menuAutoCompleteClass.add('d-none');
-            else
-                menuAutoCompleteClass.remove('d-none');
-        }
-
-        function getApiProjects(adress) {
-            fetch(
-                    `https://api.tomtom.com/search/2/search/${adress}.json?key=${apiKey}&limit=5`
-                )
-                .then(response => response.json())
-                .then(data => {
-                    // console.log(data.results);
-                    ulList.innerHTML = '';
-                    if (data.results != undefined)
-                        data.results.forEach(function(currentValue, index, array) {
-                            const li = document.createElement('li');
-                            li.append(currentValue.address.freeformAddress);
-                            li.addEventListener('click',
-                                () => {
-                                    search.value = currentValue.address.freeformAddress;
-                                    menuAutoCompleteClass.add('d-none');
-                                    ulList.innerHTML = '';
-                                    latitude.value = currentValue.position.lat;
-                                    longitude.value = currentValue.position.lon;
-                                    // console.log(latitude.value, 'lat');
-                                    // console.log(longitude.value, 'lon');
-                                }
-                            )
-
-                            ulList.appendChild(li);
-                        });
-                });
-        }
-     
-    </script>
 @endsection
