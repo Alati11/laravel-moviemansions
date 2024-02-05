@@ -41,7 +41,7 @@
         const apiKey = 'pqHD68XXAijUehCtM4HFFAVamZjQMA1W';
         const addressElement = document.getElementById('address');
         const address = addressElement.textContent || addressElement.innerText;
-        console.log(address);
+        // console.log(address);
         const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address)}.json?key=${apiKey}`;
         console.log(url);
         fetch(url)
@@ -52,8 +52,8 @@
                 const longitude = data.results[0].position.lon;
 
                 // Ora puoi utilizzare latitude e longitude come necessario
-                console.log("Latitudine:", latitude);
-                console.log("Longitudine:", longitude);
+                // console.log("Latitudine:", latitude);
+                // console.log("Longitudine:", longitude);
 
                 let coordinates = { lon: longitude, lat: latitude };
                 let center = coordinates;
