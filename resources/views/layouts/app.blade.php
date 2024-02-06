@@ -56,7 +56,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.buildings.create') }}">{{ __('Crea appartamento') }}</a>
+                            <a class="nav-link" href="{{route('admin.buildings.create') }}">{{ __('Nuovo appartamento') }}</a>
                         </li>
                     </ul>
 

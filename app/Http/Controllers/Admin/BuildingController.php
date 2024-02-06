@@ -51,7 +51,7 @@ class BuildingController extends Controller
         $request->validate(
             [
                 "title" => "required|max:255|string",
-                "rooms" => "required|numeric|min:3",
+                "rooms" => "required|numeric|min:1",
                 "beds" => "required|numeric|min:1",
                 "bathrooms" => "required|numeric|min:1",
                 "sqm" => "required|numeric|min:10",
@@ -64,7 +64,7 @@ class BuildingController extends Controller
                         ->max('10mb')
                 ],
                 "available" => "boolean",
-                "service_id" => "exists:services,id",
+                "service_id" => "required|exists:services,id",
                 "sponsorship_id" => "nullable|exists:sponsorships,id",
                 "image_id" => "exists:images,id",
             ]
