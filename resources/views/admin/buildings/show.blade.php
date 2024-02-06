@@ -24,8 +24,8 @@
             </div>
 
             <div class="row justify-content-center p-4">
-                <div class="col-10">
-                    <img src="{{ asset('storage/'. $building->image)}}" alt="">
+                <div class="col-10 d-flex justify-content-center">
+                    <img class="img-fluid" src="{{ asset('storage/'. $building->image)}}" alt="">
                 </div>
             </div>
 
