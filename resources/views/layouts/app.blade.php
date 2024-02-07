@@ -30,10 +30,10 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="h-100 d-flex flex-column">
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid px-5">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
                         <img class="header-logo" src="{{Vite::asset('resources/img/logo.png')}}" alt="">
@@ -45,7 +45,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
@@ -79,7 +79,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a>
+                                <a class="dropdown-item" href="{{ url('admin/dashboard') }}">{{__('Dashboard')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -97,8 +97,71 @@
             </div>
         </nav>
 
-        <main class="">
-            @yield('content')
+        <main class="d-flex flex-grow-1">
+            {{-- sidebar --}}
+            @if(Auth::check())
+            <div class="sidebar">
+
+                {{-- profile section--}}
+                <div class="profile">
+
+                    <div class="user-container">
+                        <span class="user-image">
+                            <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt="">
+                        </span>
+    
+                        <div>
+                            <span class="user-name">
+                                {{ Auth::user()->name }} {{ Auth::user()->surname }}
+                            </span>
+
+                            <div class="user-role">
+                                <small class="text-secondary">Host</small>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="user-icons">
+                        <span class="settings-image">
+                            <a href="{{ url('profile') }}">
+                                <img src="{{Vite::asset('resources/img/icons/settings.png')}}" alt="">
+                            </a>
+                        </span>
+                    </div>
+                    
+                </div>
+                {{-- end profile section --}}
+
+                <div class="sidebar-nav">
+                    <div class="list">
+                        {{-- dashboard --}}
+                            <div class="d-flex align-items-center gap-2">
+                                <span>
+                                    <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
+                                </span>
+                                <a href="{{ url('admin/dashboard') }}">
+                                    <span>Dashboard</span>
+                                </a>
+                            </div>
+                        
+                        {{-- my apartments --}}
+                            <div class="d-flex align-items-center gap-2">
+                                <span>
+                                    <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                                </span>
+                                <a href="{{route('admin.buildings.index') }}">
+                                    <span class="">I miei appartamenti</span>
+                                </a>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            @endif
+
+            <div class="main-content flex-grow-1">
+                @yield('content')
+            </div>
         </main>
     </div>
     @yield('javascript')

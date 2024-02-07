@@ -1,5 +1,52 @@
 body {
     font-family: "Quicksand", sans-serif;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+main {
+    overflow-y: hidden;
+
+    //larghezza della barra di scorrimento
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    //colore background barra di scorrimento
+    ::-webkit-scrollbar-track {
+        background-color: #5A8D81;
+        border-radius: 6px;
+    }
+
+    //pulsante barra di scorrimento on hover
+    ::-webkit-scrollbar-thumb {
+        background-color: #D4C06B;
+        border-radius: 6px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        transition: background-color 0.3s;
+    }
+}
+
+.main-content {
+    overflow-y: auto;
+    background-color: #F2F5F7;
 }
 
 .header-logo {
@@ -36,4 +83,10 @@ body {
 
 .service-icon {
     width: 36px;
+}
+
+.logout-image {
+    img {
+        width: 15px;
+    }
 }

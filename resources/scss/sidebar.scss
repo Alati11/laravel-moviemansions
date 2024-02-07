@@ -1,0 +1,61 @@
+.sidebar {
+    width: 220px;
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    overflow-y: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    img {
+        width: 36px;
+    }
+
+    // Profile
+    .profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 10px;
+        border-bottom: 1px lightgray solid;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+        .user-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .user-name {
+                font-size: 16px;
+            }
+
+            .user-role {
+                font-size: 14px;
+                text-decoration: underline gray;
+            }
+        }
+    }
+
+    .user-icons {
+        display: flex;
+        gap: 8px;
+
+        .settings-image {
+
+            img {
+                width: 18px;
+            }
+        }
+    }
+
+    .list {
+        padding: 16px 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 26px;
+
+        img {
+            width: 30px;
+        }
+    }
+
+}
