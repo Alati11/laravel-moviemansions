@@ -15,6 +15,29 @@
                 @if ($buildings->count() > 0)
                 <div class="col-9">
                     @foreach ($buildings as $building)
+                        {{-- Modale --}}
+                        <div class="modal fade" id="modal-{{$building->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Attenzione</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3>Vuoi davvero eliminare {{$building->title}}?</h3>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Annulla</button>
+                                        <form action="{{route('admin.buildings.destroy', $building->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Elimina</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Fine modale --}}
                         <div class="row tbl">
                             <div class="col-1 tbl-item">
                                 <p><b>{{$building->id}}</b></p>
@@ -30,6 +53,7 @@
                             
                             <div class="col tbl-item">
                                 <span><a href="{{route('admin.buildings.show', $building->id)}}" class="btn btn-sm btn-primary">Vedi</a></span>
+                                <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">Elimina</button>
                             </div>
                         </div>
                     @endforeach
