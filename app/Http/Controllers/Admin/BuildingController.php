@@ -24,7 +24,10 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        $buildings = Building::all();
+        //Recupero l'utente loggato
+        $user_id = Auth::id();
+        //recupero solo i suoi buildings. remember: where considera due parametri da eguagliare.
+        $buildings = Building::where('user_id', $user_id)->get();
 
         return view('admin.buildings.index', compact('buildings'));
     }
@@ -46,6 +49,8 @@ class BuildingController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $data = $request->all();
 
         $request->validate(
