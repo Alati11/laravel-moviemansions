@@ -34,12 +34,21 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid px-5">
+                @if(Auth::check())
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
                         <img class="header-logo" src="{{Vite::asset('resources/img/logo.png')}}" alt="">
                     </div>
                     {{-- config('app.name', 'MovieMansions') --}}
                 </a>
+                @else
+                <a class="navbar-brand d-flex align-items-center" href="{{ route('login') }}">
+                    <div class="logo_laravel">
+                        <img class="header-logo" src="{{Vite::asset('resources/img/logo.png')}}" alt="">
+                    </div>
+                    {{-- config('app.name', 'MovieMansions') --}}
+                </a>
+                @endif
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
