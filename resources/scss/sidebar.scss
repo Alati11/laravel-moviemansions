@@ -47,15 +47,24 @@
         }
     }
 
-    .list {
-        padding: 16px 10px;
+    .sidebar-nav {
         display: flex;
         flex-direction: column;
-        row-gap: 26px;
 
-        img {
-            width: 30px;
+        .list {
+            padding: 16px 10px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 26px;
+            font-size: 12px;
+
+            img {
+                width: 26px;
+            }
+        }
+
+        .message {
+            flex-grow: 1;
         }
     }
-
 }

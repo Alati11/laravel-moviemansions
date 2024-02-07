@@ -45,7 +45,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
+                {{-- <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
@@ -93,7 +93,7 @@
                         </li>
                         @endguest
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </nav>
 
@@ -135,24 +135,35 @@
                 <div class="sidebar-nav">
                     <div class="list">
                         {{-- dashboard --}}
-                            <div class="d-flex align-items-center gap-2">
-                                <span>
-                                    <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
-                                </span>
-                                <a href="{{ url('admin/dashboard') }}">
+                        <div class="d-flex align-items-center gap-2">
+                            <span>
+                                <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
+                            </span>
+                            <a href="{{ url('admin/dashboard') }}">
                                     <span>Dashboard</span>
-                                </a>
-                            </div>
+                            </a>
+                        </div>
                         
-                        {{-- my apartments --}}
-                            <div class="d-flex align-items-center gap-2">
-                                <span>
-                                    <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
-                                </span>
-                                <a href="{{route('admin.buildings.index') }}">
-                                    <span class="">I miei appartamenti</span>
-                                </a>
-                            </div>
+                        {{-- my mansions --}}
+                        <div class="d-flex align-items-center gap-2">
+                            <span>
+                                <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                            </span>
+                            <a href="{{route('admin.buildings.index') }}">
+                                <span class="">I miei appartamenti</span>
+                            </a>
+                        </div>
+
+                        {{-- create mansion --}}
+
+                        <div class="d-flex align-items-center gap-2">
+                            <span>
+                                <img src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
+                            </span>
+                            <a href="{{route('admin.buildings.create') }}">
+                                <span class="">Nuovo appartamento</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
