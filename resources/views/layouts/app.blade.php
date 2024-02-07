@@ -38,7 +38,7 @@
                     <div class="logo_laravel">
                         <img class="header-logo" src="{{Vite::asset('resources/img/logo.png')}}" alt="">
                     </div>
-                    {{-- config('app.name', 'Laravel') --}}
+                    {{-- config('app.name', 'MovieMansions') --}}
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
