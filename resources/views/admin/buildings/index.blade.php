@@ -12,6 +12,7 @@
         @endif
         <div class="container">
             <div class="row justify-content-center">
+                @if ($buildings->count() > 0)
                 <div class="col-9">
                     @foreach ($buildings as $building)
                         <div class="row tbl">
@@ -33,6 +34,12 @@
                         </div>
                     @endforeach
                 </div>
+                @else
+                <div class="col-9 d-flex flex-column justify-content-center align-items-center">
+                    <h2>Non hai ancora registrato nessun appartamento!</h2>
+                    <span><a href="{{route('admin.buildings.create')}}" class="btn btn-sm btn-primary fs-3">Registrane uno</a></span>
+                </div>
+                @endif
             </div>
         </div>
     </section>
