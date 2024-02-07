@@ -19,13 +19,15 @@
 
             <div class="mb-3">
                 <label for="image" class="form-label">Carica un'immagine di Copertina *</label>
-                <input type="file" class="form-control" name="image" id="image" value="{{old('image', $building->image)}}" required>
+                <input type="file" class="form-control" name="image" id="image" required onchange="updateFileName()">
+                <p id="filename" class="text-muted">{{$building->image}}</p>
             </div>
 
             <div class="mb-3">
                 <label for="images" class="form-label">Carica altre Immagini *</label>
-                <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*" value="{{old('images', $building->images)}}">
+                <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*" value="{{old('images', $building->images)}}" onchange="updateFilesName()">
                 {{-- accept= validazione che specifica file immagini, *= qualunque estensione --}}
+                <p id="filenames" class="text-muted">No</p>
             </div>
 
             <div class="mb-3">
@@ -122,6 +124,31 @@
                 alertCheckbox.classList.add('d-none');
             }
         });
+
+        function updateFileName() {
+        var input = document.getElementById('image');
+        var filenameDisplay = document.getElementById('filename');
+
+        if (input.files.length > 0) {
+            filenameDisplay.textContent = input.files[0].name;
+        } else {
+            filenameDisplay.textContent = 'Nessun file selezionato';
+        }
+        };
+
+        function updateFilesName() {
+        var input = document.getElementById('images');
+        var filenameDisplay = document.getElementById('filenames');
+
+        if (input.files.length > 0) {
+            filenameDisplay.textContent = input.files[0].name;
+            filenameDisplay.textContent += ', '+ input.files[1].name;
+            filenameDisplay.textContent += ', '+ input.files[2].name;
+        } else {
+            filenameDisplay.textContent = 'Nessun file selezionato';
+        }
+        }
+    
     </script>
 
 @endsection
