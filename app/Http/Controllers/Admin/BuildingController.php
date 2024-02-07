@@ -69,7 +69,7 @@ class BuildingController extends Controller
                         ->max('10mb')
                 ],
                 "available" => "boolean",
-                "service_id" => "required|exists:services,id",
+                "services" => "required|exists:services,id",
                 "sponsorship_id" => "nullable|exists:sponsorships,id",
                 "image_id" => "exists:images,id",
             ]
