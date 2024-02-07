@@ -14,28 +14,28 @@
 
             <div class="mb-3">
                 <label for="title" class="form-label">Nome *</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Es: Harry Potter House" value="{{old('title'), $building->title}}" required min="5" max="255">
+                <input type="text" class="form-control" name="title" id="title" placeholder="Es: Harry Potter House" value="{{old('title', $building->title)}}" required min="5" max="255">
             </div>
 
             <div class="mb-3">
                 <label for="image" class="form-label">Carica un'immagine di Copertina *</label>
-                <input type="file" class="form-control" name="image" id="image" required>
+                <input type="file" class="form-control" name="image" id="image" value="{{old('image', $building->image)}}" required>
             </div>
 
             <div class="mb-3">
                 <label for="images" class="form-label">Carica altre Immagini *</label>
-                <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*">
+                <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*" value="{{old('images', $building->images)}}">
                 {{-- accept= validazione che specifica file immagini, *= qualunque estensione --}}
             </div>
 
             <div class="mb-3">
                 <label for="address" class="form-label">Indirizzo *</label>
-                <input type="text" class="form-control" name="address" id="address" value="{{old('address'), $building->address}}" required>
+                <input type="text" class="form-control" name="address" id="address" value="{{old('address', $building->address)}}" required>
             </div>           
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione *</label>
-                <textarea class="form-control" name="description" id="description" rows="4" placeholder="Es: E' una casa molto bella" required minlength="20" maxlength="500">{{old('description'), $building->description}}</textarea>
+                <textarea class="form-control" name="description" id="description" rows="4" placeholder="Es: E' una casa molto bella" required minlength="20" maxlength="500">{{old('description', $building->description)}}</textarea>
             </div>
 
             <div class="form-group mb-3">
@@ -48,22 +48,22 @@
 
             <div class="mb-3">
                 <label for="rooms" class="form-label">N. Stanze *</label>
-                <input type="number" class="form-control" name="rooms" id="rooms" value="{{old('rooms'), $building->rooms}}" min="1" required>
+                <input type="number" class="form-control" name="rooms" id="rooms" value="{{old('rooms', $building->rooms)}}" min="1" required>
             </div>
 
             <div class="mb-3">
                 <label for="bathrooms" class="form-label">N. Bagni *</label>
-                <input type="number" class="form-control" name="bathrooms" id="bathrooms" value="{{old('bathrooms'), $building->bathrooms}}" min="1" required>
+                <input type="number" class="form-control" name="bathrooms" id="bathrooms" value="{{old('bathrooms', $building->bathrooms)}}" min="1" required>
             </div>
 
             <div class="mb-3">
                 <label for="beds" class="form-label">N. Letti *</label>
-                <input type="number" class="form-control" name="beds" id="beds" value="{{old('beds'), $building->beds}}" required min="1">
+                <input type="number" class="form-control" name="beds" id="beds" value="{{old('beds', $building->beds)}}" required min="1">
             </div>
 
             <div class="mb-3">
                 <label for="sqm" class="form-label">Metri quadrati *</label>
-                <input type="number" class="form-control" name="sqm" id="sqm" value="{{old('sqm'), $building->sqm}}" required min="10">
+                <input type="number" class="form-control" name="sqm" id="sqm" value="{{old('sqm', $building->sqm)}}" required min="10">
             </div>
     
             <p class="mb-3">Seleziona uno o più servizi *</p>
