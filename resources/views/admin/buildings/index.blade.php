@@ -53,7 +53,9 @@
                             
                             <div class="col tbl-item">
                                 <span><a href="{{route('admin.buildings.show', $building->id)}}" class="btn btn-sm btn-primary">Vedi</a></span>
+                                <button class="btn btn-info mx-2"><a href="{{route('admin.buildings.edit', $building->id)}}">Modifica</a></button>
                                 <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">Elimina</button>
+                                
                             </div>
                         </div>
                     @endforeach
