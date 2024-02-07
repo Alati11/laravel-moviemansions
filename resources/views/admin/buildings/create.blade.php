@@ -3,41 +3,41 @@
 @section('content')
 
 <section>
-    <div class="container">
-        <h1> Aggiungi un Appartamento</h1>
+    <div class="container py-5">
+        <h1 class="pb-4 color-green create-title"><b>Aggiungi un Appartamento</b></h1>
 
         <form action="{{route('admin.buildings.store')}}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
             <div class="mb-3">
-                <label for="title" class="form-label">Nome *</label>
+                <label for="title" class="form-label color-green" ><b>Nome</b>*</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="Es: Harry Potter House" value="{{old('title')}}" required min="5" max="255">
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">Carica un'immagine di Copertina *</label>
+                <label for="image" class="form-label color-green"><b>Carica un'immagine di Copertina</b> *</label>
                 <input type="file" class="form-control" name="image" id="image" required>
             </div>
 
             <div class="mb-3">
-                <label for="images" class="form-label">Carica altre Immagini *</label>
+                <label for="images" class="form-label color-green"><b>Carica altre Immagini</b> *</label>
                 <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*">
                 {{-- accept= validazione che specifica file immagini, *= qualunque estensione --}}
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Indirizzo *</label>
+                <label for="address" class="form-label color-green"><b>Indirizzo </b>*</label>
                 <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required>
             </div>           
 
             <div class="mb-3">
-                <label for="description" class="form-label">Descrizione *</label>
+                <label for="description" class="form-label color-green"><b>Descrizione</b> *</label>
                 <textarea class="form-control" name="description" id="description" rows="4" placeholder="Es: E' una casa molto bella" required minlength="20" maxlength="500">{{old('description')}}</textarea>
             </div>
 
             <div class="form-group mb-3">
-                <label for="available">Disponibile:</label>
+                <label for="available"><b class="color-green">Disponibile:</b></label>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="available" name="available" value="1" checked>
                     <label class="form-check-label" for="available">Sì</label>
@@ -45,26 +45,26 @@
             </div>
 
             <div class="mb-3">
-                <label for="rooms" class="form-label">N. Stanze *</label>
+                <label for="rooms" class="form-label color-green"><b>N. Stanze</b> *</label>
                 <input type="number" class="form-control" name="rooms" id="rooms" value="{{old('rooms')}}" min="1" required>
             </div>
 
             <div class="mb-3">
-                <label for="bathrooms" class="form-label">N. Bagni *</label>
+                <label for="bathrooms" class="form-label color-green"><b>N. Bagni</b> *</label>
                 <input type="number" class="form-control" name="bathrooms" id="bathrooms" value="{{old('bathrooms')}}" min="1" required>
             </div>
 
             <div class="mb-3">
-                <label for="beds" class="form-label">N. Letti *</label>
+                <label for="beds" class="form-label color-green"><b>N. Letti</b> *</label>
                 <input type="number" class="form-control" name="beds" id="beds" value="{{old('beds')}}" required min="1">
             </div>
 
             <div class="mb-3">
-                <label for="sqm" class="form-label">Metri quadrati *</label>
+                <label for="sqm" class="form-label color-green"><b>Metri quadrati</b> *</label>
                 <input type="number" class="form-control" name="sqm" id="sqm" value="{{old('sqm')}}" required min="10">
             </div>
     
-            <p class="mb-3">Seleziona uno o più servizi *</p>
+            <p class="mb-3 color-green"><b>Seleziona uno o più servizi</b> *</p>
             <div class="d-flex flex-wrap">
             @foreach ($services as $service)
                 <div class="form-check me-3">
@@ -86,7 +86,7 @@
             </select>
     
             <div>
-                <input type="submit" class="btn btn-primary" value="Salva" id="form-btn">
+                <input type="submit" class="register-btn" value="Salva" id="form-btn">
             </div>
     
         </form>

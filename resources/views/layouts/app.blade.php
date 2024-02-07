@@ -45,9 +45,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                {{-- <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse px-5 justify-content-end" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    {{-- <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
@@ -58,7 +58,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.buildings.create') }}">{{ __('Nuovo appartamento') }}</a>
                         </li>
-                    </ul>
+                    </ul> --}}
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -72,13 +72,13 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
-                        @else
+                        {{-- @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
-                            </a>
+                            </a> --}}
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('admin/dashboard') }}">{{__('Dashboard')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -89,84 +89,94 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </div>
+                            </div> --}}
                         </li>
                         @endguest
                     </ul>
-                </div> --}}
+                </div>
             </div>
         </nav>
 
         <main class="d-flex flex-grow-1">
             {{-- sidebar --}}
             @if(Auth::check())
-            <div class="sidebar">
+            <div class="sidebar"> 
+                <div class="content-wrapper">
+                    {{-- profile section--}}
+                    <div class="profile">
 
-                {{-- profile section--}}
-                <div class="profile">
-
-                    <div class="user-container">
-                        <span class="user-image">
-                            <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt="">
-                        </span>
-    
-                        <div>
-                            <span class="user-name">
-                                {{ Auth::user()->name }} {{ Auth::user()->surname }}
+                        <div class="user-container">
+                            <span class="user-image">
+                                <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt="">
                             </span>
-
-                            <div class="user-role">
-                                <small class="text-secondary">Host</small>
+        
+                            <div>
+                                <span class="user-name">
+                                    {{ Auth::user()->name }} {{ Auth::user()->surname }}
+                                </span>
+    
+                                <div class="user-role">
+                                    <small class="text-secondary">Host</small>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="user-icons">
+                            <span class="settings-image">
+                                <a href="{{ url('profile') }}">
+                                    <img src="{{Vite::asset('resources/img/icons/settings.png')}}" alt="">
+                                </a>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    {{-- end profile section --}}
+    
+                    <div class="sidebar-nav">
+                        <div class="list">
+                            {{-- dashboard --}}
+                            <div class="d-flex align-items-center gap-2">
+                                <span>
+                                    <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
+                                </span>
+                                <a href="{{ url('admin/dashboard') }}">
+                                        <span>Dashboard</span>
+                                </a>
+                            </div>
+                            
+                            {{-- my mansions --}}
+                            <div class="d-flex align-items-center gap-2">
+                                <span>
+                                    <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                                </span>
+                                <a href="{{route('admin.buildings.index') }}">
+                                    <span class="">I miei appartamenti</span>
+                                </a>
+                            </div>
+    
+                            {{-- create mansion --}}
+    
+                            <div class="d-flex align-items-center gap-2">
+                                <span>
+                                    <img src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
+                                </span>
+                                <a href="{{route('admin.buildings.create') }}">
+                                    <span>Nuovo appartamento</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-            
-                    <div class="user-icons">
-                        <span class="settings-image">
-                            <a href="{{ url('profile') }}">
-                                <img src="{{Vite::asset('resources/img/icons/settings.png')}}" alt="">
-                            </a>
+
+                    {{-- Sponsorships --}}
+                    <div class="sponsorships">
+                        <span>
+                            <img src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
                         </span>
-                    </div>
-                    
-                </div>
-                {{-- end profile section --}}
-
-                <div class="sidebar-nav">
-                    <div class="list">
-                        {{-- dashboard --}}
-                        <div class="d-flex align-items-center gap-2">
-                            <span>
-                                <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
-                            </span>
-                            <a href="{{ url('admin/dashboard') }}">
-                                    <span>Dashboard</span>
-                            </a>
-                        </div>
-                        
-                        {{-- my mansions --}}
-                        <div class="d-flex align-items-center gap-2">
-                            <span>
-                                <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
-                            </span>
-                            <a href="{{route('admin.buildings.index') }}">
-                                <span class="">I miei appartamenti</span>
-                            </a>
-                        </div>
-
-                        {{-- create mansion --}}
-
-                        <div class="d-flex align-items-center gap-2">
-                            <span>
-                                <img src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
-                            </span>
-                            <a href="{{route('admin.buildings.create') }}">
-                                <span class="">Nuovo appartamento</span>
-                            </a>
-                        </div>
+                        <a href="">
+                            <span>Sponsorizza il tuo appartamento</span>
+                        </a>
                     </div>
                 </div>
-
             </div>
             @endif
 

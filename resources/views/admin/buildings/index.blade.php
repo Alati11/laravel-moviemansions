@@ -12,6 +12,7 @@
         @endif
         <div class="container">
             <div class="row justify-content-center">
+                {{-- Se ci sono appartamenti --}}
                 @if ($buildings->count() > 0)
                 <div class="col-9">
                     @foreach ($buildings as $building)
@@ -59,9 +60,10 @@
                     @endforeach
                 </div>
                 @else
-                <div class="col-9 d-flex flex-column justify-content-center align-items-center">
-                    <h2>Non hai ancora registrato nessun appartamento!</h2>
-                    <span><a href="{{route('admin.buildings.create')}}" class="btn btn-sm btn-primary fs-3">Registrane uno</a></span>
+                {{-- Se non ci sono appartamenti --}}
+                <div class="col-9 d-flex flex-column justify-content-center align-items-center py-5">
+                    <h3>Non hai ancora registrato nessun appartamento, inizia ora!</h3>
+                    <span><a href="{{route('admin.buildings.create')}}" class="register-btn"><b>Registrane uno</b></a></span>
                 </div>
                 @endif
             </div>
