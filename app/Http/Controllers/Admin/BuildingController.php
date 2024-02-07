@@ -177,6 +177,8 @@ class BuildingController extends Controller
             'latitude' => 40.7128,
             'longitude' => -74.0060,
         ];
+
+        
     }
 
     /**
@@ -210,16 +212,21 @@ class BuildingController extends Controller
     {
         $request->validate(
             [
-                "title" => "required|max:255|string|",
+                "title" => "required|max:255|string",
                 "rooms" => "required|numeric|min:1",
                 "beds" => "required|numeric|min:1",
                 "bathrooms" => "required|numeric|min:1",
-                "sqm" => "required|numeric|min:1",
+                "sqm" => "required|numeric|min:10",
                 "description" => "required|string|min:20|max:500",
                 "address" => "required|string|min:5|max:255",
-                "image" => "required|string|url",
+                "image" => [
+                    "required",
+                    File::image()
+                        ->min('1kb')
+                        ->max('10mb')
+                ],
                 "available" => "boolean",
-                "service_id" => "exists:services,id",
+                "services" => "required|exists:services,id",
                 "sponsorship_id" => "nullable|exists:sponsorships,id",
                 "image_id" => "exists:images,id",
             ]
@@ -227,7 +234,28 @@ class BuildingController extends Controller
 
         $data = $request->all();
 
+        //riempio slug
         $data['slug'] = Str::slug($data['title'], '-');
+
+        //riempio lat e long
+        $geocodeData = $this->geocodeAddress($data['address']);
+        $data['latitude'] = $geocodeData['latitude'];
+        $data['longitude'] = $geocodeData['longitude'];
+
+        // User
+        $user_id = Auth::id();
+
+        $data['user_id'] = $user_id;
+
+        if ($request->hasFile('image')) {
+
+            $file_path = Storage::put('img', $request->image);
+
+            $data['image'] = $file_path;
+        }
+
+        // Elimina tutte le immagini con gli ID associati all'edificio
+        $building->images()->delete();
 
         $building->update($data);
 
@@ -237,10 +265,44 @@ class BuildingController extends Controller
             $building->services()->detach();
         }
 
+        // Controllo per il sync sponsorships
+        if ($data['sponsorship_id']) {
+            $startingDate = now();
+
+            switch ($data['sponsorship_id']) {
+                case 1:
+                    $endingDate = $startingDate->copy()->addHours(24);
+                    break;
+                case 2:
+                    $endingDate = $startingDate->copy()->addHours(72);
+                    break;
+                case 3:
+                    $endingDate = $startingDate->copy()->addHours(144);
+                    break;
+                default:
+                    $endingDate = $startingDate->copy()->addHours(24);
+                    break;
+            }
+        }
+        
+        //sync sponsorship
         if ($request->has('sponsorships')) {
-            $building->sponsorships()->attach($data['sponsorships']);
+            $building->sponsorships()->sync($data['sponsorships']);
         } else {
             $building->sponsorships()->detach();
+        }
+
+
+        //salva le images nuove
+        if ($request->hasFile('images')) {
+
+            foreach ($request->file('images') as $image) {
+                $imagePath = Storage::put('img/buildings', $image);
+                $building->images()->create([
+                    'building_id' => $building->id,
+                    'url' => $imagePath,
+                ]);
+            }
         }
 
         return redirect()->route('admin.buildings.show', $building->id)->with('message_edit', "$building->title modificato correttamente");
