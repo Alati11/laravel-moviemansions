@@ -4,7 +4,12 @@
 
 <section>
     <div class="container py-5">
-        <h1 class="pb-4 color-green create-title text-center"><b>Aggiungi un Immobile</b></h1>
+        <div class="create-header">
+            <h2 class="color-green create-title"><b>Aggiungi un Immobile</b> 
+            </h2>
+            <img src="{{Vite::asset('resources/img/icons/create-icon.png')}}" alt="">
+        </div>
+
 
         <form action="{{route('admin.buildings.store')}}" method="POST" enctype="multipart/form-data">
 

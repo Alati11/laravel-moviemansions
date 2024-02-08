@@ -11,10 +11,14 @@
             </div>
         @endif
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 {{-- Se ci sono appartamenti --}}
                 @if ($buildings->count() > 0)
-                <div class="col-9">
+                <div class="py-5 d-flex justify-content-center">
+                    <h2 class="color-green"><b>I miei Immobili</b></h2>
+                </div>
+
+                <div class="col-10 d-flex justify-content-center">
                     @foreach ($buildings as $building)
                         {{-- Modale --}}
                         <div class="modal fade" id="modal-{{$building->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,22 +43,15 @@
                             </div>
                         </div>
                         {{-- Fine modale --}}
-                        <div class="row tbl">
-                            <div class="col-1 tbl-item">
-                                <p><b>{{$building->id}}</b></p>
-                            </div>
-                            
-                            <div class="col tbl-item">
-                                <h5>{{$building->title}}</h5>
-                            </div>
 
-                            <div class="col tbl-item">
-                                <p>{{$building->address}}</p>
-                            </div>
-                            
-                            <div class="col tbl-item">
-                                <span><a href="{{route('admin.buildings.show', $building->id)}}" class="btn btn-sm btn-primary">Vedi</a></span>
-                                <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">Elimina</button>
+                        {{--buildings cards --}}
+
+                            <div class="card mb-3 w-50">
+                                <img class="" src="{{asset('storage/'. $building->image)}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                             </div>
                         </div>
                     @endforeach

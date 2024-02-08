@@ -112,8 +112,23 @@ main {
     color: #D3C06A;
 }
 
+.create-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: center;
+
+    img {
+        width: 100px;
+    }
+}
+
 .create-title {
     text-decoration: underline #D3C06A;
+}
+
+.address img {
+    width: 36px;
 }
 
 
