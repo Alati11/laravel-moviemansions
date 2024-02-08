@@ -135,6 +135,9 @@ main {
 
 /////////////////////////////////////////////////// Buttons
 
+
+//  Register
+
 .register-btn {
     align-items: center;
     appearance: none;
@@ -170,6 +173,109 @@ main {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     transform: translateY(-2px);
 }
+
+// Card-buttons index
+
+.delete-button,
+.modify-button,
+.show-button {
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.delete-button {
+    background: red;
+}
+
+.modify-button {
+    background: orange;
+}
+
+.show-button {
+    background: blue;
+}
+
+.delete-button,
+.modify-button,
+.show-button,
+.delete-button span,
+.modify-button span,
+.show-button span {
+    transition: 200ms;
+}
+
+.delete-button .text,
+.modify-button .text,
+.show-button .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+}
+
+.delete-button .icon,
+.modify-button .icon,
+.show-button .icon {
+    position: absolute;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button svg,
+.modify-button svg,
+.show-button svg {
+    width: 15px;
+    fill: #eee;
+}
+
+.delete-button:hover,
+.show-button:hover {
+    background: #ff3636;
+}
+
+.modify-button:hover {
+    background-color: orange;
+}
+
+.show-button:hover {
+    background: blue;
+}
+
+.delete-button:hover .text,
+.modify-button:hover .text,
+.show-button:hover .text {
+    color: transparent;
+}
+
+.delete-button:hover .icon,
+.modify-button:hover .icon,
+.show-button:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+.delete-button:focus,
+.modify-button:focus,
+.show-button:focus {
+    outline: none;
+}
+
+.delete-button:active .icon svg,
+.modify-button:active .icon svg,
+.show-button:active .icon svg {
+    transform: scale(0.8);
+}
+
 
 ////////////////////////////////////////// Checkboxes
 
