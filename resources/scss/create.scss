@@ -1,0 +1,24 @@
+.create-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: center;
+
+    img {
+        width: 100px;
+    }
+}
+
+.create-section {
+    border: solid 1px gray;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+
+.information {
+    padding-bottom: 10px;
+}
+
+.information img {
+    width: 30px;
+}
