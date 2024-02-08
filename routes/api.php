@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/buildings', [BuildingController::class, 'index']);
+// Route::get('/buildings/all', [BuildingController::class, 'indexAll']);
 Route::get('/buildings/{building:slug}', [BuildingController::class, 'show']);
+
