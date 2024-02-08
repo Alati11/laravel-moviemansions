@@ -32,7 +32,7 @@
 <body>
     <div id="app" class="h-100 d-flex flex-column">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm header py-0">
             <div class="container-fluid px-5">
                 @if(Auth::check())
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
@@ -55,20 +55,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse px-5 justify-content-end" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    {{-- <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.buildings.index') }}">{{ __('Appartamenti') }}</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.buildings.create') }}">{{ __('Nuovo appartamento') }}</a>
-                        </li>
-                    </ul> --}}
-
+                   
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -81,27 +68,12 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
-                        {{-- @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a> --}}
-
-                            {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('admin/dashboard') }}">{{__('Dashboard')}}</a>
-                                <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div> --}}
-                        </li>
                         @endguest
                     </ul>
+                </div>
+
+                <div class="header-image">
+                    <img src="{{Vite::asset('resources/img/header-house.png')}}" alt="">
                 </div>
             </div>
         </nav>
@@ -144,47 +116,51 @@
                     <div class="sidebar-nav">
                         <div class="list">
                             {{-- dashboard --}}
-                            <div class="d-flex align-items-center gap-2">
-                                <span>
-                                    <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
-                                </span>
-                                <a href="{{ url('admin/dashboard') }}">
-                                        <span>Dashboard</span>
-                                </a>
-                            </div>
+                            <a href="{{ url('admin/dashboard') }}">
+                                <div class="d-flex align-items-center gap-2 nav-item">
+                                    <span>
+                                        <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
+                                    </span>
+
+                                    <span>Dashboard</span>
+                                </div>
+                            </a>
                             
                             {{-- my mansions --}}
-                            <div class="d-flex align-items-center gap-2">
-                                <span>
-                                    <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
-                                </span>
-                                <a href="{{route('admin.buildings.index') }}">
-                                    <span class="">I miei appartamenti</span>
-                                </a>
-                            </div>
+                            <a href="{{route('admin.buildings.index') }}">
+                                <div class="d-flex align-items-center gap-2 nav-item">
+                                    <span>
+                                        <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                                    </span>
+                                
+                                    <span class="">I miei immobili</span>
+                                </div>
+                            </a>
     
                             {{-- create mansion --}}
     
-                            <div class="d-flex align-items-center gap-2">
-                                <span>
-                                    <img src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
-                                </span>
-                                <a href="{{route('admin.buildings.create') }}">
-                                    <span>Nuovo appartamento</span>
-                                </a>
-                            </div>
+                            <a href="{{route('admin.buildings.create') }}">
+                                <div class="d-flex align-items-center gap-2   nav-item">
+                                    <span>
+                                        <img src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
+                                    </span>
+                                
+                                    <span>Nuovo immobile</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
                     {{-- Sponsorships --}}
-                    <div class="sponsorships">
-                        <span>
-                            <img src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
-                        </span>
-                        <a href="">
-                            <span>Sponsorizza il tuo appartamento</span>
-                        </a>
-                    </div>
+                    <a href="">
+                        <div class="sponsorships nav-item">
+                            <span>
+                                <img src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
+                            </span>
+                        
+                            <span>Sponsorizza il tuo immobile</span>
+                        </div>
+                    </a>
                 </div>
             </div>
             @endif

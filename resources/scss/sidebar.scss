@@ -48,6 +48,16 @@
 
                 img {
                     width: 18px;
+
+                    &:hover {
+                        transform: rotate(180deg);
+                        transition: transform 1s ease;
+                    }
+
+                    &:not(:hover) {
+                        transform: rotate(-180deg);
+                        transition: transform 1s ease;
+                    }
                 }
             }
         }
@@ -81,10 +91,17 @@
             padding: 40px 10px;
             gap: 10px;
             font-size: 12px;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
             img {
                 width: 26px;
             }
+        }
+    }
+
+    .nav-item {
+        &:hover {
+            transform: translateY(-3px);
         }
     }
 

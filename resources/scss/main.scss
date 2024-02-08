@@ -1,3 +1,5 @@
+/////////////////////////////////////////////////// General Style
+
 body {
     font-family: "Quicksand", sans-serif;
     height: 100vh;
@@ -18,6 +20,20 @@ menu {
     position: sticky;
     top: 0;
     z-index: 999;
+}
+
+.header {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(77deg, rgba(255, 255, 255, 1) 13%, rgba(226, 231, 221, 0.7457107843137255) 65%, rgba(90, 141, 129, 0.7961309523809523) 100%);
+}
+
+.header-logo {
+    width: 100px;
+}
+
+.header-image img {
+    width: 240px;
+
 }
 
 main {
@@ -46,11 +62,8 @@ main {
 
 .main-content {
     overflow-y: auto;
-    background-color: #F2F5F7;
-}
-
-.header-logo {
-    width: 100px;
+    background: rgb(209, 219, 217);
+    background: linear-gradient(90deg, rgba(209, 219, 217, 1) 0%, rgba(238, 241, 235, 1) 79%, rgba(245, 246, 247, 0.9254651323419993) 95%, rgba(245, 246, 247, 1) 100%);
 }
 
 .tbl {
@@ -103,7 +116,9 @@ main {
     text-decoration: underline #D3C06A;
 }
 
-/* Buttons*/
+
+
+/////////////////////////////////////////////////// Buttons
 
 .register-btn {
     align-items: center;
@@ -139,4 +154,129 @@ main {
 .register-btn:hover {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     transform: translateY(-2px);
+}
+
+////////////////////////////////////////// Checkboxes
+
+
+// Available checkbox
+.checkbox-wrapper-available *,
+.checkbox-wrapper-available *::before,
+.checkbox-wrapper-available *::after {
+    box-sizing: border-box;
+}
+
+.checkbox-wrapper-available label {
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper-available input {
+    visibility: hidden;
+    display: none;
+}
+
+.checkbox-wrapper-available input:checked~.checkbox {
+    transform: rotate(45deg);
+    width: 14px;
+    margin-left: 12px;
+    border-color: #5A8C80;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+}
+
+.checkbox-wrapper-available .checkbox {
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 2px solid gray;
+    border-radius: 6px;
+    transition: all 0.375s;
+}
+
+
+//Services checkbox
+
+.checkbox-wrapper-services input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+}
+
+.checkbox-wrapper-services *,
+.checkbox-wrapper-services ::after,
+.checkbox-wrapper-services ::before {
+    box-sizing: border-box;
+}
+
+/* The switch - the box around the slider */
+.checkbox-wrapper-services .switch {
+    /* Variables */
+    --switch_width: 2em;
+    --switch_height: 1em;
+    --thumb_color: #e8e8e8;
+    --track_color: #e8e8e8;
+    --track_active_color: #D3BF6A;
+    --outline_color: #5A8C80;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: var(--switch_width);
+    height: var(--switch_height);
+}
+
+/* The slider */
+.checkbox-wrapper-services .slider {
+    box-sizing: border-box;
+    border: 2px solid var(--outline_color);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--track_color);
+    transition: .15s;
+    border-radius: var(--switch_height);
+}
+
+.checkbox-wrapper-services .slider:before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    height: var(--switch_height);
+    width: var(--switch_height);
+    border: 2px solid var(--outline_color);
+    border-radius: 100%;
+    left: -2px;
+    bottom: -2px;
+    background-color: var(--thumb_color);
+    transform: translateY(-0.2em);
+    box-shadow: 0 0.2em 0 var(--outline_color);
+    transition: .15s;
+}
+
+.checkbox-wrapper-services input:checked+.slider {
+    background-color: var(--track_active_color);
+}
+
+.checkbox-wrapper-services input:focus-visible+.slider {
+    box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+
+.checkbox-wrapper-services input:hover+.slider:before {
+    transform: translateY(-0.3em);
+    box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+.checkbox-wrapper-58 input:checked+.slider:before {
+    transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+}
+
+.checkbox-wrapper-services input:hover:checked+.slider:before {
+    transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+    box-shadow: 0 0.3em 0 var(--outline_color);
 }

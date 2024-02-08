@@ -49,7 +49,7 @@ class BuildingController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $data = $request->all();
 
@@ -64,6 +64,7 @@ class BuildingController extends Controller
                 "address" => "required|string|min:5|max:255",
                 "image" => [
                     "required",
+                    "mimes:jpeg,png,jpg,gif,webp",
                     File::image()
                         ->min('1kb')
                         ->max('10mb')

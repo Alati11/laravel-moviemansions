@@ -4,7 +4,7 @@
 
 <section>
     <div class="container py-5">
-        <h1 class="pb-4 color-green create-title"><b>Aggiungi un Appartamento</b></h1>
+        <h1 class="pb-4 color-green create-title text-center"><b>Aggiungi un Immobile</b></h1>
 
         <form action="{{route('admin.buildings.store')}}" method="POST" enctype="multipart/form-data">
 
@@ -22,7 +22,7 @@
 
             <div class="mb-3">
                 <label for="images" class="form-label color-green"><b>Carica altre Immagini</b> *</label>
-                <input type="file" class="form-control" name="images[]" id="images" multiple accept="image/*">
+                <input type="file" class="form-control" name="images[]" id="images" multiple accept=".jpg,.png,.jpeg,.webp">
                 {{-- accept= validazione che specifica file immagini, *= qualunque estensione --}}
             </div>
 
@@ -36,13 +36,13 @@
                 <textarea class="form-control" name="description" id="description" rows="4" placeholder="Es: E' una casa molto bella" required minlength="20" maxlength="500">{{old('description')}}</textarea>
             </div>
 
-            <div class="form-group mb-3">
-                <label for="available"><b class="color-green">Disponibile:</b></label>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="available" name="available" value="1" checked>
-                    <label class="form-check-label" for="available">Sì</label>
-                </div>
-            </div>
+            <div class="checkbox-wrapper-available mb-3">
+                <label for="available" class="mb-2"><b class="color-green">Disponibile:</b></label>
+                <label>
+                  <input type="checkbox" id="available" name="available" value="1"/>
+                  <span class="checkbox"></span>
+                </label>
+              </div>
 
             <div class="mb-3">
                 <label for="rooms" class="form-label color-green"><b>N. Stanze</b> *</label>
@@ -67,12 +67,15 @@
             <p class="mb-3 color-green"><b>Seleziona uno o più servizi</b> *</p>
             <div class="d-flex flex-wrap">
             @foreach ($services as $service)
-                <div class="form-check me-3">
+                <div class="checkbox-wrapper-services me-4">
                     <label class="form-check-label" for="service-{{$service->id}}">
-                        {{$service->name}}
+                        <span class="me-1">{{$service->name}}</span>
                     </label>
-                    <input name="services[]" class="form-check-input services-checkbox" type="checkbox" value="{{$service->id}}" id="service-{{$service->id}}" @checked(in_array($service->id, old('services', [])))>
-                </div>    
+                    <label class="switch">
+                      <input type="checkbox" name="services[]" class="services-checkbox" value="{{$service->id}}" id="service-{{$service->id}}" @checked(in_array($service->id, old('services', [])))>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
             @endforeach
             </div>
             <span class="text-danger d-none" id="alert-services">Devi selezionare almeno un servizio!</span>
