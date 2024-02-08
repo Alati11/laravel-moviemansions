@@ -66,19 +66,6 @@ main {
     background: linear-gradient(90deg, rgba(209, 219, 217, 1) 0%, rgba(238, 241, 235, 1) 79%, rgba(245, 246, 247, 0.9254651323419993) 95%, rgba(245, 246, 247, 1) 100%);
 }
 
-.tbl {
-    border-bottom: solid 1px lightgray;
-
-    &:last-child {
-        border-bottom: none;
-    }
-}
-
-.tbl-item {
-    display: flex;
-    align-items: center;
-}
-
 .dropdown-menu {
     --bs-dropdown-min-width: 25rem;
 }
@@ -112,6 +99,13 @@ main {
     color: #D3C06A;
 }
 
+.index-header {
+    img {
+        width: 60px;
+    }
+}
+
+
 .create-header {
     display: flex;
     align-items: center;
@@ -121,10 +115,6 @@ main {
     img {
         width: 100px;
     }
-}
-
-.create-title {
-    text-decoration: underline #D3C06A;
 }
 
 .address img {

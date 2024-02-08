@@ -14,8 +14,9 @@
             <div class="row">
                 {{-- Se ci sono appartamenti --}}
                 @if ($buildings->count() > 0)
-                <div class="py-5 d-flex justify-content-center">
-                    <h2 class="color-green"><b>I miei Immobili</b></h2>
+                <div class="py-5 d-flex justify-content-center index-header align-items-center gap-3">
+                    <h2 class="text-secondary mb-0">I tuoi immobili</h2>
+                    <img class="pb-4" src="{{Vite::asset('resources/img/icons/my-mansions.png')}}" alt="">
                 </div>
 
                 <div class="col-12 d-flex flex-column align-items-center">
@@ -47,54 +48,53 @@
 
                         {{--buildings card --}}
 
-                            <div class="card mb-3 w-50">
+                            <div class="card mb-5 w-50">
 
                                 <img class="" src="{{asset('storage/'. $building->image)}}" class="card-img-top" alt="...">
 
                                 <div class="card-body">
                                     <h5 class="card-title">{{$building->title}}</h5>
 
-                                    <p class="address">
+                                    <p class="address mb-3">
                                         <img src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
                                     {{$building->address}}
                                     </p>
 
-                                    <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>
-
                                     {{--card buttons --}}
-                                    <div class="card-buttons d-flex gap-3 ">
+                                    <div class="card-buttons d-flex gap-3 mb-3">
 
                                         {{-- Show button --}}
-                                        <button class="show-button btn-btn-primary">
-
-                                            <span class="text">Dettagli</span>
-
-                                            <span class="icon">
-
-                                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                             width="533.333px" height="533.334px" viewBox="0 0 533.333 533.334" style="enable-background:new 0 0 533.333 533.334;"
-	                                             xml:space="preserve">
-	                                            <path d="M266.667,175C157.621,175,60.81,227.373,0,308.333c60.81,80.962,157.621,133.334,266.667,133.334
-		                                        c109.045,0,205.856-52.372,266.667-133.334C472.523,227.373,375.711,175,266.667,175z M233.333,241.667
-		                                        c18.409,0,33.333,14.924,33.333,33.333s-14.924,33.333-33.333,33.333S200,293.409,200,275S214.924,241.667,233.333,241.667z
-		                                         M402.924,375.676c-20.648,10.551-42.525,18.678-65.023,24.153c-23.171,5.644-47.137,8.504-71.234,8.504
-		                                        c-24.097,0-48.063-2.86-71.233-8.502c-22.497-5.478-44.375-13.604-65.024-24.153c-32.823-16.773-62.616-39.797-87.312-67.344
-		                                        c24.697-27.546,54.49-50.572,87.312-67.342c16.841-8.605,34.501-15.597,52.647-20.854c-10.358,15.751-16.39,34.601-16.39,54.862
-		                                        c0,55.229,44.772,100,100,100c55.228,0,100-44.771,100-100c0-20.262-6.032-39.111-16.389-54.864
-		                                        c18.145,5.258,35.804,12.25,52.646,20.855c32.826,16.77,62.614,39.795,87.312,67.342
-		                                        C465.539,335.879,435.749,358.906,402.924,375.676z M448.395,135.271c-56.626-28.934-117.767-43.605-181.729-43.605
-		                                        c-63.961,0-125.103,14.671-181.728,43.605C54.328,150.914,25.703,170.639,0,193.645v56.878
-		                                        c28.822-30.503,62.861-56.122,100.101-75.151c51.885-26.512,107.926-39.956,166.565-39.956s114.68,13.443,166.564,39.957
-		                                        c37.241,19.029,71.28,44.647,100.103,75.151v-56.878C507.63,170.639,479.005,150.914,448.395,135.271z"/>
-                                                </svg>
-                                                
-                                            </span>
-
-                                        </button>
+                                        <a href="{{route('admin.buildings.show', $building->id)}}">
+                                            <button class="show-button btn-btn-primary">
+                                                <span class="text">Dettagli</span>
+    
+                                                <span class="icon">
+    
+                                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                     width="533.333px" height="533.334px" viewBox="0 0 533.333 533.334" style="enable-background:new 0 0 533.333 533.334;"
+                                                     xml:space="preserve">
+                                                    <path d="M266.667,175C157.621,175,60.81,227.373,0,308.333c60.81,80.962,157.621,133.334,266.667,133.334
+                                                    c109.045,0,205.856-52.372,266.667-133.334C472.523,227.373,375.711,175,266.667,175z M233.333,241.667
+                                                    c18.409,0,33.333,14.924,33.333,33.333s-14.924,33.333-33.333,33.333S200,293.409,200,275S214.924,241.667,233.333,241.667z
+                                                     M402.924,375.676c-20.648,10.551-42.525,18.678-65.023,24.153c-23.171,5.644-47.137,8.504-71.234,8.504
+                                                    c-24.097,0-48.063-2.86-71.233-8.502c-22.497-5.478-44.375-13.604-65.024-24.153c-32.823-16.773-62.616-39.797-87.312-67.344
+                                                    c24.697-27.546,54.49-50.572,87.312-67.342c16.841-8.605,34.501-15.597,52.647-20.854c-10.358,15.751-16.39,34.601-16.39,54.862
+                                                    c0,55.229,44.772,100,100,100c55.228,0,100-44.771,100-100c0-20.262-6.032-39.111-16.389-54.864
+                                                    c18.145,5.258,35.804,12.25,52.646,20.855c32.826,16.77,62.614,39.795,87.312,67.342
+                                                    C465.539,335.879,435.749,358.906,402.924,375.676z M448.395,135.271c-56.626-28.934-117.767-43.605-181.729-43.605
+                                                    c-63.961,0-125.103,14.671-181.728,43.605C54.328,150.914,25.703,170.639,0,193.645v56.878
+                                                    c28.822-30.503,62.861-56.122,100.101-75.151c51.885-26.512,107.926-39.956,166.565-39.956s114.68,13.443,166.564,39.957
+                                                    c37.241,19.029,71.28,44.647,100.103,75.151v-56.878C507.63,170.639,479.005,150.914,448.395,135.271z"/>
+                                                    </svg>
+                                                    
+                                                </span>
+                                            </button>
+                                        </a>
+                                        
 
                                         {{-- modify button --}}
                                         <button class="modify-button">
-
+                                        
                                             <span class="text">Modifica</span>
 
                                             <span class="icon">
@@ -127,6 +127,8 @@
                                             </span>
                                         </button>
                                     </div>
+
+                                    <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>
 
                                 </div> 
                             </div>
