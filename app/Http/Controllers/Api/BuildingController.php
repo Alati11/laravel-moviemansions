@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Building;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class BuildingController extends Controller
@@ -23,6 +24,7 @@ class BuildingController extends Controller
         $roomsFilter = $request->input('rooms_filter');
         $bedsFilter = $request->input('beds_filter');
         $bathsFilter = $request->input('baths_filter');
+        $servicesFilter = $request->input('services_filter');
         $bathrooms = $request->input('bathrooms');
 
         // $buildings = Building::with('services', 'images', 'sponsorships')->get();
@@ -86,16 +88,59 @@ class BuildingController extends Controller
             if ($bathrooms) {
                 $queryBuilder->where('bathrooms', $bathrooms);
             }
+
+            
+            $allServices = Service::all();
+            // $servicesToFilter = $allServices->pluck('id')->all();
+
+
+            // $buildings = Building::query()
+            
+            
+            // $filteredBuildings = $queryBuilder->get();
+
+            $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
+
+            // if ($servicesFilter !== 'all') {
+            //     // Aggiungi condizioni per ciascun range di letti
+            //     foreach ($buildings as $building) {
+            //        foreach ($building->services as $service) {
+            //         $serviceId = $service->id;
+            //        }
+            //     }
+
+            //     // $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
+            // }
+
+            // $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
+
+if ($servicesFilter !== 'all') {
+    // Inizializza un array per memorizzare gli ID dei servizi che corrispondono al filtro
+    $filteredServiceIds = [];
+
+    // Trova gli ID dei servizi che corrispondono al filtro
+    foreach ($buildings as $building) {
+        foreach ($building->services as $service) {
+            if ($service->id === $servicesFilter) {
+                $filteredServiceIds[] = $service->id;
+                // Non è necessario applicare il filtro qui, verrà applicato dopo
+            }
+        }
+    }
+
+    // Applica il filtro ai servizi solo se sono stati trovati ID di servizi corrispondenti
+    if (!empty($filteredServiceIds)) {
+        $queryBuilder->whereHas('services', function ($query) use ($filteredServiceIds) {
+            $query->whereIn('id', $filteredServiceIds);
+        });
+    }
+}
+       
             
 
-            $buildings = $queryBuilder->get();
-       
-            // $buildings = Building::with('services', 'images', 'sponsorships')->get();
-        
-
        
 
-        return response()->json(['buildings' => $buildings]);
+        return response()->json(['buildings' => $buildings, 'allServices' => $allServices]);
     }
     public function show(Building $building)
     {
