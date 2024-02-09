@@ -138,8 +138,16 @@
                 {{-- Se non ci sono appartamenti --}}
                 @else
                 <div class="col-9 d-flex flex-column justify-content-center align-items-center py-5">
-                    <h3>Non hai ancora registrato nessun appartamento, inizia ora!</h3>
-                    <span><a href="{{route('admin.buildings.create')}}" class="register-btn"><b>Registrane uno</b></a></span>
+                    <h3 class="pb-4">Non hai ancora registrato nessun appartamento, inizia ora!</h3>
+                    <a href="{{route('admin.buildings.create')}}">
+                        <button class="register-btn">
+                            Registrane uno
+                            <div class="arrow-wrapper">
+                                <div class="arrow"></div>
+                            </div>
+                        </button>
+                    </a>
+                    
                 </div>
                 @endif
             </div>
