@@ -66,7 +66,7 @@
                     </p>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 relative-container">
                     <label for="address" class="form-label text-secondary">Indirizzo *</label>
                     <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required placeholder="Es: Via Borsellino 23">
                     <div id="menuAutoComplete" class="card position-absolute w-100 radius d-none">
