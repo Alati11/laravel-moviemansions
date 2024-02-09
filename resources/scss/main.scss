@@ -391,3 +391,7 @@ main {
     transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
     box-shadow: 0 0.3em 0 var(--outline_color);
 }
+
+#menuAutoComplete .list li {
+    cursor: pointer;
+}

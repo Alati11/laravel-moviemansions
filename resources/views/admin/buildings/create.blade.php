@@ -69,6 +69,11 @@
                 <div class="mb-3">
                     <label for="address" class="form-label text-secondary">Indirizzo *</label>
                     <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required placeholder="Es: Via Borsellino 23">
+                    <div id="menuAutoComplete" class="card position-absolute w-100 radius d-none">
+                        <ul class="list">
+                
+                        </ul>
+                    </div>
                 </div>           
     
                 <div class="mb-3">
@@ -202,4 +207,58 @@
         });
 </script>
 
+@endsection
+
+@section('javascript')
+    <script>
+        const apiKey = "pqHD68XXAijUehCtM4HFFAVamZjQMA1W";
+        const search = document.getElementById('address');
+        const menuAutoComplete = document.getElementById('menuAutoComplete');
+        const ulList = document.querySelector('ul.list');
+
+
+        search.addEventListener('input', function() {
+            if (search.value !== '') {
+            getApiProjects(search.value);
+            }
+        addRemoveClass();
+        });
+
+        function addRemoveClass() {
+            if (search.value === '') {
+            menuAutoComplete.classList.add('d-none');
+            } else {
+            menuAutoComplete.classList.remove('d-none');
+            }
+        }
+
+        function getApiProjects(address) {
+            fetch(`https://api.tomtom.com/search/2/search/${address}.json?key=${apiKey}&limit=5`)
+                .then(response => response.json())
+                .then(data => {
+
+                    ulList.innerHTML = '';
+
+                    if (data.results !== undefined) {
+                        data.results.forEach(currentValue => {
+                            const li = document.createElement('li');
+                            li.textContent = currentValue.address.freeformAddress;
+
+                            li.addEventListener('click', () => {
+                                search.value = currentValue.address.freeformAddress;
+                                menuAutoComplete.classList.add('d-none');
+                                ulList.innerHTML = '';
+
+                                // Aggiorna le coordinate nel form
+                                // search.setAttribute('data-latitude', currentValue.position.lat);
+                                // search.setAttribute('data-longitude', currentValue.position.lon);
+
+                            });
+
+                            ulList.appendChild(li);
+                        });
+                    }
+                });
+        }
+</script>
 @endsection
