@@ -15,7 +15,7 @@
                     <h5>Compila questo form per registrarti e <b class="color-green">iniziare a guadagnare</b> fin da subito con noi!</h5>
                 </div>
 
-                <div class="d-flex justify-content-end pb-3">
+                <div class="d-flex justify-content-end pb-3 icon-container">
                     <img class="arrow-register-icon" src="{{Vite::asset('resources/img/icons/arrow-register.png')}}" alt="">
                 </div>
             </div>
@@ -40,6 +40,18 @@
                                 </span>
                                 @enderror
                             </div>
+
+                            {{-- dropdown information --}}
+                            <div class="btn-group ps-3">
+
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &#x1F6C8;
+                                </button>
+                                <p class="dropdown-menu p-2">
+                                    Utilizza il tuo nome <b>reale</b>, il tuo profilo risulterà più <b>affidabile</b> &#128526;
+                                </p>
+
+                            </div>
                         </div>
 
                         {{-- surname --}}
@@ -55,6 +67,19 @@
                                 </span>
                                 @enderror
                             </div>
+
+                            {{-- dropdown information --}}
+                            <div class="btn-group ps-3">
+
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &#x1F6C8
+                                </button>
+                                <p class="dropdown-menu p-2">
+                                    Stessa cosa del nome! Inserendo un cognome <b>reale</b> avrai più possibilità di concludere un buon affare! &#129309;
+                                </p>
+
+                            </div>
+
                         </div>
 
                         {{-- date of birth --}}
@@ -70,7 +95,7 @@
                                 </span>
                                 @enderror
 
-                                <span class="d-none text-danger" id="alert-date">DevI avere tra 16 e 100 anni</span>
+                                <span class="d-none text-danger" id="alert-date">Devi avere tra 16 e 100 anni</span>
                             </div>
                         </div>
 
@@ -86,6 +111,18 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                            </div>
+
+                            {{-- dropdown information --}}
+                            <div class="btn-group ps-3">
+
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &#x1F6C8
+                                </button>
+                                <p class="dropdown-menu p-2">
+                                    Utilizza la mail con la quale pubblichi i tuoi annunci <span class="text-warning">&#9993;</span>
+                                </p>
+
                             </div>
                         </div>
 
@@ -114,7 +151,7 @@
                                     &#x1F6C8
                                 </button>
                                 <p class="dropdown-menu p-2">
-                                    La password deve contenere almeno 8 caratteri e almeno una lettera maiuscola.
+                                    La password deve contenere almeno 8 caratteri e almeno una lettera maiuscola <span class="text-danger"><b>&#33;</b></span>
                                 </p>
 
                             </div>
@@ -129,6 +166,19 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 <span id="password-length-alert" class="d-none text-danger">Le password non hanno la stessa lunghezza!</span>
                             </div>
+
+                            {{-- dropdown information --}}
+                            <div class="btn-group ps-3">
+
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &#x1F6C8
+                                </button>
+                                <p class="dropdown-menu p-2">
+                                    Devi inserire la password <b>uguale</b> a come l'hai scritta sopra, occhio alle maiuscole &#128521;
+                                </p>
+
+                            </div>
+
                         </div>
 
                         <div class="mb-4 d-flex mb-0">
@@ -234,8 +284,8 @@
 
         const datastring = docdate.substring(0, 4)
 
-        // Confronta le date
-        if ((datastring) > 2006 || (datastring) < 1923) {
+            // Confronta le date
+        if ((datastring) > 2006 || (datastring) < 1923 & docdate) {
         alertdate.classList.remove('d-none');
         alertdate.classList.add('d-block');
 
@@ -246,8 +296,7 @@
             alertdate.classList.add('d-none');
 
             return true
-        }
+        }    
     }
-
 </script>
 @endsection
