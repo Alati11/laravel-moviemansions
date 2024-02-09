@@ -131,6 +131,7 @@
                                 <div class="d-flex align-items-center gap-2 nav-item">
                                     <span>
                                         <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                                        <a href="{{route('admin.buildings.index') }}">
                                     </span>
                                 
                                     <span class="">I miei immobili</span>
