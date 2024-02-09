@@ -21,30 +21,30 @@
 
                     <div class="d-flex card-option">
                         <p class="card-text">Modificare le impostazioni del tuo profilo &RightArrow;</p>
-                        <a class="dash-icon" href="{{ url('profile') }}">
+                        <span class="dash-icon">
                             <img class="icon" src="{{Vite::asset('resources/img/icons/settings.png')}}" alt="">
-                        </a>
+                        </span>
                     </div>
 
                     <div class="d-flex card-option">
                         <p class="card-text">Visualizzare i tuoi immobili e le relative informazioni &RightArrow;</p>
-                        <a class="dash-icon" href="{{route('admin.buildings.index') }}">
+                        <span class="dash-icon">
                             <img class="icon" src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
-                        </a>
+                        </span>
                     </div>
 
                     <div class="d-flex card-option">
                         <p class="card-text">Inserire nuovi immobili  &RightArrow;</p>
-                        <a class="dash-icon" href="{{route('admin.buildings.create') }}">
+                        <span class="dash-icon">
                             <img class="icon" src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
-                        </a>
+                        </span>
                     </div>
 
                     <div class="d-flex card-option">
                         <p class="card-text">Sponsorizzare il tuo immobile  &RightArrow;</p>
-                        <a class="dash-icon" href="#">
+                        <span class="dash-icon">
                             <img class="icon" src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
-                        </a>
+                        </span>
                     </div>
 
                 </div>
