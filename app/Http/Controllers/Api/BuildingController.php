@@ -24,123 +24,93 @@ class BuildingController extends Controller
         $roomsFilter = $request->input('rooms_filter');
         $bedsFilter = $request->input('beds_filter');
         $bathsFilter = $request->input('baths_filter');
-        $servicesFilter = $request->input('services_filter');
+        // $servicesFilter = $request->input('services_filter');
         $bathrooms = $request->input('bathrooms');
+        $services = $request->input('services');
 
         // $buildings = Building::with('services', 'images', 'sponsorships')->get();
 
         $queryBuilder = Building::query();
 
-        
+
 
         // if (!$query) {
         //     $queryBuilder->all();
         // }
 
-        
-            if ($query) {
-                $queryBuilder->where('address', 'like', '%' . $query . '%');
-            }
-    
-            if ($lat && $lon) {
-                $queryBuilder->whereRaw("ST_Distance_Sphere(point(longitude, latitude), point(?, ?)) <= ?", [$lon, $lat, $rad]);
-            }
-    
-            if ($beds) {
-                $queryBuilder->where('beds', $beds);
-            }
-           
-            if ($bedsFilter !== 'all') {
-                // Aggiungi condizioni per ciascun range di letti
-                if ($bedsFilter === 'range_1') {
-                    $queryBuilder->where('beds', '<=', 25);
-                } elseif ($bedsFilter === 'range_2') {
-                    $queryBuilder->whereBetween('beds', [26, 50]);
-                } elseif ($bedsFilter === 'range_3') {
-                    $queryBuilder->where('beds', '>', 50);
-                }
-            }
-    
-            if ($roomsFilter !== 'all') {
-                // Aggiungi condizioni per ciascun range di letti
-                if ($roomsFilter === 'range_1') {
-                    $queryBuilder->where('rooms', '<=', 25);
-                } elseif ($roomsFilter === 'range_2') {
-                    $queryBuilder->whereBetween('rooms', [26, 50]);
-                } elseif ($roomsFilter === 'range_3') {
-                    $queryBuilder->where('rooms', '>', 50);
-                }
-            }
-    
-            if ($bathsFilter !== 'all') {
-                // Aggiungi condizioni per ciascun range di letti
-                if ($bathsFilter === 'range_1') {
-                    $queryBuilder->where('bathrooms', '<=', 2);
-                } elseif ($bathsFilter === 'range_2') {
-                    $queryBuilder->whereBetween('bathrooms', [3, 6]);
-                } elseif ($bathsFilter === 'range_3') {
-                    $queryBuilder->where('bathrooms', '>', 6);
-                }
-            }
-    
-           
-    
-            if ($bathrooms) {
-                $queryBuilder->where('bathrooms', $bathrooms);
-            }
 
-            
-            $allServices = Service::all();
-            // $servicesToFilter = $allServices->pluck('id')->all();
+        if ($query) {
+            $queryBuilder->where('address', 'like', '%' . $query . '%');
+        }
 
+        if ($lat && $lon) {
+            $queryBuilder->whereRaw("ST_Distance_Sphere(point(longitude, latitude), point(?, ?)) <= ?", [$lon, $lat, $rad]);
+        }
 
-            // $buildings = Building::query()
-            
-            
-            // $filteredBuildings = $queryBuilder->get();
+        if ($beds) {
+            $queryBuilder->where('beds', $beds);
+        }
 
-            $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
-
-            // if ($servicesFilter !== 'all') {
-            //     // Aggiungi condizioni per ciascun range di letti
-            //     foreach ($buildings as $building) {
-            //        foreach ($building->services as $service) {
-            //         $serviceId = $service->id;
-            //        }
-            //     }
-
-            //     // $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
-            // }
-
-            // $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
-
-if ($servicesFilter !== 'all') {
-    // Inizializza un array per memorizzare gli ID dei servizi che corrispondono al filtro
-    $filteredServiceIds = [];
-
-    // Trova gli ID dei servizi che corrispondono al filtro
-    foreach ($buildings as $building) {
-        foreach ($building->services as $service) {
-            if ($service->id === $servicesFilter) {
-                $filteredServiceIds[] = $service->id;
-                // Non è necessario applicare il filtro qui, verrà applicato dopo
+        if ($bedsFilter !== 'all') {
+            // Aggiungi condizioni per ciascun range di letti
+            if ($bedsFilter === 'range_1') {
+                $queryBuilder->where('beds', '<=', 25);
+            } elseif ($bedsFilter === 'range_2') {
+                $queryBuilder->whereBetween('beds', [26, 50]);
+            } elseif ($bedsFilter === 'range_3') {
+                $queryBuilder->where('beds', '>', 50);
             }
         }
-    }
 
-    // Applica il filtro ai servizi solo se sono stati trovati ID di servizi corrispondenti
-    if (!empty($filteredServiceIds)) {
-        $queryBuilder->whereHas('services', function ($query) use ($filteredServiceIds) {
-            $query->whereIn('id', $filteredServiceIds);
-        });
-    }
-}
-       
-            
+        if ($roomsFilter !== 'all') {
+            // Aggiungi condizioni per ciascun range di letti
+            if ($roomsFilter === 'range_1') {
+                $queryBuilder->where('rooms', '<=', 25);
+            } elseif ($roomsFilter === 'range_2') {
+                $queryBuilder->whereBetween('rooms', [26, 50]);
+            } elseif ($roomsFilter === 'range_3') {
+                $queryBuilder->where('rooms', '>', 50);
+            }
+        }
 
-       
+        if ($bathsFilter !== 'all') {
+            // Aggiungi condizioni per ciascun range di letti
+            if ($bathsFilter === 'range_1') {
+                $queryBuilder->where('bathrooms', '<=', 2);
+            } elseif ($bathsFilter === 'range_2') {
+                $queryBuilder->whereBetween('bathrooms', [3, 6]);
+            } elseif ($bathsFilter === 'range_3') {
+                $queryBuilder->where('bathrooms', '>', 6);
+            }
+        }
 
-        return response()->json(['buildings' => $buildings, 'allServices' => $allServices]);
+
+
+        if ($bathrooms) {
+            $queryBuilder->where('bathrooms', $bathrooms);
+        }
+
+        if ($services) {
+            $queryBuilder->whereHas('services', function ($subquery) use ($services) {
+                $subquery->whereIn('service_id', function ($query) use ($services) {
+                    $query->select('id')
+                        ->from('services')
+                        ->whereIn('name', $services);
+                });
+            });
+        }
+
+
+        $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
+
+
+
+
+
+
+
+
+        return response()->json(['buildings' => $buildings]);
     }
     public function show(Building $building)
     {
@@ -151,16 +121,4 @@ if ($servicesFilter !== 'all') {
             'building' => $building
         ]);
     }
-
-    // public function indexAll(Request $request)
-    // {
-
-    //     $results = Building::with('services', 'images', 'sponsorships')->paginate(10);
-
-    //     return response()->json([
-    //         'results' => $results,
-    //         'success' => true
-    //     ]);
-    // }
 }
-
