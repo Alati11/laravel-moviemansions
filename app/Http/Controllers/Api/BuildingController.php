@@ -103,13 +103,6 @@ class BuildingController extends Controller
 
         $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
 
-
-
-
-
-
-
-
         return response()->json(['buildings' => $buildings]);
     }
     public function show(Building $building)
