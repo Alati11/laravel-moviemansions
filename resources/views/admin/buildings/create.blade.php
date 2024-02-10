@@ -171,7 +171,6 @@
             </div>
             
             <div>
-                {{-- <input type="submit" class="register-btn" value="Crea Annuncio" id="form-btn"> --}}
                 <button type="submit" id="form-btn" class="create-building-btn">
                     <span> Crea annuncio </span>
                 </button>
