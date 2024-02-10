@@ -6,6 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 {{-- <div class="card-header">{{ __('Accedi') }}</div> --}}
+                <div class="login-logo pb-5 pt-2 d-flex flex-column align-items-center">
+                    <img src="{{Vite::asset('resources/img/logo.png')}}" alt="">
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
