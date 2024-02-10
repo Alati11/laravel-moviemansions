@@ -10,9 +10,10 @@
 }
 
 .create-section {
-    border: solid 1px gray;
     padding: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 10px;
 }
 
 .information {
@@ -25,4 +26,43 @@
 
 .relative-container {
     position: relative;
+}
+
+// create building button
+
+.create-building-btn {
+    padding: 0.1em 0.25em;
+    width: 13em;
+    height: 3.2em;
+    background-color: #5B8D81;
+    border: 0.08em solid #fff;
+    border-radius: 0.3em;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.create-building-btn span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 8.25em;
+    height: 1.5em;
+    background-color: #5B8D81;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.3em 0.1em 0.019em #D3BF6A;
+}
+
+.create-building-btn span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #fff;
+}
+
+.create-building-btn span:not(hover) {
+    transition: all 1s;
 }
