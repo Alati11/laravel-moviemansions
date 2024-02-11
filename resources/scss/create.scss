@@ -9,36 +9,61 @@
     }
 }
 
+// carosello
+
+
 .create-section {
     padding: 20px;
     margin-bottom: 50px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     border-radius: 10px;
-    height: 650px;
+    min-height: 650px;
+    flex-direction: column;
+}
+
+.input-container {
+    margin-top: 60px;
+}
+
+.address-input {
+    margin-bottom: 30px;
+    margin-top: 40px;
+
+    .card {
+        background-color: white;
+    }
 }
 
 .information {
-    padding-bottom: 10px;
+    padding: 10px 24px;
+    margin-bottom: 20px;
 }
 
 .information img {
     width: 30px;
 }
 
-.relative-container {
-    position: relative;
-}
 
-// carosello
 
 .slider-btns {
     display: flex;
-    padding-top: 32px;
     gap: 26px;
+}
+
+#prevBtn,
+#nextBtn {
+    cursor: pointer;
 }
 
 .input-error {
     border-right: solid 5px red;
+}
+
+.form-button {
+    flex-grow: 1;
+    display: flex;
+    align-items: end;
+    justify-content: end;
 }
 
 
@@ -80,3 +105,8 @@
 .create-building-btn span:not(hover) {
     transition: all 1s;
 }
+
+// .last-section {
+//     display: flex;
+//     flex-direction: column;
+// }

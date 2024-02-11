@@ -33,25 +33,29 @@
                 </div>
 
 
-                <div class="mb-3">
-                    <label for="title" class="form-label text-secondary">Nome *</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Es: Harry Potter House" value="{{old('title')}}" required min="5" max="255">
-                </div>
-    
-                <div class="mb-3">
-                    <label for="image" class="form-label text-secondary">Carica un'immagine di Copertina *</label>
-                    <input type="file" class="form-control" name="image" id="image" required>
-                </div>
-    
-                <div class="mb-3">
-                    <label for="images" class="form-label text-secondary">Carica altre Immagini *</label>
-                    <input type="file" class="form-control" name="images[]" id="images" multiple accept=".jpg,.png,.jpeg,.webp" required>
-                </div>
+                <div class="input-container">
 
-                <div class="py-3 error">
-                    <span class="text-danger d-none"><b><i>NB: I campi con l'asterisco sono obbligatori!</i></b></span>
+                    <div class="mb-4">
+                        <label for="title" class="form-label text-secondary">Nome *</label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Es: Harry Potter House" value="{{old('title')}}" required min="5" max="255">
+                    </div>
+        
+                    <div class="mb-4">
+                        <label for="image" class="form-label text-secondary">Carica un'immagine di Copertina *</label>
+                        <input type="file" class="form-control" name="image" id="image" required>
+                    </div>
+        
+                    <div class="mb-4">
+                        <label for="images" class="form-label text-secondary">Carica altre Immagini *</label>
+                        <input type="file" class="form-control" name="images[]" id="images" multiple accept=".jpg,.png,.jpeg,.webp" required>
+                    </div>
+    
+                    <div class="py-3 error">
+                        <span class="text-danger d-none"><b><i>NB: I campi con l'asterisco sono obbligatori!</i></b></span>
+                    </div>
+    
                 </div>
-
+                
             </div>
 
             {{-- sezione indirizzo, descrizione e disponibilità  --}}
@@ -69,24 +73,24 @@
                     </p>
                 </div>
 
-                <div class="mb-3 relative-container">
+                <div class="address-input">
                     <label for="address" class="form-label text-secondary">Indirizzo *</label>
                     <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required placeholder="Es: Via Borsellino 23">
-                    <div id="menuAutoComplete" class="card position-absolute w-100 radius d-none">
+                    <div id="menuAutoComplete" class="card position-absolute w-75 radius d-none">
                         <ul class="list">
                 
                         </ul>
                     </div>
                 </div>           
     
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="description" class="form-label text-secondary">Descrizione *</label>
                     <textarea class="form-control" name="description" id="description" rows="4" placeholder="Es: è una villa spaziosa di lusso con piscina molto grande e vista a 360 gradi. Aria condizionata, interni eleganti. Ideale per riunioni di famiglia e gruppi. 'Un luogo per riflettere sulla vita con gratitudine e celebrare con le persone che ami'" required minlength="20" maxlength="500">{{old('description')}}</textarea>
                 </div>
 
                 <span class="text-danger pb-2 d-none" id="alert-description"><b>La descrizione deve contenere almeno 20 caratteri!</b></span>
     
-                <div class="checkbox-wrapper-available mb-3">
+                <div class="checkbox-wrapper-available mb-4">
                     <label for="available" class="mb-2 text-secondary"> Disponibile:</label>
                     <label>
                       <input type="checkbox" id="available" name="available" value="1" checked>
@@ -113,22 +117,26 @@
                     </p>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="rooms" class="form-label text-secondary">N. Stanze *</label>
                     <input type="number" class="form-control numbers" name="rooms" id="rooms" value="{{old('rooms')}}" min="1" required placeholder="Es: 12">
                 </div>
     
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="bathrooms" class="form-label text-secondary">N. Bagni *</label>
                     <input type="number" class="form-control numbers" name="bathrooms" id="bathrooms" value="{{old('bathrooms')}}" min="1" required placeholder="Es: 2">
                 </div>
+
+                <div class="mb-2">
+                    <span id="bathErr" class="text-danger d-none"><b>Il numero dei bagni non può essere più alto del numero di stanze!</b></span>
+                </div>
     
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="beds" class="form-label text-secondary">N. Letti *</label>
                     <input type="number" class="form-control numbers" name="beds" id="beds" value="{{old('beds')}}" required min="1" placeholder="Es: 2">
                 </div>
     
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="sqm" class="form-label text-secondary">Metri quadrati (Almeno 10) *</label>
                     <input type="number" class="form-control numbers" name="sqm" id="sqm" value="{{old('sqm')}}" required min="10" placeholder="Es: 110">
                 </div>
@@ -137,7 +145,7 @@
                     <span class="text-danger"><b>I metri quadrati non possono essere più bassi di 10!</b></span>
                 </div>
         
-                <p class="mb-3 text-secondary">Seleziona uno o più servizi *</p>
+                <p class="mb-4 text-secondary">Seleziona uno o più servizi *</p>
                 <div class="d-flex flex-wrap">
                 @foreach ($services as $service)
                     <div class="checkbox-wrapper-services me-4">
@@ -162,7 +170,7 @@
         
 
             {{-- sezione Sponsorizzazione --}}
-            <div class="create-section" data-index="3">
+            <div class="create-section last-section" data-index="3">
 
                 <div class="information">
                     <p class="mb-0">
@@ -184,7 +192,7 @@
                     @endforeach
                 </select>
 
-                <div>
+                <div class="form-button">
                     <button type="submit" id="form-btn" class="create-building-btn">
                         <span> Crea annuncio </span>
                     </button>
@@ -193,9 +201,15 @@
             </div>
             
 
-            <div class="slider-btns">
-                <span id="prevBtn">Prev</span>
-                <span id="nextBtn">Next</span>
+            <div class="slider-btns" id="sliderBtns">
+                <span id="prevBtn" class="slider-btn">
+                    Indietro
+                </span>
+                
+                <span id="nextBtn" class="slider-btn">
+                    Avanti
+                </span>
+
             </div>
 
         </form>
@@ -222,7 +236,7 @@
 
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-
+    const sliderBtns = document.getElementById('sliderBtns');
     const sections = document.querySelectorAll('.create-section');
     let currentSectionIndex = 0;
 
@@ -232,6 +246,11 @@
         hideAllSections();
         showSection(currentSectionIndex);
 
+        if(currentSectionIndex === 0) {
+            prevBtn.classList.add('d-none')
+            sliderBtns.classList.add('justify-content-end')
+        } 
+
         // Gestisci clic sul pulsante Next
         nextBtn.addEventListener('click', function() {
 
@@ -240,8 +259,17 @@
                 hideSection(currentSectionIndex);
                 currentSectionIndex++;
                 showSection(currentSectionIndex);
-                }
+                } 
+
+                sliderBtns.classList.remove('justify-content-end')
+                sliderBtns.classList.add('justify-content-between')
+                prevBtn.classList.remove('d-none')
             }
+
+            if (currentSectionIndex === sections.length - 1 ) {
+                 nextBtn.classList.add('d-none');
+            } 
+
         });
 
         // Gestisci clic sul pulsante Previous
@@ -251,6 +279,15 @@
                 currentSectionIndex--;
                 showSection(currentSectionIndex);
             } 
+
+            nextBtn.classList.remove('d-none')
+
+            if(currentSectionIndex === 0) {
+                prevBtn.classList.add('d-none')
+                sliderBtns.classList.remove('justify-content-between')
+                sliderBtns.classList.add('justify-content-end')
+            } 
+
         });
 
         function hideAllSections() {
@@ -264,7 +301,7 @@
         }
 
         function showSection(index) {
-            sections[index].style.display = 'block';
+            sections[index].style.display = 'flex';
         }
 
         function validateCurrentSection() {
@@ -322,9 +359,13 @@
 
                 const numsErr = document.getElementById('numsErr');
                 const sqmNum = document.getElementById('sqm');
+                const rooms = document.getElementById('rooms');
+                const bathrooms = document.getElementById('bathrooms');
+                const bathErr = document.getElementById('bathErr');
 
                 numberInputs.forEach(input => {
                     if (input.value < 1  || input.value.trim() === '') {
+
                         isValid = false;
                         input.classList.add('input-error');
                         messError.classList.remove('d-none');
@@ -334,11 +375,18 @@
                         isValid = false;
                         numsErr.classList.remove('d-none');
 
+                    } else if(rooms.value < bathrooms.value) {
+
+                        isValid = false;
+                        bathErr.classList.remove('d-none');
+
                     } else {
 
                         input.classList.remove('input-error');
                         messError.classList.add('d-none');
                         numsErr.classList.add('d-none');
+                        bathErr.classList.add('d-none');
+
                     }
                 });
 
