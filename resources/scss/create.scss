@@ -11,6 +11,26 @@
 
 // carosello
 
+.progress-bar-create {
+    padding: 26px 0;
+
+    .progress-bar-info {
+        border: solid 1px #5B8D81;
+        border-radius: 10px;
+        padding: 4px;
+
+        .check {
+            font-size: 20px;
+        }
+    }
+}
+
+.field-done {
+    text-decoration: line-through;
+    color: grey;
+}
+
+
 
 .create-section {
     padding: 20px;

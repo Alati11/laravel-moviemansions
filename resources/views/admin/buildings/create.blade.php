@@ -9,6 +9,28 @@
             <img src="{{Vite::asset('resources/img/icons/create-icon.png')}}" alt="">
         </div>
 
+        <div class="progress-bar-create d-flex justify-content-center gap-4">
+            <div class="progress-bar-info">
+                <span id="first-num">1 | Titolo e Immagini</span>
+                <span class="d-none check" id="first-check">&#10003;</span>
+            </div>
+            
+            <div class="progress-bar-info">
+                <span id="second-num">2 | Indirizzo e Descrizione</span>
+                <span class="d-none check" id="second-check">&#10003;</span>
+            </div>
+
+            <div class="progress-bar-info">
+                <span id="third-num">3 | Informazioni Generali</span>
+                <span class="d-none check" id="third-check">&#10003;</span>
+            </div>
+
+            <div class="progress-bar-info">
+                <span id="fourth-num">4 | Crea Annuncio</span>
+                <span class="d-none check" id="fourth-check">&#10003;</span>
+            </div>
+        </div>
+
 
         <form action="{{route('admin.buildings.store')}}" method="POST" enctype="multipart/form-data">
 
@@ -232,12 +254,29 @@
 
 <script>
 
-    // carosello
+    
 
+    //progress bar
+
+    //checks
+    const firstCheck = document.getElementById('first-check');
+    const secondCheck = document.getElementById('second-check');
+    const thirdCheck = document.getElementById('third-check');
+    const fourthCheck = document.getElementById('fourth-check');
+    //nums
+    const firstNum = document.getElementById('first-num');
+    const secondNum = document.getElementById('second-num');
+    const thirdNum = document.getElementById('third-num');
+    const fourthNum = document.getElementById('fourth-num');
+
+
+
+    // carosello
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const sliderBtns = document.getElementById('sliderBtns');
     const sections = document.querySelectorAll('.create-section');
+
     let currentSectionIndex = 0;
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -264,6 +303,18 @@
                 sliderBtns.classList.remove('justify-content-end')
                 sliderBtns.classList.add('justify-content-between')
                 prevBtn.classList.remove('d-none')
+
+                if(currentSectionIndex === 1) {
+                    firstNum.classList.add('field-done')
+                    firstCheck.classList.remove('d-none')
+                } else if(currentSectionIndex === 2) {
+                    secondNum.classList.add('field-done')
+                    secondCheck.classList.remove('d-none')
+                } else if(currentSectionIndex === 3) {
+                    thirdNum.classList.add('field-done')
+                    thirdCheck.classList.remove('d-none')
+                }
+                
             }
 
             if (currentSectionIndex === sections.length - 1 ) {
@@ -364,6 +415,7 @@
                 const bathErr = document.getElementById('bathErr');
 
                 numberInputs.forEach(input => {
+
                     if (input.value < 1  || input.value.trim() === '') {
 
                         isValid = false;
@@ -375,7 +427,7 @@
                         isValid = false;
                         numsErr.classList.remove('d-none');
 
-                    } else if(rooms.value < bathrooms.value) {
+                    } else if(parseInt(rooms.value, 10) < parseInt(bathrooms.value, 10)) {
 
                         isValid = false;
                         bathErr.classList.remove('d-none');
@@ -388,6 +440,8 @@
                         bathErr.classList.add('d-none');
 
                     }
+
+                    console.log(rooms.value, bathrooms.value)
                 });
 
                 const checkboxes = document.querySelectorAll('.services-checkbox:checked');
