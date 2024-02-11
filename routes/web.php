@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BuildingController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('buildings', BuildingController::class);
+    Route::resource('messages', MessageController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
+
 @import './main';
 @import './sidebar.scss';
 @import './create.scss';
@@ -6,3 +6,5 @@
 @import './dashboard.scss';
 @import './login.scss';
 @import './show.scss';
+@import'./messages-index.scss';
+@import '~bootstrap/scss/bootstrap';
