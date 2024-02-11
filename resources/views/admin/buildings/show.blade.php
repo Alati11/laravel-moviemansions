@@ -19,8 +19,92 @@
         @endif
         <div class="container">
 
-            <div class="row p-5 text-center">
-                <h2>{{$building->title}}</h2>
+           
+
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card card-show mx-auto my-5">
+                        <div class="card-header card-title"> <b>{{$building->title}}</b></div>
+        
+                        <div class="card-body">
+                            @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                            @endif
+        
+                            
+        
+                            <div class="d-flex card-option">
+                                <div class="row flex-wrap justify-content-between fix-m">
+                                    <div class="col-8 d-flex my-4">
+                                        <img class="img-fluid rounded img-show-cover" src="{{ asset('storage/'. $building->image)}}" alt="">
+                                    </div>
+                                    @foreach($building->images as $image)
+                                    <div class="col-4">
+                                        <img class="img-plus w-100 rounded img-show-cover my-4" src="{{ asset('storage/'. $image->url)}}" alt="">
+                                    </div>
+                                @endforeach
+                                </div>
+                            </div>
+
+                            <div class="card-option">
+                                <div class="py-2">
+                                    <span class="text-address fw-bolder">Indirizzo</span>
+                                    <div>{{$building->address}}</div>
+                                </div>
+                               <div class="py-2">
+                                <span class="text-description fw-bolder">Descrizione dell'edificio</span> 
+                                <div> {{$building->description}}</div>
+                               </div>
+                               <div class="py-2">
+                                <span class="text-address fw-bolder">Lo spazio</span>
+                                <div class="d-flex gap-5">
+                                    <div>Numero stanze: {{$building->rooms}}</div>
+                                    <div>Numero bagni: {{$building->bathrooms}}</div>
+                                    <div>Metri quadrati: {{$building->sqm}}</div>
+                                    <div>Dispondibile:  
+                                        @if ($building->available)
+                                            <span>Si</span>
+                                        @else
+                                            <span>No</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="py-2">
+                                    <span class="text-address fw-bolder">I servizi che troverai</span>
+                                    <div class="d-flex flex-wrap align-items-center gap-4 py-2">
+                                        @foreach($building->services as $service)
+                                            <div>
+                                                <img class="service-icon" src="{{ asset('storage/'. $service->icon)}}">
+                                            <span class="p-2">{{$service->name}}</span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center pt-3">
+                                    <div id="map" class="map-container"></div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img class="icon-map" src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
+                                    <p id="address" class="pt-3">{{ $building->address }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            
+        
+                          
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Fine card custom --}}
+
+            <div class="row p-5 text-start">
+                <h2 class="fw-bolder fst-italic">{{$building->title}}</h2>
             </div>
 
             <div class="row justify-content-center p-4">
@@ -66,6 +150,7 @@
                 <div id="map" class="map-container"></div>
                 <p id="address" class="pt-3">{{ $building->address }}</p>
             </div>
+
         </div>
     </section>
 @endsection
