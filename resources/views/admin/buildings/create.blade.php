@@ -98,7 +98,7 @@
                 <div class="address-input">
                     <label for="address" class="form-label text-secondary">Indirizzo *</label>
                     <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required placeholder="Es: Via Borsellino 23">
-                    <div id="menuAutoComplete" class="card position-absolute w-75 radius d-none">
+                    <div id="menuAutoComplete" class="card w-100 radius d-none">
                         <ul class="list">
                 
                         </ul>
