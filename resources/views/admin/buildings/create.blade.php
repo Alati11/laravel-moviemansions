@@ -225,11 +225,11 @@
 
             <div class="slider-btns" id="sliderBtns">
                 <span id="prevBtn" class="slider-btn">
-                    Indietro
+                    <i class="fa-solid fa-circle-arrow-left icon"></i>
                 </span>
                 
                 <span id="nextBtn" class="slider-btn">
-                    Avanti
+                    <i class="fa-solid fa-circle-arrow-right icon"></i>
                 </span>
 
             </div>

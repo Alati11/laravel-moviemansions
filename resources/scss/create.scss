@@ -15,8 +15,6 @@
     padding: 26px 0;
 
     .progress-bar-info {
-        border: solid 1px #5B8D81;
-        border-radius: 10px;
         padding: 4px;
 
         .check {
@@ -68,6 +66,11 @@
 .slider-btns {
     display: flex;
     gap: 26px;
+
+    .slider-btn .icon {
+        font-size: 30px;
+        color: #5B8D81;
+    }
 }
 
 #prevBtn,
