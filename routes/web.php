@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Admin\BuildingController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,20 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('buildings', BuildingController::class);
     Route::resource('messages', MessageController::class);
+    Route::resource('sponsorships', SponsorshipController::class)->only('index', 'show');
+    // Route::get('/sponsorships/payment', 'Admin/SponsorshipController@payment');
+    // Route::resource('/sponsorships/payment', SponsorshipController::class)->only('payment');
+
+
+    Route::any('/sponsorships/payment', [PaymentController::class, 'token'])->name('sponsorships.payment.token');
+    Route::get('payment/process/{token}', [PaymentController::class, 'process']);
+
 });
+
+Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+
+
+
+
 
 require __DIR__.'/auth.php';

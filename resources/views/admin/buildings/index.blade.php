@@ -80,6 +80,11 @@
                                         <button class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">
                                             <b>Elimina</b>
                                         </button>
+
+                                        {{-- Sponsorship button --}}
+                                        <a href="{{ route('admin.sponsorships.index') }}">
+                                            <button class="bg-primary">Sponsorizza</button>
+                                        </a>
                                     </div>
 
                                     <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>

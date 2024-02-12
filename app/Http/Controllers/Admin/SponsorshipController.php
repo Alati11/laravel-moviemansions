@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Sponsorship;
 use App\Http\Requests\StoreSponsorshipRequest;
 use App\Http\Requests\UpdateSponsorshipRequest;
+use App\Models\Building;
+use Illuminate\Support\Facades\Auth;
 
 class SponsorshipController extends Controller
 {
@@ -14,7 +16,10 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        //
+        $sponsorships = Sponsorship::all();
+        
+
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
     /**
@@ -38,8 +43,14 @@ class SponsorshipController extends Controller
      */
     public function show(Sponsorship $sponsorship)
     {
-        //
+        $user_id= Auth::id(); 
+        $buildings = Building::where('user_id', $user_id)->get();
+
+
+        return view('admin.sponsorships.show', compact('sponsorship', 'buildings'));
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -64,4 +75,6 @@ class SponsorshipController extends Controller
     {
         //
     }
+
+
 }
