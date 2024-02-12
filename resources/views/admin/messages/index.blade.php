@@ -18,22 +18,24 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$message->id}}" aria-expanded="false" aria-controls="collapse{{$message->id}}">
-                        From: {{$message->name . ' ' . $message->surname}}
+                            <i class="fa-solid fa-user me-2"></i>
+                            {{$message->name . ' ' . $message->surname}}
                         </button>
                     </h2>
                     <div id="collapse{{$message->id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <div>
-                                <p>Inviato da: 
-                                    <span>{{ $message->name}}</span>
-                                    <span class="surname">{{ $message->surname}}</span>
-                                </p>
+                            <div class="msg-wrap">
+                                <div class="user-wrap">
+                                    <p>
+                                        <i class="fa-solid fa-user me-2"></i>
+                                        <span>{{ $message->name}}</span>
+                                        <span class="surname">{{ $message->surname}}</span>
+                                    </p>
+                                    <p>( {{ $message->guest_email}} )</p>
+                                </div>
                                 
-                                <p>E-mail:
-                                    <span>{{ $message->guest_email}}</span>
-                                </p>
                                 
-                                <p>Contenuto:
+                                <p class="balloon">
                                     <span>{{ $message->text}}</span>
                                 </p>
                                 

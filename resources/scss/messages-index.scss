@@ -21,6 +21,25 @@
     }
 }
 
+.msg-wrap{
+    display: flex;
+    gap: 25px; 
+    max-width: 100%;
+
+    p {
+        margin-bottom: 3px; 
+    }
+
+    .user-wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 2px; 
+        align-items: center; 
+        flex-basis: calc(100% / 3);
+        flex-shrink: 0;
+    }
+}
+
 .title-msg{
     text-align: center;
     margin-bottom: 40px; 
@@ -54,6 +73,29 @@
         color: #5A8D81;
         cursor: pointer;
     }
+}
+
+.balloon {
+    background-color: #5A8D81; 
+    padding: 10px;
+    border-radius: 15px; 
+    position: relative;
+    color: white; 
+    margin-top: 10px; 
+    margin-right: 10px; 
+}
+
+.balloon::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -52%; 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #5A8D81 transparent transparent transparent;
 }
 
 
