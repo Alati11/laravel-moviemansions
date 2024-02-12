@@ -5,10 +5,12 @@
     <h1 class="title-msg" >Messaggi</h1>
     @foreach ($buildings as $building)
         <div class="building-wrap">
-            <h4>In riferimento all'appartamento: 
+            <h4 class="accordion-title">
+                <img src="{{Vite::asset('resources/img/header-house.png')}}" alt="">
                 <span>{{$building->title}} </span>
             </h4>
-            @if ($building->messages)
+            @if ($building->messages->count() !== 0)
+                
                 
             @foreach ($building->messages as $message)
 
@@ -43,7 +45,12 @@
             @endforeach
 
             @else
-            <p>Non hai ricevuto messaggi per questo edificio</p>
+            <div class="no-messages">
+                <p>Non hai ancora ricevuto messaggi per questo edificio! 
+                    <i class="fa-solid fa-heart-crack"></i>
+                <p>
+                <p> <span class="spons-link">Sponsorizza il tuo appartamento</span> per aumentare la visibilità dell'annuncio</p>
+            </div>
             @endif
         </div>
     @endforeach
