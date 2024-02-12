@@ -201,12 +201,17 @@ main {
     background-color: #5A8C80;
     border-color: #5A8C80;
     color: white;
+    --bs-btn-active-bg: #4b7168;
+    --bs-btn-active-border-color: #4b7168;
 }
 
 .btn.btn-warning.btn-edit-index {
     background-color: orange;
     border-color: orange;
     color: white;
+    --bs-btn-active-bg: rgb(194, 138, 34);
+    --bs-btn-active-border-color: rgb(194, 138, 34);
+    --bs-btn-active-color: white;
 }
 
 //  Register building
