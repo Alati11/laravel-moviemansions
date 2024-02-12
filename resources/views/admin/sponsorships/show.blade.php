@@ -7,7 +7,11 @@
         <option value="">{{ $building->title }}</option>
     @endforeach
 </select>
-    <button>Paga</button>
+
+    <a href="{{route('admin.payments.process')}}">
+        <button>Paga</button>
+    </a>
+    
 </a>
 @endsection
 

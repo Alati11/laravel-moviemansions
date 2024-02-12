@@ -31,7 +31,7 @@ class PaymentController extends Controller
             ]);
 
         $clientToken = $gateway->clientToken()->generate();
-        return view('admin.sponsorships.payment', compact('clientToken'));
+        return view('admin.payments.index', compact('clientToken'));
     }
 
 
