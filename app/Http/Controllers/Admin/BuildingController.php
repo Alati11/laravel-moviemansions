@@ -316,6 +316,7 @@ class BuildingController extends Controller
     {
         $building->services()->sync([]);
         $building->sponsorships()->sync([]);
+        $building->messages()->delete();
 
         $building->delete();
 
