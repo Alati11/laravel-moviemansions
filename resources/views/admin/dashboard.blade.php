@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="fs-4 text-secondary my-4 dash-title">
+    <h2 class="text-secondary my-4 dash-title">
         {{ __('Benvenuto nel tuo pannello di controllo!') }}
     </h2>
     <div class="row justify-content-center">

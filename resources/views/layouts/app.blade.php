@@ -149,7 +149,7 @@
                                 </div>
                             </a>
 
-                            
+                            {{-- messages --}}
                             <a href="{{route('admin.messages.index')}}">
                                 <div class="d-flex align-items-center gap-2   nav-item">
                                     <span>
