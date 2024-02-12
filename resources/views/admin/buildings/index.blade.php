@@ -126,6 +126,11 @@
                                                 </svg>
                                             </span>
                                         </button>
+
+                                        {{-- Sponsorship button --}}
+                                        <a href="{{ route('admin.sponsorships.index') }}">
+                                            <button class="bg-primary">Sponsorizza</button>
+                                        </a>
                                     </div>
 
                                     <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>

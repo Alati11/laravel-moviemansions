@@ -23,6 +23,10 @@
 
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/40396ce4f1.js" crossorigin="anonymous"></script>
+
+    {{-- BrainTree --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.42.0/js/dropin.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
    
 
     <!-- Usando Vite -->
