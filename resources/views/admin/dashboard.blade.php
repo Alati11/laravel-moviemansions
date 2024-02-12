@@ -47,6 +47,13 @@
                         </span>
                     </div>
 
+                    <div class="d-flex card-option">
+                        <p class="card-text">Vedere chi ti ha contattato  &RightArrow;</p>
+                        <span class="dash-icon">
+                            <img class="icon" src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
+                        </span>
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -148,6 +148,17 @@
                                     <span>Nuovo immobile</span>
                                 </div>
                             </a>
+
+                            <a href="{{route('admin.messages.index')}}">
+                                <div class="d-flex align-items-center gap-2   nav-item">
+                                    <span>
+                                        <img src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
+                                    </span>
+                                
+                                    <span>Messaggi</span>
+                                </div>
+                            </a>
+
                         </div>
                     </div>
 
