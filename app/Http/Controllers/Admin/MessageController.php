@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use App\Models\Building;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Termwind\Components\Raw;
 
 class MessageController extends Controller
 {
@@ -14,7 +18,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $user_id= Auth::id(); 
+        $buildings = Building::where('user_id', $user_id)->with('messages')->get();
+
+
+        return view('admin.messages.index', compact('buildings'));
     }
 
     /**
@@ -28,9 +36,10 @@ class MessageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMessageRequest $request)
+    public function store(Request $request)
     {
-        //
+        // $data = $request->all(); 
+        // dd($data);
     }
 
     /**
