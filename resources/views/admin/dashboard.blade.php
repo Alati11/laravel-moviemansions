@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card card-dash">
-                <div class="card-header card-title"> <b>{{ __('In questa sezione puoi') }}</b></div>
+                <div class="card-header-dash card-title-dash"> <b>{{ __('In questa sezione puoi') }}</b></div>
 
                 <div class="card-body">
                     @if (session('status'))
