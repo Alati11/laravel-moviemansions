@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->unsignedInteger('duration');
+            $table->string('thumb');
             $table->timestamps();
         });
     }
