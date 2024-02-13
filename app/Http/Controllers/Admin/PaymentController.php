@@ -14,46 +14,47 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PaymentController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('admin.payments.index');
     }
 
     public function token(Request $request)
     {
 
-        
 
-            $gateway = new Gateway([
-                'environment' => env("BRAINTREE_ENV"),
-                'merchantId' => env("BRAINTREE_MERCHANT_ID"),
-                'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
-                'privateKey' => env("BRAINTREE_PRIVATE_KEY")
-            ]);
 
-        $clientToken = $gateway->clientToken()->generate();
-        return view('admin.payments.index', compact('clientToken'));
+        $gateway = new Gateway([
+            'environment' => env("BRAINTREE_ENV"),
+            'merchantId' => env("BRAINTREE_MERCHANT_ID"),
+            'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
+            'privateKey' => env("BRAINTREE_PRIVATE_KEY")
+        ]);
+
+        $token = $gateway->clientToken()->generate();
+        return view('admin.payments.index', compact('token'));
     }
 
 
     public function process(Request $request)
     {
-        
 
-         $nonce = $request->input('payment_method_nonce');
-         $sponsorshipId = request()->input('sponsorship');
-         $buildingId = request()->input('building');
-         $sponsorship = Sponsorship::where('id',$sponsorshipId)->first();
+
+        $nonce = $request->input('payment_method_nonce');
+        $sponsorshipId = request()->input('sponsorship');
+        $buildingId = request()->input('building');
+        $sponsorship = Sponsorship::where('id', $sponsorshipId)->first();
         // Simula il pagamento (non utilizzare in produzione)
         $result = Transaction::sale([
-            'amount' => '10.00',
+            'amount' => $sponsorship->price,
             'paymentMethodNonce' => $nonce,
             'options' => ['submitForSettlement' => true],
         ]);
 
         $currentDate = date("Y-m-d H:i:s");
-        $currentDateMin = date("Y-m-d H:i:s", strtotime('+'.$sponsorship->duration.'hours', strtotime($currentDate)));
+        $currentDateMin = date("Y-m-d H:i:s", strtotime('+' . $sponsorship->duration . 'hours', strtotime($currentDate)));
 
-        if($result){
+        if ($result) {
             $building_sponsorship = new BuildingSponsorship();
             $building_sponsorship->building_id = $buildingId;
             $building_sponsorship->sponsorship_id = $sponsorshipId;
@@ -66,5 +67,4 @@ class PaymentController extends Controller
 
         return response()->json($result);
     }
-
 }

@@ -5,12 +5,13 @@
 <select name="payment" id="payment">
     @foreach ($buildings as $building)
         <option value="">{{ $building->title }}</option>
+        
     @endforeach
 </select>
-
-    <a href="{{route('admin.payments.process')}}">
-        <button>Paga</button>
-    </a>
+<a href="{{route('admin.payments.token')}}">
+    <button>Paga</button>
+</a>
+    
     
 </a>
 @endsection

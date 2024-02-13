@@ -4,7 +4,7 @@
 <div id="dropin-wrapper">
     <div id="checkout-message"></div>
     <div id="dropin-container"></div>
-    <button id="submit-button">Submit payment</button>
+    <button id="submit-button" class="btn btn-primary">Procedi al pagamento</button>            
 </div>
     
 @endsection
@@ -39,6 +39,7 @@
             });
   
             if (result.success) {
+              $('#submit-button').addClass('d-none');
               $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
             } else {
               console.log(result);
