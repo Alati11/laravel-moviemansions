@@ -22,37 +22,49 @@
                     <div class="d-flex card-option">
                         <p class="card-text">Modificare le impostazioni del tuo profilo &RightArrow;</p>
                         <span class="dash-icon">
-                            <img class="icon" src="{{Vite::asset('resources/img/icons/settings.png')}}" alt="">
+                            <a href="{{ url('profile') }}">
+                                <img class="icon" src="{{Vite::asset('resources/img/icons/settings.png')}}" alt="">
+                            </a>
                         </span>
                     </div>
 
                     <div class="d-flex card-option">
                         <p class="card-text">Visualizzare i tuoi immobili e le relative informazioni &RightArrow;</p>
                         <span class="dash-icon">
-                            <img class="icon" src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                            <a href="{{route('admin.buildings.index') }}">
+                                <img class="icon" src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                            </a>
                         </span>
                     </div>
 
                     <div class="d-flex card-option">
                         <p class="card-text">Inserire nuovi immobili  &RightArrow;</p>
                         <span class="dash-icon">
-                            <img class="icon" src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
-                        </span>
-                    </div>
-
-                    <div class="d-flex card-option">
-                        <p class="card-text">Sponsorizzare il tuo immobile  &RightArrow;</p>
-                        <span class="dash-icon">
-                            <img class="icon" src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
+                            <a href="{{route('admin.buildings.create') }}">
+                                <img class="icon" src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
+                            </a>
                         </span>
                     </div>
 
                     <div class="d-flex card-option">
                         <p class="card-text">Vedere chi ti ha contattato  &RightArrow;</p>
                         <span class="dash-icon">
-                            <img class="icon" src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
+                            <a href="{{route('admin.messages.index')}}">
+                                <img class="icon" src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
+                            </a>
                         </span>
                     </div>
+
+                    <div class="d-flex card-option">
+                        <p class="card-text">Sponsorizzare il tuo immobile  &RightArrow;</p>
+                        <span class="dash-icon">
+                            <a href="#">
+                                <img class="icon" src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
+                            </a>
+                        </span>
+                    </div>
+
+                  
 
                 </div>
             </div>
