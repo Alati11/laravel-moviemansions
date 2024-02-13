@@ -81,6 +81,7 @@
                                             </div>
                                         @endforeach
                                     </div>
+                                    <a href="{{route('admin.visits.show', $building->id)}}">Vedi le tue statistiche</a>
                                 </div>
                                 <div class="d-flex flex-column align-items-center pt-3">
                                     <div id="map" class="map-container"></div>
@@ -90,11 +91,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-
-                            
-        
-                          
         
                         </div>
                     </div>
