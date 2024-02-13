@@ -18,16 +18,19 @@ class SponsorshipSeeder extends Seeder
                 "name" => "Silver",
                 "price" => 2.99,
                 "duration" => 24,
+                "thumb" => "resources/img/icons/silver-sponsor.png"
             ],
             [
                 "name" => "Gold",
                 "price" => 5.99,
                 "duration" => 72,
+                "thumb" => "resources/img/icons/Gold-Sponsor.png"
             ],
             [
                 "name" => "Platinum",
                 "price" => 9.99,
                 "duration" => 144,
+                "thumb" => "resources/img/icons/platinum-sponsor.png"
             ]
         ];
 
@@ -37,6 +40,7 @@ class SponsorshipSeeder extends Seeder
             $new_sponsorship->name = $sponsorship['name'];
             $new_sponsorship->price = $sponsorship['price'];
             $new_sponsorship->duration = $sponsorship['duration'];
+            $new_sponsorship->thumb = $sponsorship['thumb'];
 
             $new_sponsorship->save();
         }
