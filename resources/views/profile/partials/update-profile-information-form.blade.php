@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-secondary">
-            {{ __('Profile Information') }}
+            {{ __('Informazioni Profilo') }}
         </h2>
 
         <p class="mt-1 text-muted">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Aggiorna le informazioni e l'email del tuo profilo ") }}
         </p>
     </header>
 
@@ -18,7 +18,7 @@
         @method('patch')
 
         <div class="mb-2">
-            <label for="name">{{__('Name')}}</label>
+            <label for="name">{{__('Nome')}}</label>
             <input class="form-control" type="text" name="name" id="name" autocomplete="name" value="{{old('name', $user->name)}}" required autofocus>
             @error('name')
             <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="surname">{{__('Surname')}}</label>
+            <label for="surname">{{__('Cognome')}}</label>
             <input class="form-control" type="text" name="surname" id="surname" autocomplete="surname" value="{{old('surname', $user->surname)}}" required autofocus>
             @error('surname')
             <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="date_of_birth">{{__('Date of birth')}}</label>
+            <label for="date_of_birth">{{__('Data di Nascita')}}</label>
             <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="date_of_birth" value="{{old('date_of_birth', $user->date_of_birth)}}" autofocus>
             @error('date_of_birth')
             <span class="invalid-feedback" role="alert">
@@ -80,8 +80,8 @@
             @endif
         </div>
 
-        <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+        <div class="d-flex align-items-center gap-4 pt-3">
+            <button class="register-btn" type="submit">{{ __('Salva') }}</button>
 
             @if (session('status') === 'profile-updated')
             <script>
@@ -92,11 +92,10 @@
                     el.style.display = 'block';
                 }
             </script>
-            <p id='profile-status' class="fs-5 text-muted">{{ __('Saved.') }}</p>
+            <p id='profile-status' class="fs-5 text-muted"><small>{{ __('Salvato') }}</small></p>
                 
             @else
-                <p id='profile-status' class="fs-5 text-muted">Not saved</p>
-                
+                <p id='profile-status' class="fs-5 text-muted mb-0"><small>Non salvato</small></p>
             @endif
         </div>
     </form>

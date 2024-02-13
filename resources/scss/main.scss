@@ -147,6 +147,7 @@ main {
     background-color: rgb(255, 65, 65);
 }
 
+
 .sign {
     width: 100%;
     transition-duration: .3s;
@@ -213,6 +214,11 @@ main {
     --bs-btn-active-bg: rgb(194, 138, 34);
     --bs-btn-active-border-color: rgb(194, 138, 34);
     --bs-btn-active-color: white;
+}
+
+.btn.btn-danger.btn-delete-building {
+    --bs-btn-hover-bg: #DC3545;
+    --bs-btn-hover-border-color: #DC3545;
 }
 
 //  Register building

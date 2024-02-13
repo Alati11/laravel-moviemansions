@@ -1,0 +1,14 @@
+.card.profile-card {
+    background-color: transparent;
+
+    label {
+        margin-bottom: 8px;
+    }
+
+    input {
+        &:focus {
+            border-color: #5A8D81;
+            box-shadow: 0 0 0 0.25rem rgba(#5A8D81, 0.25);
+        }
+    }
+}
