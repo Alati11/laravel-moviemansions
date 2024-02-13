@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BuildingController;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\VisitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,5 @@ Route::get('/buildings', [BuildingController::class, 'index']);
 // Route::get('/buildings/all', [BuildingController::class, 'indexAll']);
 Route::get('/buildings/{building:slug}', [BuildingController::class, 'show']);
 Route::post('/messages', [MessageController::class, 'store']);
+Route::post('/visits', [VisitController::class, 'store']);
 

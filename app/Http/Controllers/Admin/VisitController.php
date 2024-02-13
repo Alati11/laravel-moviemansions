@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Visit;
 use App\Http\Requests\StoreVisitRequest;
 use App\Http\Requests\UpdateVisitRequest;
+use App\Models\Building;
+use Illuminate\Support\Facades\Auth;
 
 class VisitController extends Controller
 {
@@ -14,7 +16,11 @@ class VisitController extends Controller
      */
     public function index()
     {
-        //
+        $user_id= Auth::id(); 
+        $buildings = Building::where('user_id', $user_id)->with('messages')->get();
+
+
+        return view('admin.messages.index', compact('buildings'));
     }
 
     /**
