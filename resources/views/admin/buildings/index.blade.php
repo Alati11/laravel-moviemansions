@@ -88,7 +88,7 @@
                                             </a>
                                         </div>
     
-                                        <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>
+                                        <p class="card-text"><small class="text-body-secondary">Ultima Modifica: {{$building->updated_at}} </small></p>
     
                                     </div> 
                                 </div>
