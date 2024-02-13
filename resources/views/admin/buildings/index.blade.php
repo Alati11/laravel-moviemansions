@@ -19,7 +19,7 @@
                     <img class="pb-4" src="{{Vite::asset('resources/img/icons/my-mansions.png')}}" alt="">
                 </div>
 
-                <div class="col-12 d-flex flex-column align-items-center">
+                <div class="d-flex flex-wrap align-items center justify-content-center">
                     @foreach ($buildings as $building)
 
                         {{-- Modale --}}
@@ -48,49 +48,52 @@
 
                         {{--buildings card --}}
 
-                            <div class="card mb-5 w-50">
+                            <div class="col-lg-3 col-md-6 col-12 p-2">
+                                <div class="card mb-5">
 
-                                <img class="" src="{{asset('storage/'. $building->image)}}" class="card-img-top" alt="...">
-
-                                <div class="card-body">
-                                    <h5 class="card-title-index">{{$building->title}}</h5>
-
-                                    <p class="address mb-3">
-                                        <img src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
-                                    {{$building->address}}
-                                    </p>
-
-                                    {{--card buttons --}}
-                                    <div class="card-buttons d-flex gap-3 mb-3">
-
-                                        {{-- Show button --}}
-                                        <a href="{{route('admin.buildings.show', $building->id)}}">
-                                            <button class="btn btn-sm btn-primary show-btn-index">
-                                                <b>Dettagli</b>
+                                    <img class="" src="{{asset('storage/'. $building->image)}}" class="card-img-top img-fluid" alt="...">
+    
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title-index">{{$building->title}}</h5>
+    
+                                        <p class="address mb-3">
+                                            <img src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
+                                        {{$building->address}}
+                                        </p>
+    
+                                        {{--card buttons --}}
+                                        <div class="card-buttons d-flex flex-wrap gap-3 mb-3 justify-content-center">
+    
+                                            {{-- Show button --}}
+                                            <a href="{{route('admin.buildings.show', $building->id)}}">
+                                                <button class="btn btn-sm btn-primary show-btn-index">
+                                                    <b>Dettagli</b>
+                                                </button>
+                                            </a>
+                                            
+    
+                                            {{-- modify button --}}
+                                            <button class="btn btn-sm btn-warning btn-edit-index">
+                                                <b>Modifica</b>
                                             </button>
-                                        </a>
-                                        
-
-                                        {{-- modify button --}}
-                                        <button class="btn btn-sm btn-warning btn-edit-index">
-                                            <b>Modifica</b>
-                                        </button>
-                                        
-                                        {{-- delete button --}}
-                                        <button class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">
-                                            <b>Elimina</b>
-                                        </button>
-
-                                        {{-- Sponsorship button --}}
-                                        <a href="{{ route('admin.sponsorships.index') }}">
-                                            <button class="bg-primary">Sponsorizza</button>
-                                        </a>
-                                    </div>
-
-                                    <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>
-
-                                </div> 
+                                            
+                                            {{-- delete button --}}
+                                            <button class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">
+                                                <b>Elimina</b>
+                                            </button>
+    
+                                            {{-- Sponsorship button --}}
+                                            <a href="{{ route('admin.sponsorships.index') }}">
+                                                <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button>
+                                            </a>
+                                        </div>
+    
+                                        <p class="card-text"><small class="text-body-secondary">Last update: {{$building->updated_at}} </small></p>
+    
+                                    </div> 
+                                </div>
                             </div>
+
                     @endforeach
                 </div>
 
