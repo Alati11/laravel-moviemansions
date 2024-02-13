@@ -168,7 +168,7 @@
                     </div>
 
                     {{-- Sponsorships --}}
-                    <a href="">
+                    {{-- <a href="{{route('admin.sponsorships.index')}}">
                         <div class="sponsorships nav-item">
                             <span>
                                 <img src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
@@ -176,7 +176,7 @@
                         
                             <span>Sponsorizza il tuo immobile</span>
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             @endif
