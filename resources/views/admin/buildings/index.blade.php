@@ -38,7 +38,7 @@
                                         <form action="{{route('admin.buildings.destroy', $building->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Elimina</button>
+                                            <button type="submit" class="btn btn-danger btn-delete-building">Elimina</button>
                                         </form>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                             </button>
                                             
                                             {{-- delete button --}}
-                                            <button class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">
+                                            <button class="btn btn-sm btn-danger btn-delete-building" type="button" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">
                                                 <b>Elimina</b>
                                             </button>
     
