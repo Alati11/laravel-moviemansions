@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="dropin-wrapper">
-    <div id="checkout-message"></div>
-    <div id="dropin-container"></div>
-    <button id="submit-button" class="btn btn-primary">Procedi al pagamento</button>            
-</div>
+
+  <div id="ciao" class="d-none">
+    <h1>ciao</h1>
+  </div>
+
+  <div id="dropin-container"></div>
+  <button id="submit-button" class="btn btn-primary">Procedi al pagamento</button>            
+
     
 @endsection
 
@@ -45,7 +48,7 @@
 
           if (result.success) {
             $('#submit-button').addClass('d-none');
-            $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
+            $('#ciao').removeClass('d-none');
           } else {
             console.log(result);
             $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
