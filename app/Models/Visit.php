@@ -9,6 +9,12 @@ class Visit extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'building_id',
+        'time',
+        'ip_address'
+    ];
+
     public function building()
     {
         return $this->belongsTo(Building::class);

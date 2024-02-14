@@ -106,3 +106,41 @@
     }
 
 }
+
+// Responsive
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+
+        .content-wrapper {
+
+            .profile {
+                justify-content: center;
+
+                .user-image {
+                    display: none;
+                }
+
+                .user-name {
+                    display: none;
+                }
+
+                .user-role {
+                    display: none;
+                }
+
+                .settings-image {
+                    img {
+                        width: 22px;
+                    }
+                }
+            }
+
+            .sidebar-text-ind {
+                display: none;
+            }
+        }
+    }
+
+}

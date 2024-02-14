@@ -28,7 +28,9 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.42.0/js/dropin.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
    
-
+    {{-- chart.js --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
@@ -37,7 +39,7 @@
     <div id="app" class="h-100 d-flex flex-column">
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm header py-0">
-            <div class="container-fluid px-5">
+            <div class="container-fluid">
                 @if(Auth::check())
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
@@ -54,22 +56,24 @@
                 </a>
                 @endif
 
+                @if(!Auth::check())
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @endif
 
                 <div class="collapse navbar-collapse px-5 justify-content-end" id="navbarSupportedContent">
                    
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto d-flex flex-row gap-3 py-3 justify-content-center">
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link nav-collapse-btn" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link nav-collapse-btn" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                         @endif
                         @endguest
@@ -85,7 +89,7 @@
         <main class="d-flex flex-grow-1">
             {{-- sidebar --}}
             @if(Auth::check())
-            <div class="sidebar"> 
+            <div class="sidebar flex-shrink-0"> 
                 <div class="content-wrapper">
                     {{-- profile section--}}
                     <div class="profile">
@@ -126,7 +130,7 @@
                                         <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
                                     </span>
 
-                                    <span>Dashboard</span>
+                                    <span class="sidebar-text-ind">Dashboard</span>
                                 </div>
                             </a>
                             
@@ -137,7 +141,7 @@
                                         <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
                                     </span>
                                 
-                                    <span class="">I miei immobili</span>
+                                    <span class="sidebar-text-ind">I miei immobili</span>
                                 </div>
                             </a>
     
@@ -149,7 +153,7 @@
                                         <img src="{{Vite::asset('resources/img/icons/new-apartment.png')}}" alt="">
                                     </span>
                                 
-                                    <span>Nuovo immobile</span>
+                                    <span class="sidebar-text-ind">Nuovo immobile</span>
                                 </div>
                             </a>
 
@@ -160,7 +164,7 @@
                                         <img src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
                                     </span>
                                 
-                                    <span>Messaggi</span>
+                                    <span class="sidebar-text-ind">Messaggi</span>
                                 </div>
                             </a>
 

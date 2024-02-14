@@ -37,3 +37,29 @@
     padding: 14px;
     margin-right: 20px;
 }
+
+// Responsive
+
+@media (max-width: 768px) {
+    .card-title-dash {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+
+    .card-option {
+        flex-direction: column;
+        align-items: center;
+
+        .dash-arrow {
+            display: none;
+        }
+
+        .card-text {
+            text-align: center;
+        }
+    }
+
+}
