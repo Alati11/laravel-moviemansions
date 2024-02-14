@@ -36,17 +36,13 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('buildings', BuildingController::class);
     Route::resource('messages', MessageController::class);
-    Route::resource('sponsorships', SponsorshipController::class)->only('index', 'show');
-    // Route::resource('payments', PaymentController::class)->only('index');
-    // Route::get('/sponsorships/payment', 'Admin/SponsorshipController@payment');
-    // Route::resource('/sponsorships/payment', SponsorshipController::class)->only('payment');
-
+    Route::resource('sponsorships', SponsorshipController::class)->only('index');
 
     Route::any('/payments/token', [PaymentController::class, 'token'])->name('payments.token');
     Route::get('/payments/process', [PaymentController::class, 'process'])->name('payments.process');
 });
 
-// Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+
 
 
 

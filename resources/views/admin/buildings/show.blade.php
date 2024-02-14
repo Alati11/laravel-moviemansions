@@ -71,6 +71,10 @@
                                         @endif
                                     </div>
                                 </div>
+                                
+                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                    <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button>
+                                </a>
                                 <div class="py-3">
                                     <span class="text-address fw-bolder">I servizi che troverai</span>
                                     <div class="d-flex flex-wrap align-items-center gap-4 py-2">
