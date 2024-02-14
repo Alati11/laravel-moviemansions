@@ -2,12 +2,23 @@
 
 @section('content')
     <h1>Le visite di {{$building->title}}</h1>
-    <div class="mb-5">
-        <canvas id="visitsChart"></canvas>
+    <div class="chart-container mb-5">
+        <canvas class="container chart" id="visitsChart"></canvas>
+        <p class="chart-des">
+            <span>Le visite:</span>
+            Il primo numero in alto a sinistra rappresenta il massimo delle visite ricevute negli ultimi 3 giorni.
+            Vuoi ricevere più visite? Sponsorizza il tuo appartamento!
+        </p>
     </div>
 
-    <div>
-        <canvas id="msgChart"></canvas>
+    <div class="chart-container mb-5">
+        <p class="chart-des">
+            <span>I messaggi:</span>
+            Il primo numero in alto a sinistra rappresenta il massimo dei messaggi ricevuti negli ultimi 3 giorni.
+            Vuoi ricevere più messaggi? Sponsorizza il tuo appartamento!
+        </p>
+        <canvas class="container chart" id="msgChart"></canvas>
+        
     </div>
 
     <script>
@@ -24,14 +35,14 @@
                 label: '# di visite',
                 data: [GG2Count, YSCount, todayCount],
                 borderWidth: 1
-            }]
+                }]
             },
             options: {
-            scales: {
-                y: {
-                beginAtZero: true
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
                 }
-            }
             }
         });
 
@@ -48,14 +59,14 @@
                 data: [GG2Msg, YSMsg, todayMsg],
                 // data: [1, 2, 3],
                 borderWidth: 1
-            }]
+                }]
             },
             options: {
-            scales: {
-                y: {
-                beginAtZero: true
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
                 }
-            }
             }
         });
 </script>
