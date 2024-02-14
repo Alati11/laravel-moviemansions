@@ -32,13 +32,22 @@
                       </p>
                     </div>
                   </div>
+                  <a href="{{ route('admin.payments.token', ['sponsorship_id' => $sponsorship->id, 'building_id' => $id]) }}">
+                    <button class="btn btn-primary">Paga</button>
+                  </a>
+                </a>                  
 
-                  <div class="d-flex justify-content-center py-2">
-                    <button class="register-btn">Scegli</button>
-                  </div>
+                  {{-- <div class="d-flex justify-content-center py-2">
+                    <a href="{{ route('admin.payments.token', ['sponsorship_id' => $sponsorship->id, 'building_id' => $building->id]) }}">
+                      <button class="register-btn">Applica</button>
+                    </a>
+                  </div> --}}
                 </div>
               </div>
             @endforeach
+            
+
+
         </div>
     </section>
 @endsection
