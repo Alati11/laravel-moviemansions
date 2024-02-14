@@ -7,6 +7,7 @@ use App\Models\Visit;
 use App\Http\Requests\StoreVisitRequest;
 use App\Http\Requests\UpdateVisitRequest;
 use App\Models\Building;
+use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,6 +49,8 @@ class VisitController extends Controller
         $building = Building::find($buildingId);
 
         $visits = Visit::where('building_id', $buildingId)->get();
+
+        ////////VISITE///////
         // conto di oggi
         $visitsCountToday = Visit::where('building_id', $buildingId)
         // ->whereDate('time',` $currentDate %%:%%:%%`)
@@ -55,8 +58,6 @@ class VisitController extends Controller
         ->where('time', '<=', $currentDate . ' 23:59:59')
         ->get()
         ->groupBy('ip_address');
-
-        // dd($visitsCountToday);
     
         $IPCountToday = count($visitsCountToday);
 
@@ -78,7 +79,33 @@ class VisitController extends Controller
     
         $IPCount2gg = count($visitsCount2gg);
 
-        return view('admin.visits.show', compact('building','visits', 'IPCountToday', 'IPCountYS', 'IPCount2gg',));
+        //////MESSAGGI////////
+        
+        //conto di oggi
+        $msgToday = Message::where('building_id', $buildingId)
+        ->where('created_at', '>=', $currentDate . ' 00:00:00')
+        ->where('created_at', '<=', $currentDate . ' 23:59:59')
+        ->get();
+    
+        $msgCountToday = count($msgToday);
+
+        //conto di ieri
+        $msgYs = Message::where('building_id', $buildingId)
+        ->where('created_at', '>=', $yesterdayDate . ' 00:00:00')
+        ->where('created_at', '<=', $yesterdayDate . ' 23:59:59')
+        ->get();
+    
+        $msgCountYS = count($msgYs);
+
+        //conto di 2gg fa
+        $msg2gg = Message::where('building_id', $buildingId)
+        ->where('created_at', '>=', $GG2Date . ' 00:00:00')
+        ->where('created_at', '<=', $GG2Date . ' 23:59:59')
+        ->get();
+    
+        $msgCount2gg = count($msg2gg);
+
+        return view('admin.visits.show', compact('building','visits', 'IPCountToday', 'IPCountYS', 'IPCount2gg', 'msgCountToday','msgCountYS', 'msgCount2gg' ));
     }
 
     /**
