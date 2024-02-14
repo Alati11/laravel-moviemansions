@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BuildingController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\SponsorshipController;
+use App\Http\Controllers\Admin\VisitController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('buildings', BuildingController::class);
     Route::resource('messages', MessageController::class);
     Route::resource('sponsorships', SponsorshipController::class)->only('index');
+    Route::resource('visits', VisitController::class)->only('show');
 
     Route::any('/payments/token', [PaymentController::class, 'token'])->name('payments.token');
     Route::get('/payments/process', [PaymentController::class, 'process'])->name('payments.process');
