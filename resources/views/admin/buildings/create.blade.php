@@ -57,18 +57,18 @@
 
                 <div class="input-container">
 
-                    <div class="mb-4">
-                        <label for="title" class="form-label text-secondary">Nome *</label>
+                    <div class="mb-4 resp-info-create">
+                        <label for="title" class="form-label text-secondary ">Nome *</label>
                         <input type="text" class="form-control" name="title" id="title" placeholder="Es: Harry Potter House" value="{{old('title')}}" required min="5" max="255">
                     </div>
         
-                    <div class="mb-4">
-                        <label for="image" class="form-label text-secondary">Carica un'immagine di Copertina *</label>
+                    <div class="mb-4 resp-info-create">
+                        <label for="image" class="form-label text-secondary ">Carica un'immagine di Copertina *</label>
                         <input type="file" class="form-control" name="image" id="image" required>
                     </div>
         
-                    <div class="mb-4">
-                        <label for="images" class="form-label text-secondary">Carica altre Immagini *</label>
+                    <div class="mb-4 resp-info-create">
+                        <label for="images" class="form-label text-secondary ">Carica altre Immagini *</label>
                         <input type="file" class="form-control" name="images[]" id="images" multiple accept=".jpg,.png,.jpeg,.webp" required>
                     </div>
     
@@ -95,7 +95,7 @@
                     </p>
                 </div>
 
-                <div class="address-input">
+                <div class="address-input resp-info-create">
                     <label for="address" class="form-label text-secondary">Indirizzo *</label>
                     <input type="text" class="form-control" name="address" id="address" value="{{old('address')}}" required placeholder="Es: Via Borsellino 23">
                     <div id="menuAutoComplete" class="card w-100 radius d-none">
@@ -105,14 +105,14 @@
                     </div>
                 </div>           
     
-                <div class="mb-4">
+                <div class="mb-4 resp-info-create">
                     <label for="description" class="form-label text-secondary">Descrizione *</label>
                     <textarea class="form-control" name="description" id="description" rows="4" placeholder="Es: è una villa spaziosa di lusso con piscina molto grande e vista a 360 gradi. Aria condizionata, interni eleganti. Ideale per riunioni di famiglia e gruppi. 'Un luogo per riflettere sulla vita con gratitudine e celebrare con le persone che ami'" required minlength="20" maxlength="500">{{old('description')}}</textarea>
                 </div>
 
                 <span class="text-danger pb-2 d-none" id="alert-description"><b>La descrizione deve contenere almeno 20 caratteri!</b></span>
     
-                <div class="checkbox-wrapper-available mb-4">
+                <div class="checkbox-wrapper-available mb-4 check-resp-create">
                     <label for="available" class="mb-2 text-secondary"> Disponibile:</label>
                     <label>
                       <input type="checkbox" id="available" name="available" value="1" checked>
@@ -139,12 +139,12 @@
                     </p>
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 resp-info-create">
                     <label for="rooms" class="form-label text-secondary">N. Stanze *</label>
                     <input type="number" class="form-control numbers" name="rooms" id="rooms" value="{{old('rooms')}}" min="1" required placeholder="Es: 12">
                 </div>
     
-                <div class="mb-4">
+                <div class="mb-4 resp-info-create">
                     <label for="bathrooms" class="form-label text-secondary">N. Bagni *</label>
                     <input type="number" class="form-control numbers" name="bathrooms" id="bathrooms" value="{{old('bathrooms')}}" min="1" required placeholder="Es: 2">
                 </div>
@@ -153,12 +153,12 @@
                     <span id="bathErr" class="text-danger d-none"><b>Il numero dei bagni non può essere più alto del numero di stanze!</b></span>
                 </div>
     
-                <div class="mb-4">
+                <div class="mb-4 resp-info-create">
                     <label for="beds" class="form-label text-secondary">N. Letti *</label>
                     <input type="number" class="form-control numbers" name="beds" id="beds" value="{{old('beds')}}" required min="1" placeholder="Es: 2">
                 </div>
     
-                <div class="mb-4">
+                <div class="mb-4 resp-info-create">
                     <label for="sqm" class="form-label text-secondary">Metri quadrati (Almeno 10) *</label>
                     <input type="number" class="form-control numbers" name="sqm" id="sqm" value="{{old('sqm')}}" required min="10" placeholder="Es: 110">
                 </div>
@@ -167,8 +167,8 @@
                     <span class="text-danger"><b>I metri quadrati non possono essere più bassi di 10!</b></span>
                 </div>
         
-                <p class="mb-4 text-secondary">Seleziona uno o più servizi *</p>
-                <div class="d-flex flex-wrap">
+                <p class="mb-4 text-secondary resp-info-create">Seleziona uno o più servizi *</p>
+                <div class="d-flex flex-wrap checkbox-wrapper-resp">
                 @foreach ($services as $service)
                     <div class="checkbox-wrapper-services me-4">
                         <label class="form-check-label" for="service-{{$service->id}}">

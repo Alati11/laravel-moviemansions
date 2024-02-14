@@ -127,3 +127,23 @@
 .create-building-btn span:not(hover) {
     transition: all 1s;
 }
+
+// Responsive
+
+@media (max-width: 768px) {
+    .container {
+        .progress-bar-create {
+            display: none !important;
+        }
+
+        .resp-info-create {
+            text-align: center;
+        }
+
+        .checkbox-wrapper-resp {
+            flex-direction: column;
+            row-gap: 10px;
+            align-items: center;
+        }
+    }
+}
