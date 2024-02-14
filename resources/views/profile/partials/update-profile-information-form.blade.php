@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-secondary">
+        <h2 class="text-secondary profile-inf-title">
             {{ __('Informazioni Profilo') }}
         </h2>
 
-        <p class="mt-1 text-muted">
+        <p class="mt-1 text-muted text-upd-profile">
             {{ __("Aggiorna le informazioni e l'email del tuo profilo ") }}
         </p>
     </header>
@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 form-upd-profile">
         @csrf
         @method('patch')
 

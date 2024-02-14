@@ -416,3 +416,15 @@ main {
 #menuAutoComplete .list li {
     cursor: pointer;
 }
+
+// Responsive
+
+@media (max-width: 768px) {
+    .header-image img {
+        display: none;
+    }
+
+    .login-container {
+        padding-top: 60px;
+    }
+}

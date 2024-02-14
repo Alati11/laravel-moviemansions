@@ -116,3 +116,23 @@ button.dropdown-toggle {
 button.dropdown-toggle::after {
     content: none;
 }
+
+// responsive
+
+@media (max-width: 768px) {
+    .arrow-register-icon {
+        display: none;
+    }
+
+    .mb-4.d-flex.register-input {
+        flex-direction: column;
+    }
+
+    .register-information-toggle {
+        display: none;
+    }
+
+    .profile-register-button {
+        justify-content: center;
+    }
+}

@@ -1,18 +1,21 @@
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg font-medium text-secondary">
+        <h2 class="text-lg font-medium text-secondary title-delete-acc">
             {{ __('Elimina Account') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 text-delete-acc">
             {{ __('Una volta che il tuo account viene eliminato tutti i dati collegati ad esso verranno permanentemente eliminati.') }}
         </p>
     </header>
 
     <!-- Modal trigger button -->
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-account">
-        <b>{{__('Elimina Account')}}</b>
-    </button>
+    <div class="delete-btn-acc">
+        <button type="button" class="btn btn-danger btn-delete" data-bs-toggle="modal" data-bs-target="#delete-account">
+            <b>{{__('Elimina Account')}}</b>
+        </button>
+    </div>
+    
 
     <!-- Modal Body -->
     <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
@@ -27,19 +30,19 @@
                     <h2 class="text-lg font-medium text-gray-900">
                         {{ __('Sei sicuro di voler eliminare il tuo account definitivamente?') }}
                     </h2>
-                    <p class="mt-1 text-sm text-gray-600">
+                    <p class="mt-1 text-sm text-gray-600 modal-delete-acc-info">
                         {{ __('Una volta che il tuo account viene eliminato tutti i dati collegati ad esso verranno permanentemente eliminati..') }}
                     </p>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-secondary evade-btn" data-bs-dismiss="modal">Annulla</button>
 
                     <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
                         @csrf
                         @method('delete')
 
 
-                        <div class="input-group gap-4">
+                        <div class="input-group gap-4 input-group-modal">
 
                             <input id="password" name="password" type="password" class="form-control" placeholder="{{ __('Password') }}" />
 

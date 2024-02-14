@@ -12,3 +12,67 @@
         }
     }
 }
+
+// Responsive
+
+@media (max-width: 768px) {
+    .text-upd-profile {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .profile-inf-title {
+        text-align: center;
+    }
+
+    .form-upd-profile {
+        .register-btn {
+            padding: 4px 10px;
+            font-size: 16px;
+        }
+
+        #profile-status small {
+            font-size: 16px;
+        }
+    }
+
+    .pass-upd-profile {
+        text-align: center;
+    }
+
+    .text-info-profile {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .title-delete-acc {
+        text-align: center;
+    }
+
+    .text-delete-acc {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .delete-btn-acc {
+        display: flex;
+        justify-content: center;
+
+        .btn-delete {
+            padding: 4px 10px;
+            font-size: 16px;
+        }
+    }
+
+    .modal-body {
+        text-align: center;
+
+        .modal-delete-acc-info {
+            padding: 10px 0;
+        }
+    }
+
+    .evade-btn {
+        flex-grow: 1;
+    }
+}

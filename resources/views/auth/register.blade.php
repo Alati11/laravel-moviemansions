@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
 
-    <div class="row justify-content-between">
+    <div class="row justify-content-between py-5">
         <div class="col-md-3">
             <div class="h-100 d-flex flex-column">
                 <h2 class="pb-4 register-title">Inizia a lavorare con <b>
@@ -28,7 +28,7 @@
                         @csrf
 
                         {{-- name --}}
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex register-input">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name *') }}</label>
 
                             <div class="col-md-6">
@@ -44,7 +44,7 @@
                             {{-- dropdown information --}}
                             <div class="btn-group ps-3">
 
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-toggle register-information-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     &#x1F6C8;
                                 </button>
                                 <p class="dropdown-menu p-2">
@@ -55,7 +55,7 @@
                         </div>
 
                         {{-- surname --}}
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex register-input">
                             <label for="surname *" class="col-md-4 col-form-label text-md-right">{{ __('Surname *') }}</label>
 
                             <div class="col-md-6">
@@ -71,7 +71,7 @@
                             {{-- dropdown information --}}
                             <div class="btn-group ps-3">
 
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-toggle register-information-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     &#x1F6C8
                                 </button>
                                 <p class="dropdown-menu p-2">
@@ -83,7 +83,7 @@
                         </div>
 
                         {{-- date of birth --}}
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex register-input">
                             <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth (Optional)') }}</label>
 
                             <div class="col-md-6">
@@ -100,7 +100,7 @@
                         </div>
 
                         {{-- email --}}
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex register-input">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address *') }}</label>
 
                             <div class="col-md-6">
@@ -116,7 +116,7 @@
                             {{-- dropdown information --}}
                             <div class="btn-group ps-3">
 
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-toggle register-information-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     &#x1F6C8
                                 </button>
                                 <p class="dropdown-menu p-2">
@@ -127,7 +127,7 @@
                         </div>
 
                         {{-- password --}}
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex register-input">
 
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password *') }}</label>
 
@@ -147,7 +147,7 @@
                             {{-- dropdown information --}}
                             <div class="btn-group ps-3">
 
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-toggle register-information-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     &#x1F6C8
                                 </button>
                                 <p class="dropdown-menu p-2">
@@ -159,7 +159,7 @@
                         </div>
 
                         {{-- confirmation password --}}
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex register-input">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password *') }}</label>
 
                             <div class="col-md-6">
@@ -170,7 +170,7 @@
                             {{-- dropdown information --}}
                             <div class="btn-group ps-3">
 
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-toggle register-information-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     &#x1F6C8
                                 </button>
                                 <p class="dropdown-menu p-2">
@@ -181,7 +181,7 @@
 
                         </div>
 
-                        <div class="mb-4 d-flex mb-0">
+                        <div class="mb-4 d-flex mb-0 profile-register-button">
                             <div class="col-md-6 offset-md-4">
                     
                                 <button type="submit" class="profile-register-btn" onclick="verifyShortPassAndLength(event)" id="button">
