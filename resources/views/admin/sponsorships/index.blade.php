@@ -16,11 +16,11 @@
             </p>
         </div>
 
-        <div class="container d-flex gap-5 py-5">
+        <div class="container d-flex gap-5 py-5 sponsorships-container-resp">
             @foreach ($sponsorships as $sponsorship)
             <div class="card mb-3 sponsor-card" style="max-width: 540px;">
                 <div class="row g-0">
-                  <div class="col-md-4 d-flex align-items-center p-2">
+                  <div class="col-md-4 d-flex align-items-center p-2 sponsor-img">
                     <img src="{{Vite::asset($sponsorship->thumb)}}" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
@@ -32,10 +32,13 @@
                       </p>
                     </div>
                   </div>
-                  <a href="{{ route('admin.payments.token', ['sponsorship_id' => $sponsorship->id, 'building_id' => $id]) }}">
-                    <button class="btn btn-primary">Paga</button>
-                  </a>
-                </a>                  
+
+                  <div class="d-flex justify-content-center py-3">
+                    <a href="{{ route('admin.payments.token', ['sponsorship_id' => $sponsorship->id, 'building_id' => $id]) }}">
+                      <button class="register-btn"><b>Scegli</b></button>
+                    </a>                  
+                  </div>
+                  
 
                   {{-- <div class="d-flex justify-content-center py-2">
                     <a href="{{ route('admin.payments.token', ['sponsorship_id' => $sponsorship->id, 'building_id' => $building->id]) }}">

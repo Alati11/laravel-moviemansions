@@ -14,12 +14,12 @@
             <div class="row">
                 {{-- Se ci sono appartamenti --}}
                 @if ($buildings->count() > 0)
-                <div class="py-5 d-flex justify-content-center index-header align-items-center gap-3">
+                <div class="pt-5 d-flex justify-content-center index-header align-items-center gap-3">
                     <h2 class="text-secondary mb-0">I tuoi immobili</h2>
                     <img class="pb-4" src="{{Vite::asset('resources/img/icons/my-mansions.png')}}" alt="">
                 </div>
 
-                <div class="d-flex flex-wrap align-items center justify-content-center">
+                <div class="d-flex flex-wrap justify-content-center row-gap-5 py-5">
                     @foreach ($buildings as $building)
 
                         {{-- Modale --}}
@@ -49,9 +49,9 @@
                         {{--buildings card --}}
 
                             <div class="col-lg-3 col-md-6 col-12 p-2">
-                                <div class="card mb-5">
+                                <div class="card mb-5 building-card h-100">
 
-                                    <img class="" src="{{asset('storage/'. $building->image)}}" class="card-img-top img-fluid" alt="...">
+                                    <img src="{{asset('storage/'. $building->image)}}" class="card-img-top img-fluid" alt="...">
     
                                     <div class="card-body d-flex flex-column align-items-center">
                                         <h5 class="card-title-index">{{$building->title}}</h5>
@@ -82,14 +82,34 @@
                                                 <b>Elimina</b>
                                             </button>
     
-                                            {{-- Sponsorship button --}}
-                                            <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                                <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button>
-                                            </a>
                                         </div>
     
                                         <p class="card-text"><small class="text-body-secondary">Ultima Modifica: {{$building->updated_at}} </small></p>
     
+                                        {{-- Sponsorship button --}}
+                                    
+                                            <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
+                                                {{-- <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button> --}}
+                                                <button class="btn-53">
+                                                    <div class="original">Sponsorizza</div>
+                                                    <div class="letters">
+                                                      
+                                                      <span>S</span>
+                                                      <span>p</span>
+                                                      <span>o</span>
+                                                      <span>n</span>
+                                                      <span>s</span>
+                                                      <span>o</span>
+                                                      <span>r</span>
+                                                      <span>i</span>
+                                                      <span>z</span>
+                                                      <span>z</span>
+                                                      <span>a</span>
+                                                    </div>
+                                                </button>
+                                            </a>
+                                        
+                                        
                                     </div> 
                                 </div>
                             </div>
