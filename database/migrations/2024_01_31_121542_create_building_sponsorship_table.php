@@ -24,7 +24,8 @@ return new class extends Migration
             $table->datetime('starting_date');
             $table->datetime('ending_date');
 
-            $table->primary(['building_id', 'sponsorship_id']);
+            $table->primary(['building_id', 'sponsorship_id', 'starting_date']);
+            $table->timestamps();
         });
     }
 
