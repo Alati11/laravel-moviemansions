@@ -110,3 +110,22 @@
     border-radius: 6px;
     transition: all 0.375s;
 }
+
+// responsive
+
+@media (max-width: 768px) {
+    .nav-link.nav-collapse-btn {
+        background-color: #5B8D81;
+        border-radius: 10px;
+        padding: 4px 8px;
+        color: white !important;
+    }
+
+    .login-input {
+        flex-direction: column;
+    }
+
+    .col-md-8.offset-md-4 {
+        justify-content: center;
+    }
+}

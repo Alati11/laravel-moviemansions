@@ -1,15 +1,15 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-secondary">
+        <h2 class="text-lg font-medium text-secondary pass-upd-profile">
             {{ __('Aggiorna Password') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 text-info-profile">
             {{ __('Assicurati che il tuo account stia utilizzando una password lunga e con più caratteri per essere a prova di furto.') }}
         </p>
     </header>
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6 form-upd-profile">
         @csrf
         @method('put')
 

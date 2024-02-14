@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container pt-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center login-container">
         <div class="col-md-8">
             <div class="card">
                 {{-- <div class="card-header">{{ __('Accedi') }}</div> --}}
@@ -14,7 +14,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="mb-4 d-flex">
+                        <div class="mb-4 d-flex login-input">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -28,7 +28,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 d-flex ">
+                        <div class="mb-4 d-flex login-input">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                             
 
@@ -42,21 +42,7 @@
                                 @enderror
                             </div>
                         </div>
-
-                        {{-- Ricordami --}}
                         
-                        {{-- <div class="mb-4 d-flex">
-                            <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox-wrapper-39 d-flex gap-3" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <label>
-                                          <input type="checkbox"/>
-                                          <span class="checkbox"></span>
-                                        </label>
-                                        <span>Ricordami</span>
-                                      </div>
-                                </div>
-                            </div>
-                        </div> --}}
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-8 offset-md-4 d-flex gap-4">
