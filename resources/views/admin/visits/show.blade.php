@@ -2,6 +2,7 @@
 
 @section('content')
     <h1>Le visite di {{$building->title}}</h1>
+    {{-- <p>{{$monthlyCountsNum}}</p> --}}
     <div class="chart-container mb-5">
         <canvas class="container chart" id="visitsChart"></canvas>
         <p class="chart-des">
@@ -23,17 +24,16 @@
 
     <script>
         const ctx = document.getElementById('visitsChart');
-
-        const todayCount = <?php echo $IPCountToday; ?>;
-        const YSCount = <?php echo $IPCountYS; ?>;
-        const GG2Count = <?php echo $IPCount2gg; ?>;
+        const arrayNum = <?php echo json_encode($monthlyCountsNum); ?>;
+        const arrayMsg = <?php echo json_encode($monthlyMsgNum); ?>;
+        
         new Chart(ctx, {
             type: 'bar',
             data: {
-            labels: ['-2gg', 'ieri', 'oggi'],
+            labels: [ 'Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre' ,'Ottobre', 'Novembre', 'Dicembre'],
             datasets: [{
                 label: '# di visite',
-                data: [GG2Count, YSCount, todayCount],
+                data: arrayNum,
                 borderWidth: 1
                 }]
             },
@@ -47,17 +47,13 @@
         });
 
         const CTX = document.getElementById('msgChart');
-        const todayMsg = <?php echo $msgCountToday; ?>;
-        const YSMsg = <?php echo $msgCountYS; ?>;
-        const GG2Msg = <?php echo $msgCount2gg; ?>;
         new Chart(CTX, {
             type: 'bar',
             data: {
-            labels: ['-2gg', 'ieri', 'oggi'],
+            labels: [ 'Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre' ,'Ottobre', 'Novembre', 'Dicembre'],
             datasets: [{
                 label: '# di messaggi',
-                data: [GG2Msg, YSMsg, todayMsg],
-                // data: [1, 2, 3],
+                data: arrayMsg,
                 borderWidth: 1
                 }]
             },
