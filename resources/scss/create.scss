@@ -24,7 +24,6 @@
 }
 
 .field-done {
-    text-decoration: line-through;
     color: grey;
 }
 
@@ -128,8 +127,3 @@
 .create-building-btn span:not(hover) {
     transition: all 1s;
 }
-
-// .last-section {
-//     display: flex;
-//     flex-direction: column;
-// }

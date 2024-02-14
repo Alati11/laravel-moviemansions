@@ -1,0 +1,27 @@
+.sponsor-index-img img {
+    width: 50px;
+}
+
+.under-title-sponsorships {
+    max-width: 450px;
+    text-align: center;
+    line-height: 2rem;
+    color: rgb(88, 87, 87);
+
+    i {
+        color: rgb(136, 138, 16);
+    }
+}
+
+.card.sponsor-card {
+    position: relative;
+
+    .recommended-sponsor {
+        position: absolute;
+        padding: 4px 0;
+        display: flex;
+        justify-content: center;
+
+        .text-sponsor-rec {}
+    }
+}

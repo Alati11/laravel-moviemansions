@@ -43,7 +43,9 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 d-flex">
+                        {{-- Ricordami --}}
+                        
+                        {{-- <div class="mb-4 d-flex">
                             <div class="col-md-6 offset-md-4">
                                     <div class="checkbox-wrapper-39 d-flex gap-3" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label>
@@ -54,7 +56,7 @@
                                       </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-8 offset-md-4 d-flex gap-4">
