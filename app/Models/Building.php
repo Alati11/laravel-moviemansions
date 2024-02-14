@@ -43,7 +43,7 @@ class Building extends Model
 
     public function sponsorships()
     {
-        return $this->belongsToMany(Sponsorship::class);
+        return $this->belongsToMany(Sponsorship::class)->withPivot('starting_date', 'ending_date');
     }
 
     public function images()

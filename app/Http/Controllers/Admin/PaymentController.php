@@ -87,16 +87,32 @@ class PaymentController extends Controller
             $result->transaction;
         }
 
-
-        $currentDate = date("Y-m-d H:i:s");
-        $currentDateMin = date("Y-m-d H:i:s", strtotime('+' . $sponsorship->duration . 'hours', strtotime($currentDate)));
-
         if ($result) {
+
+            $currentDate = date("Y-m-d H:i:s");
+            $currentEndDate = BuildingSponsorship::where('building_id', $buildingId)->max('ending_date');
+            $newEndDate = date("Y-m-d H:i:s", strtotime('+' . $sponsorship->duration . 'hours', strtotime($currentEndDate)));
+            
+            // Verifica se ci sono sponsorizzazioni precedenti per il building
+            $existSponsorship = BuildingSponsorship::where('building_id', $buildingId)->orderBy('ending_date', 'desc')->first();
+    
+            if ($existSponsorship) {
+                // Se esiste una sponsorizzazione precedente, prolunga la sponsorizzazione
+                $currentEndDate = $existSponsorship->ending_date;
+            } else {
+                // Altrimenti, inizia una nuova sponsorizzazione dalla data attuale
+                $currentEndDate = $currentDate;
+            }
+
+
+
+
+
             $building_sponsorship = new BuildingSponsorship();
             $building_sponsorship->building_id = $buildingId;
             $building_sponsorship->sponsorship_id = $sponsorshipId;
-            $building_sponsorship->starting_date = $currentDate;
-            $building_sponsorship->ending_date = $currentDateMin;
+            $building_sponsorship->starting_date = $currentEndDate;
+            $building_sponsorship->ending_date = $newEndDate;
             $building_sponsorship->save();
         }
 
