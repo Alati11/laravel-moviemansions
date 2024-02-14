@@ -18,6 +18,6 @@ class Sponsorship extends Model
 
     public function buildings()
     {
-        return $this->belongsToMany(Building::class);
+        return $this->belongsToMany(Building::class)->withPivot('starting_date', 'ending_date');
     }
 }

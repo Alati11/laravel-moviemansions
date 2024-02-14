@@ -71,10 +71,27 @@
                                         @endif
                                     </div>
                                 </div>
-                                
+                                {{-- Bottone sponsorizza --}}
+                                @if ($building->sponsorships->isNotEmpty())
+                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                    <button class="btn btn-sm bg-primary text-light"><b>Prolunga</b></button>
+                                </a>
+                                {{-- @foreach ($building->sponsorships as $sponsorship)
+                                <p>La sponsorizzazione termina: {{ $sponsorship->name }}: {{ $sponsorship->pivot->ending_date }}</p>
+                                @endforeach --}}
+                                @if ($building->sponsorships->isNotEmpty())
+                                 @php
+                                  $latestSponsorship = $building->sponsorships->last();
+                                 @endphp
+                                   <p>La sponsorizzazione termina: {{ $latestSponsorship->name }}: {{ $latestSponsorship->pivot->ending_date }}</p>
+                                @endif
+                                @else 
                                 <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
                                     <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button>
                                 </a>
+                                @endif
+                               
+
                                 <div class="py-3">
                                     <span class="text-address fw-bolder">I servizi che troverai</span>
                                     <div class="d-flex flex-wrap align-items-center gap-4 py-2">
