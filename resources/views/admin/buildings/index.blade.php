@@ -32,9 +32,14 @@
                                     </div>
                                     <div class="modal-body">
                                         <h3>Vuoi davvero eliminare <span class="color-green">{{$building->title}}</span> ?</h3>
+                                        <p>
+                                            <small>
+                                                Ricordati che perderai tutte le informazioni associate a questo immobile e non sarà più visibile per nessuno.
+                                            </small>
+                                        </p>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-info text-light" data-bs-dismiss="modal">Annulla</button>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-info btn-cancel text-light" data-bs-dismiss="modal">Annulla</button>
                                         <form action="{{route('admin.buildings.destroy', $building->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')

@@ -407,7 +407,12 @@ main {
     transition-delay: 0.5s;
 }
 
+// cancel modal
 
+.btn.btn-info.btn-cancel {
+    background-color: #5A8C80;
+    border: #5A8C80;
+}
 
 ////////////////////////////////////////// Checkboxes
 

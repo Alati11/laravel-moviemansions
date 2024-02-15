@@ -2,13 +2,47 @@
 
 @section('content')
 
-  <div id="ciao" class="d-none">
-    <h1>ciao</h1>
-  </div>
+<section>
 
-  <div id="dropin-container"></div>
-  <button id="submit-button" class="btn btn-primary">Procedi al pagamento</button>            
+    <div id="payment-success" class="d-flex flex-column align-items-center py-5 d-none"> 
+        <div class="info">
+            <div class="info__icon">
+                <i class="fa-solid fa-circle-check text-light fs-5"></i>
+            </div>
 
+            <div class="info__title">Pagamento avvenuto con successo</div>
+        </div>
+
+        <div class="py-5">
+            <p class="text-secondary">
+                <small>
+                    Grazie per aver scelto di sponsorizzare il tuo Immobile, controlla la sezione visite per capire se ne vale la pena! <br>
+                    Nel caso fosse così (e siamo certi che lo sarà), puoi sempre prolungare la sponsorizzazione o rifarne una nuova <i class="fa-solid fa-face-grin-stars color-green"></i>
+                </small>
+            </p>
+        </div>
+
+        <div class="back-sponsor-btn">
+            <a href="{{route('admin.buildings.index')}}">
+                <button class="btn btn-sm go-back-btn">
+                    <span><i class="fa-solid fa-arrow-left-long"></i>
+                        <b>Torna ai tuoi Immobili</b> 
+                        </span>
+                </button>
+            </a>
+            
+        </div>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+        <div id="dropin-container" class="w-50"></div>
+
+        <button id="submit-button" class="payment-btn">
+            <span>Conferma pagamento</span>
+        </button>        
+    </div>
+  
+</section>
     
 @endsection
 
@@ -48,7 +82,7 @@
 
           if (result.success) {
             $('#submit-button').addClass('d-none');
-            $('#ciao').removeClass('d-none');
+            $('#payment-success').removeClass('d-none');
           } else {
             console.log(result);
             $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
