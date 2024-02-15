@@ -21,7 +21,18 @@
         padding: 4px 0;
         display: flex;
         justify-content: center;
-
-        .text-sponsor-rec {}
     }
+}
+
+// Responsive
+
+@media (max-width: 768px) {
+    .sponsorships-container-resp {
+        flex-direction: column;
+
+        .sponsor-img {
+            width: 40%;
+        }
+    }
+
 }

@@ -24,7 +24,23 @@
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="card card-show mx-auto my-5">
-                        <div class="card-header card-header-show card-title"> <b>{{$building->title}}</b></div>
+
+                        <div class="card-header card-header-show card-title">
+
+                            <div>
+                                <b>{{$building->title}}</b>
+                            </div>
+
+                            <div class="icons-show-header">
+                                <div>
+                                    <a href="{{route('admin.visits.show', $building->id)}}">
+                                        <i class="fa-solid fa-square-poll-vertical" title="Visualizza Statistiche">
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
         
                         <div class="card-body">
                             @if (session('status'))
@@ -40,77 +56,176 @@
                                     <div class="col-8 d-flex my-4">
                                         <img class="img-fluid rounded img-show-cover" src="{{ asset('storage/'. $building->image)}}" alt="">
                                     </div>
-                                    @foreach($building->images as $image)
-                                    <div class="col-4">
-                                        <img class="img-plus w-100 rounded img-show-cover my-4" src="{{ asset('storage/'. $image->url)}}" alt="">
+                                     
+                                    <div class="col-4 overflow-y-scroll scrollable-column">
+                                        @foreach($building->images as $image)
+                                            <img class="img-plus w-100 rounded img-show-cover my-4" src="{{ asset('storage/'. $image->url)}}" alt="">
+                                        @endforeach
                                     </div>
-                                @endforeach
+                                
                                 </div>
                             </div>
 
-                            <div class="card-option">
-                                <div class="py-3">
-                                    <span class="text-address fw-bolder">Indirizzo</span>
-                                    <div>{{$building->address}}</div>
-                                </div>
-                               <div class="py-3">
-                                <span class="text-description fw-bolder">Descrizione dell'edificio</span> 
-                                <div> {{$building->description}}</div>
-                               </div>
-                               <div class="py-3">
-                                <span class="text-address fw-bolder">Lo spazio</span>
-                                <div class="d-flex gap-5 mb-3">
-                                    <div>Numero stanze: {{$building->rooms}}</div>
-                                    <div>Numero bagni: {{$building->bathrooms}}</div>
-                                    <div>Metri quadrati: {{$building->sqm}}</div>
-                                    <div>Dispondibile:  
-                                        @if ($building->available)
-                                            <span>Si</span>
-                                        @else
-                                            <span>No</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                {{-- Bottone sponsorizza --}}
-                                @if ($building->sponsorships->isNotEmpty())
-                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                    <button class="btn btn-sm bg-primary text-light"><b>Prolunga</b></button>
-                                </a>
-                                {{-- @foreach ($building->sponsorships as $sponsorship)
-                                <p>La sponsorizzazione termina: {{ $sponsorship->name }}: {{ $sponsorship->pivot->ending_date }}</p>
-                                @endforeach --}}
-                                @if ($building->sponsorships->isNotEmpty())
-                                 @php
-                                  $latestSponsorship = $building->sponsorships->last();
-                                 @endphp
-                                   <p>La sponsorizzazione termina: {{ $latestSponsorship->name }}: {{ $latestSponsorship->pivot->ending_date }}</p>
-                                @endif
-                                @else 
-                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                    <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button>
-                                </a>
-                                @endif
-                               
 
-                                <div class="py-3">
-                                    <span class="text-address fw-bolder">I servizi che troverai</span>
-                                    <div class="d-flex flex-wrap align-items-center gap-4 py-2">
-                                        @foreach($building->services as $service)
-                                            <div>
-                                                <img class="service-icon" src="{{ asset('storage/'. $service->icon)}}">
-                                            <span class="p-2">{{$service->name}}</span>
-                                            </div>
-                                        @endforeach
+                            {{-- corpo show card --}}
+                            <div class="card-option pt-4 ">
+
+                                <div class="show-info d-flex flex-column align-items-center">
+
+                                    {{-- indirizzo --}}
+                                    <div class="py-4 border position-relative mb-5 w-75 px-2">
+                                        <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-map-pin text-secondary"></i> Indirizzo
+                                        </span>
+    
+                                        <p class="text-center">
+                                             {{$building->address}}
+                                        </p>
+                                        
                                     </div>
-                                    <a href="{{route('admin.visits.show', $building->id)}}">Vedi le tue statistiche</a>
+                                    
+                                   <div class="py-3 border position-relative w-75 px-2 mb-5">
+
+                                        <span class="text-description fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-comment-dots text-secondary"></i> Descrizione dell'edificio 
+                                        </span> 
+
+                                        <p class="text-center"> {{$building->description}}
+                                        </p>
+
+                                   </div>
+
+                                   {{-- numero stanze ecc --}}
+                                    <div class="py-3 border position-relative w-75 px-2 mb-5">
+                                        
+                                            <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                                <i class="fa-solid fa-clipboard text-secondary"></i> 
+                                                Lo spazio 
+                                            </span>
+    
+                                        <div class="d-flex flex-column gap-3 ps-5">
+                
+                                            <span>
+                                                <b class="color-green">Numero stanze:</b> {{$building->rooms}}
+                                            </span>
+                
+                                            <span >
+                                                <b class="color-green">Numero bagni:</b> {{$building->bathrooms}}
+                                            </span>
+    
+                                            <span>
+                                                <b class="color-green">Numero letti:</b> {{$building->beds}}
+                                            </span>
+                
+                                            <span>
+                                                <b class="color-green">Metri quadrati:</b> {{$building->sqm}}
+                                            </span>
+                
+                                        </div>
+                                    </div>
+
+                                    {{-- available --}}
+                                    <div class="py-3 border position-relative w-75 px-2 mb-5">
+
+                                        <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-circle-exclamation text-secondary"></i>
+                                            Dispondibilità
+                                        </span>
+                                                    
+                                        <div class="ps-5">
+                                            @if ($building->available)
+                                                <span>Disponibile</span>
+                                            @else
+                                                <span>Non disponibile</span>
+                                            @endif
+                                        </div>
+
+                                    </div>
+                                
+                                    {{-- servizi --}}
+                                    <div class="py-4 border position-relative w-75 px-2 mb-5">
+
+                                        <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-bell-concierge text-secondary"></i>
+                                            Servizi
+                                        </span>
+
+                                        <div class="d-flex gap-4 py-2 justify-content-center">
+                                            @foreach($building->services as $service)
+                                                <div>
+                                                    <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
+                                                    <span class="p-2">{{$service->name}}
+                                                    </span>
+                                                </div>
+                                            @endforeach
+                                        </div>   
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="map-show-info">
+                                <div class="d-flex justify-content-center align-items-center">
+                                        <img class="icon-map" src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
+                                    <p id="address" class="mb-0 text-center">
+                                        {{ $building->address }}
+                                    </p>
                                 </div>
                                 <div class="d-flex flex-column align-items-center pt-3">
                                     <div id="map" class="map-container"></div>
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <img class="icon-map pt-4 me-4" src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
-                                    <p id="address" class="pt-5">{{ $building->address }}</p>
-                                    </div>
                                 </div>
+                            </div>
+
+
+                            {{-- sponsor e stats --}}
+                            <div class="d-flex justify-content-around align-items-center">
+                                <div>
+                                    {{-- Bottone sponsorizza --}}
+                                    @if        ($building->sponsorships->isNotEmpty())
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                            <button class="btn btn-sm sponsor-show-btn">
+                                                <b>Prolunga Sponsorizzazione</b>
+                                            </button>
+                                        </a>
+                                    @else 
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                            <button class="btn btn-sm sponsor-show-btn">
+                                                <b>Sponsorizza</b>
+                                            </button>
+                                        </a>
+                                    @endif
+                                </div>
+
+                                {{-- stats --}}
+                                <div class="show-building-stat">
+                                    <a href="{{route('admin.visits.show', $building->id)}}" >
+                                        <button class="btn btn-sm btn-secondary">
+                                            Visualizza Statistiche
+                                            <i class="fa-solid fa-square-poll-vertical" title="Visualizza Statistiche">
+                                            </i>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="sponsorship-show-info py-3 d-flex flex-column align-items-center">
+                                    @if ($building->sponsorships->isNotEmpty())
+                                    @php
+                                        $latestSponsorship = $building->sponsorships->last();
+                                    @endphp
+                                        <p class="mb-0">
+                                            <small>
+                                                Sponsorizzazione attiva <i class="fa-solid fa-arrow-right-long"></i>
+                                                <b>{{ $latestSponsorship->name }}</b>
+                                            </small>
+                                            
+                                        </p>
+                                        <p class="mb-0">
+                                            <small>Termina il <i class="fa-solid fa-arrow-right-long"></i> <b>{{$latestSponsorship->pivot->ending_date }}</b></small>
+                                        </p>
+                                    @endif
                             </div>
         
                         </div>

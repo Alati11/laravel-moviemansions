@@ -126,6 +126,10 @@ main {
     --bs-bg-opacity: 0;
 }
 
+.building-card {
+    position: relative;
+}
+
 
 /////////////////////////////////////////////////// Buttons
 
@@ -285,6 +289,123 @@ main {
 
 // Card-buttons index
 
+.sponsor-btn {
+    position: absolute;
+    bottom: -16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button {
+        width: 70%;
+    }
+}
+
+.btn-sponsor-index,
+.btn-sponsor-index *,
+.btn-sponsor-index :after,
+.btn-sponsor-index :before,
+.btn-sponsor-index:after,
+.btn-sponsor-index:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
+
+.btn-sponsor-index {
+    -webkit-tap-highlight-color: transparent;
+    background-color: white;
+    background-image: none;
+    color: #D3BF6B;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-sponsor-index:disabled {
+    cursor: default;
+}
+
+.btn-sponsor-index:-moz-focusring {
+    outline: auto;
+}
+
+.btn-sponsor-index svg {
+    display: block;
+}
+
+.btn-sponsor-index3 [hidden] {
+    display: none;
+}
+
+.btn-sponsor-index {
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: block;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 4px 6px;
+    position: relative;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+.btn-sponsor-index .original {
+    background: #D3BF6B;
+    color: white;
+    display: grid;
+    inset: 0;
+    place-content: center;
+    position: absolute;
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.btn-sponsor-index:hover .original {
+    transform: translateY(100%);
+}
+
+.btn-sponsor-index .letters {
+    display: inline-flex;
+}
+
+.btn-sponsor-index span {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+}
+
+.btn-sponsor-index span:nth-child(2n) {
+    transform: translateY(15px);
+}
+
+.btn-sponsor-index:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-sponsor-index:hover span:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.btn-sponsor-index:hover span:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.btn-sponsor-index:hover span:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.btn-sponsor-index:hover span:nth-child(5) {
+    transition-delay: 0.4s;
+}
+
+.btn-sponsor-index:hover span:nth-child(6) {
+    transition-delay: 0.5s;
+}
 
 
 
