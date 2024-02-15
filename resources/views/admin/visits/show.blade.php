@@ -1,24 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Le visite di {{$building->title}}</h1>
+    <h2 class="chart-title">Le statistiche di {{$building->title}}</h2>
     {{-- <p>{{$monthlyCountsNum}}</p> --}}
     <div class="chart-container mb-5">
-        <canvas class="container chart" id="visitsChart"></canvas>
-        <p class="chart-des">
-            <span>Le visite:</span>
-            Il primo numero in alto a sinistra rappresenta il massimo delle visite ricevute negli ultimi 3 giorni.
-            Vuoi ricevere più visite? Sponsorizza il tuo appartamento!
-        </p>
+        <canvas class=" chart" id="visitsChart"></canvas>
+        <div class="chart-des">
+            <span>Vuoi ricevere più visite? </span>
+            <img src="{{Vite::asset('resources/img/icons/chart-up.png')}}" alt="">
+        </div>
     </div>
 
     <div class="chart-container mb-5">
-        <p class="chart-des">
-            <span>I messaggi:</span>
-            Il primo numero in alto a sinistra rappresenta il massimo dei messaggi ricevuti negli ultimi 3 giorni.
-            Vuoi ricevere più messaggi? Sponsorizza il tuo appartamento!
-        </p>
-        <canvas class="container chart" id="msgChart"></canvas>
+        <div class="chart-des">
+            <img src="{{Vite::asset('resources/img/icons/coin-up.png')}}" alt="">
+            <span>Sponsorizza il tuo appartamento!</span>
+        </div>
+        <canvas class="chart" id="msgChart"></canvas>
         
     </div>
 
@@ -34,7 +32,9 @@
             datasets: [{
                 label: '# di visite',
                 data: arrayNum,
-                borderWidth: 1
+                borderWidth: 1,
+                borderColor: '#174447',
+                backgroundColor: '#5a8d8153'
                 }]
             },
             options: {
@@ -54,7 +54,9 @@
             datasets: [{
                 label: '# di messaggi',
                 data: arrayMsg,
-                borderWidth: 1
+                borderWidth: 1,
+                borderColor: '#174447',
+                backgroundColor: '#5a8d8153'
                 }]
             },
             options: {
