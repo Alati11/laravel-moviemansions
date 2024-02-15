@@ -51,61 +51,48 @@ class VisitController extends Controller
         $visits = Visit::where('building_id', $buildingId)->get();
 
         ////////VISITE///////
-        // conto di oggi
-        $visitsCountToday = Visit::where('building_id', $buildingId)
-        // ->whereDate('time',` $currentDate %%:%%:%%`)
-        ->where('time', '>=', $currentDate . ' 00:00:00')
-        ->where('time', '<=', $currentDate . ' 23:59:59')
-        ->get()
-        ->groupBy('ip_address');
-    
-        $IPCountToday = count($visitsCountToday);
 
-        //conto di ieri
-        $visitsCountYs = Visit::where('building_id', $buildingId)
-        ->where('time', '>=', $yesterdayDate . ' 00:00:00')
-        ->where('time', '<=', $yesterdayDate . ' 23:59:59')
-        ->get()
-        ->groupBy('ip_address');
-    
-        $IPCountYS = count($visitsCountYs);
+        $monthlyCountsNum = [];
 
-        //conto di 2gg fa
-        $visitsCount2gg = Visit::where('building_id', $buildingId)
-        ->where('time', '>=', $GG2Date . ' 00:00:00')
-        ->where('time', '<=', $GG2Date . ' 23:59:59')
-        ->get()
-        ->groupBy('ip_address');
-    
-        $IPCount2gg = count($visitsCount2gg);
+        $currentYear = Carbon::now()->year;
+
+        for ($i = 1; $i <= 12; $i++) {
+            // Calcola la data di inizio e fine del mese corrente
+            $startOfMonth = Carbon::createFromDate($currentYear, $i, 1)->format('Y-m-d');
+            $endOfMonth = Carbon::createFromDate($currentYear, $i, 1)->endOfMonth()->format('Y-m-d');
+
+            // Esegui la query per il conteggio delle visite nel mese corrente
+            $visitsCount = Visit::where('building_id', $buildingId)
+                ->where('time', '>=', $startOfMonth . ' 00:00:00')
+                ->where('time', '<=', $endOfMonth . ' 23:59:59')
+                ->get()
+                ->groupBy('ip_address')
+                ->count();
+
+            // Aggiungi il conteggio mensile all'array
+            $monthlyCountsNum[] = $visitsCount;
+        }
+        
 
         //////MESSAGGI////////
+        $monthlyMsgNum = [];
+
+        for ($i = 1; $i <= 12; $i++) {
+            // Calcola la data di inizio e fine del mese corrente
+            $startOfMonth = Carbon::createFromDate($currentYear, $i, 1)->format('Y-m-d');
+            $endOfMonth = Carbon::createFromDate($currentYear, $i, 1)->endOfMonth()->format('Y-m-d');
+
+            // Esegui la query per il conteggio delle visite nel mese corrente
+            $msgCount = Message::where('building_id', $buildingId)
+                ->where('created_at', '>=', $startOfMonth . ' 00:00:00')
+                ->where('created_at', '<=', $endOfMonth . ' 23:59:59')
+                ->count();
+            // Aggiungi il conteggio mensile all'array
+            $monthlyMsgNum[] = $msgCount;
+        }
+
         
-        //conto di oggi
-        $msgToday = Message::where('building_id', $buildingId)
-        ->where('created_at', '>=', $currentDate . ' 00:00:00')
-        ->where('created_at', '<=', $currentDate . ' 23:59:59')
-        ->get();
-    
-        $msgCountToday = count($msgToday);
-
-        //conto di ieri
-        $msgYs = Message::where('building_id', $buildingId)
-        ->where('created_at', '>=', $yesterdayDate . ' 00:00:00')
-        ->where('created_at', '<=', $yesterdayDate . ' 23:59:59')
-        ->get();
-    
-        $msgCountYS = count($msgYs);
-
-        //conto di 2gg fa
-        $msg2gg = Message::where('building_id', $buildingId)
-        ->where('created_at', '>=', $GG2Date . ' 00:00:00')
-        ->where('created_at', '<=', $GG2Date . ' 23:59:59')
-        ->get();
-    
-        $msgCount2gg = count($msg2gg);
-
-        return view('admin.visits.show', compact('building','visits', 'IPCountToday', 'IPCountYS', 'IPCount2gg', 'msgCountToday','msgCountYS', 'msgCount2gg' ));
+        return view('admin.visits.show', compact('building','visits', 'monthlyCountsNum', 'monthlyMsgNum' ));
     }
 
     /**
