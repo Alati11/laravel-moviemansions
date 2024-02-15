@@ -225,6 +225,11 @@
                                         <p class="mb-0">
                                             <small>Termina il <i class="fa-solid fa-arrow-right-long"></i> <b>{{$latestSponsorship->pivot->ending_date }}</b></small>
                                         </p>
+
+                                    @else 
+                                    <p class="mb-0">
+                                        <small>Nessuna sponsorizzazione attiva</small>
+                                    </p>
                                     @endif
                             </div>
         
