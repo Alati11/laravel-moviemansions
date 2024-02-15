@@ -67,76 +67,87 @@
                             </div>
 
 
-                            <div class="card-option">
+                            {{-- corpo show card --}}
+                            <div class="card-option pt-4 ">
 
-                                <div class="show-info">
-                                    <div class="py-3">
-                                        <span class="text-address fw-bolder">
-                                            <i class="fa-solid fa-map-pin"></i> Indirizzo
-                                            <i class="fa-solid fa-arrow-right-long"></i>
+                                <div class="show-info d-flex flex-column align-items-center">
+
+                                    {{-- indirizzo --}}
+                                    <div class="py-4 border position-relative mb-5 w-75 px-2">
+                                        <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-map-pin text-secondary"></i> Indirizzo
                                         </span>
     
-                                        <p class="ps-5">
+                                        <p class="text-center">
                                              {{$building->address}}
                                         </p>
+                                        
                                     </div>
                                     
-                                   <div class="py-3 w-50">
-                                        <span class="text-description fw-bolder"><i class="fa-solid fa-message"></i> Descrizione dell'edificio <i class="fa-solid fa-arrow-right-long"></i></span> 
-                                        <p class="ps-5"> {{$building->description}}</p>
+                                   <div class="py-3 border position-relative w-75 px-2 mb-5">
+
+                                        <span class="text-description fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-comment-dots text-secondary"></i> Descrizione dell'edificio 
+                                        </span> 
+
+                                        <p class="text-center"> {{$building->description}}
+                                        </p>
+
                                    </div>
-    
-                                    <div class="d-flex gap-2 flex-column">
-                                        <div class="">
-                                            <span class="text-address fw-bolder">
-                                                <i class="fa-solid fa-clipboard"></i> 
+
+                                   {{-- numero stanze ecc --}}
+                                    <div class="py-3 border position-relative w-75 px-2 mb-5">
+                                        
+                                            <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                                <i class="fa-solid fa-clipboard text-secondary"></i> 
                                                 Lo spazio 
-                                                <i class="fa-solid fa-arrow-right-long"></i>
                                             </span>
+    
+                                        <div class="d-flex flex-column gap-3 ps-5">
+                
+                                            <span>
+                                                <b class="color-green">Numero stanze:</b> {{$building->rooms}}
+                                            </span>
+                
+                                            <span >
+                                                <b class="color-green">Numero bagni:</b> {{$building->bathrooms}}
+                                            </span>
+    
+                                            <span>
+                                                <b class="color-green">Numero letti:</b> {{$building->beds}}
+                                            </span>
+                
+                                            <span>
+                                                <b class="color-green">Metri quadrati:</b> {{$building->sqm}}
+                                            </span>
+                
                                         </div>
                                     </div>
 
-                                    <div class="d-flex flex-column gap-3 ps-5">
-            
-                                        <span>
-                                            <b class="color-green">Numero stanze:</b> {{$building->rooms}}
-                                        </span>
-            
-                                        <span >
-                                            <b class="color-green">Numero bagni:</b> {{$building->bathrooms}}
-                                        </span>
+                                    {{-- available --}}
+                                    <div class="py-3 border position-relative w-75 px-2 mb-5">
 
-                                        <span>
-                                            <b class="color-green">Numero letti:</b> {{$building->beds}}
+                                        <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-circle-exclamation text-secondary"></i>
+                                            Dispondibilità
                                         </span>
-            
-                                        <span>
-                                            <b class="color-green">Metri quadrati:</b> {{$building->sqm}}
-                                        </span>
-            
-                                    </div>
+                                                    
+                                        <div class="ps-5">
+                                            @if ($building->available)
+                                                <span>Disponibile</span>
+                                            @else
+                                                <span>Non disponibile</span>
+                                            @endif
+                                        </div>
 
-                                    <div class="pt-4">
-                                        <span class="text-address fw-bolder">
-                                            <i class="fa-solid fa-circle-exclamation"></i>
-                                            Dispondibilità:
-                                            <i class="fa-solid fa-arrow-right-long"></i>
-                                        </span>
-                                    </div>
-                                                  
-                                    <div class="ps-5">
-                                        @if ($building->available)
-                                            <span>Disponibile</span>
-                                        @else
-                                            <span>Non disponibile</span>
-                                        @endif
                                     </div>
                                 
-                                    <div class="py-4">
-                                        <span class="text-address fw-bolder">
-                                            <i class="fa-solid fa-bell-concierge"></i>
+                                    {{-- servizi --}}
+                                    <div class="py-4 border position-relative w-75 px-2 mb-5">
+
+                                        <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
+                                            <i class="fa-solid fa-bell-concierge text-secondary"></i>
                                             Servizi
-                                            <i class="fa-solid fa-arrow-right-long"></i>
                                         </span>
 
                                         <div class="d-flex flex-column gap-2 py-2 ps-5">
@@ -150,51 +161,10 @@
                                         </div>   
                                     </div>
 
-                                    {{-- sponsor e stats --}}
-
-                                    <div class="d-flex justify-content-around py-4 align-items-center">
-                                        <div>
-                                            {{-- Bottone sponsorizza --}}
-                                            @if        ($building->sponsorships->isNotEmpty())
-                                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                                    <button class="btn btn-sm bg-primary text-light">
-                                                        <b>Prolunga Sponsorizzazione</b>
-                                                    </button>
-                                                </a>
-                                                {{-- @foreach ($building->sponsorships as $sponsorship)
-                                                    <p>La sponsorizzazione termina: {{ $sponsorship->name }}: {{ $sponsorship->pivot->ending_date }}
-                                                    </p>
-                                                @endforeach --}}
-                                            @if ($building->sponsorships->isNotEmpty())
-                                            @php
-                                                $latestSponsorship = $building->sponsorships->last();
-                                            @endphp
-                                                <p>La sponsorizzazione termina: {{ $latestSponsorship->name }}: {{$latestSponsorship->pivot->ending_date }}
-                                                </p>
-                                            @endif
-                                            @else 
-                                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                                    <button class="btn btn-sm bg-primary text-light">
-                                                        <b>Sponsorizza</b>
-                                                    </button>
-                                                </a>
-                                            @endif
-                                        </div>
-
-                                        {{-- stats --}}
-                                        <div class="show-building-stat">
-                                            <a href="{{route('admin.visits.show', $building->id)}}" >
-                                                <button class="btn btn-sm btn-secondary">
-                                                    Visualizza Statistiche
-                                                    <i class="fa-solid fa-square-poll-vertical" title="Visualizza Statistiche">
-                                                    </i>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
+
 
                             <div class="map-show-info">
                                 <div class="d-flex justify-content-center align-items-center">
@@ -205,6 +175,49 @@
                                 </div>
                                 <div class="d-flex flex-column align-items-center pt-3">
                                     <div id="map" class="map-container"></div>
+                                </div>
+                            </div>
+
+
+                            {{-- sponsor e stats --}}
+                            <div class="d-flex justify-content-around py-4 align-items-center">
+                                <div>
+                                    {{-- Bottone sponsorizza --}}
+                                    @if        ($building->sponsorships->isNotEmpty())
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                            <button class="btn btn-sm sponsor-show-btn">
+                                                <b>Prolunga Sponsorizzazione</b>
+                                            </button>
+                                        </a>
+                                        {{-- @foreach ($building->sponsorships as $sponsorship)
+                                            <p>La sponsorizzazione termina: {{ $sponsorship->name }}: {{ $sponsorship->pivot->ending_date }}
+                                            </p>
+                                        @endforeach --}}
+                                    {{-- @if ($building->sponsorships->isNotEmpty())
+                                    @php
+                                        $latestSponsorship = $building->sponsorships->last();
+                                    @endphp
+                                        <p>La sponsorizzazione termina: {{ $latestSponsorship->name }}: {{$latestSponsorship->pivot->ending_date }}
+                                        </p>
+                                    @endif
+                                    @else 
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                            <button class="btn btn-sm bg-primary text-light">
+                                                <b>Sponsorizza</b>
+                                            </button>
+                                        </a> --}}
+                                    @endif
+                                </div>
+
+                                {{-- stats --}}
+                                <div class="show-building-stat">
+                                    <a href="{{route('admin.visits.show', $building->id)}}" >
+                                        <button class="btn btn-sm btn-secondary">
+                                            Visualizza Statistiche
+                                            <i class="fa-solid fa-square-poll-vertical" title="Visualizza Statistiche">
+                                            </i>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
         
