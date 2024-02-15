@@ -38,13 +38,6 @@
                                         </i>
                                     </a>
                                 </div>
-
-                                <div>
-                                    <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                        <i class="fa-solid fa-handshake-simple" title="Sponsorizza">
-                                        </i>
-                                    </a>
-                                </div>
                             </div>
                             
                         </div>
@@ -105,16 +98,20 @@
 
                                     <div class="d-flex flex-column gap-3 ps-5">
             
-                                        <span class="color-green">
-                                            <b>Numero stanze:</b> {{$building->rooms}}
+                                        <span>
+                                            <b class="color-green">Numero stanze:</b> {{$building->rooms}}
                                         </span>
             
-                                        <span class="color-green">
-                                            <b>Numero bagni:</b> {{$building->bathrooms}}
+                                        <span >
+                                            <b class="color-green">Numero bagni:</b> {{$building->bathrooms}}
+                                        </span>
+
+                                        <span>
+                                            <b class="color-green">Numero letti:</b> {{$building->beds}}
                                         </span>
             
-                                        <span class="color-green">
-                                            <b>Metri quadrati:</b> {{$building->sqm}}
+                                        <span>
+                                            <b class="color-green">Metri quadrati:</b> {{$building->sqm}}
                                         </span>
             
                                     </div>
@@ -148,9 +145,51 @@
                                                     <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
                                                     <span class="p-2">{{$service->name}}
                                                     </span>
-                                                        </div>
-                                                    @endforeach
                                                 </div>
+                                            @endforeach
+                                        </div>   
+                                    </div>
+
+                                    {{-- sponsor e stats --}}
+
+                                    <div class="d-flex justify-content-around py-4 align-items-center">
+                                        <div>
+                                            {{-- Bottone sponsorizza --}}
+                                            @if        ($building->sponsorships->isNotEmpty())
+                                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                                    <button class="btn btn-sm bg-primary text-light">
+                                                        <b>Prolunga Sponsorizzazione</b>
+                                                    </button>
+                                                </a>
+                                                {{-- @foreach ($building->sponsorships as $sponsorship)
+                                                    <p>La sponsorizzazione termina: {{ $sponsorship->name }}: {{ $sponsorship->pivot->ending_date }}
+                                                    </p>
+                                                @endforeach --}}
+                                            @if ($building->sponsorships->isNotEmpty())
+                                            @php
+                                                $latestSponsorship = $building->sponsorships->last();
+                                            @endphp
+                                                <p>La sponsorizzazione termina: {{ $latestSponsorship->name }}: {{$latestSponsorship->pivot->ending_date }}
+                                                </p>
+                                            @endif
+                                            @else 
+                                                <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
+                                                    <button class="btn btn-sm bg-primary text-light">
+                                                        <b>Sponsorizza</b>
+                                                    </button>
+                                                </a>
+                                            @endif
+                                        </div>
+
+                                        {{-- stats --}}
+                                        <div class="show-building-stat">
+                                            <a href="{{route('admin.visits.show', $building->id)}}" >
+                                                <button class="btn btn-sm btn-secondary">
+                                                    Visualizza Statistiche
+                                                    <i class="fa-solid fa-square-poll-vertical" title="Visualizza Statistiche">
+                                                    </i>
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

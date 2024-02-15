@@ -92,7 +92,6 @@
                                         {{-- Sponsorship button --}}
                                     
                                             <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
-                                                {{-- <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button> --}}
                                                 <button class="btn-sponsor-index">
                                                     <div class="original">Sponsorizza</div>
                                                     <div class="letters">
