@@ -93,71 +93,66 @@
                                         <p class="ps-5"> {{$building->description}}</p>
                                    </div>
     
-                                            <div class="d-flex gap-2 flex-column">
-                                                <div class="">
-                                                    <span class="text-address fw-bolder">
-                                                        <i class="fa-solid fa-clipboard"></i> 
-                                                        Lo spazio 
-                                                        <i class="fa-solid fa-arrow-right-long"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex flex-column gap-3 ps-5">
+                                    <div class="d-flex gap-2 flex-column">
+                                        <div class="">
+                                            <span class="text-address fw-bolder">
+                                                <i class="fa-solid fa-clipboard"></i> 
+                                                Lo spazio 
+                                                <i class="fa-solid fa-arrow-right-long"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-3 ps-5">
             
-                                                    <span class="color-green">
-                                                        <b>Numero stanze:</b> {{$building->rooms}}
-                                                    </span>
+                                        <span class="color-green">
+                                            <b>Numero stanze:</b> {{$building->rooms}}
+                                        </span>
             
-                                                    <span class="color-green">
-                                                        <b>Numero bagni:</b> {{$building->bathrooms}}
-                                                    </span>
+                                        <span class="color-green">
+                                            <b>Numero bagni:</b> {{$building->bathrooms}}
+                                        </span>
             
-                                                    <span class="color-green">
-                                                        <b>Metri quadrati:</b> {{$building->sqm}}
-                                                    </span>
+                                        <span class="color-green">
+                                            <b>Metri quadrati:</b> {{$building->sqm}}
+                                        </span>
             
-                                                </div>
-                                            </div>
-            
-                                            <div class="pt-4">
-                                                <span class="text-address fw-bolder">
-                                                    <i class="fa-solid fa-circle-exclamation"></i>
-                                                    Dispondibilità:
-                                                    <i class="fa-solid fa-arrow-right-long"></i>
-                                                </span>
+                                    </div>
+
+                                    <div class="pt-4">
+                                        <span class="text-address fw-bolder">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            Dispondibilità:
+                                            <i class="fa-solid fa-arrow-right-long"></i>
+                                        </span>
+                                    </div>
                                                   
-                                                <div class="ps-5">
-                                                    @if ($building->available)
-                                                        <span>Disponibile</span>
-                                                    @else
-                                                        <span>Non disponibile</span>
-                                                    @endif
-                                                </div>
-                                                
-                                            </div>
-                                           
-                                            
-                                            {{-- <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                                <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button>
-                                            </a> --}}
-            
-                                            <div class="py-4">
-                                                <span class="text-address fw-bolder">
-                                                    <i class="fa-solid fa-bell-concierge"></i>
-                                                    Servizi
-                                                    <i class="fa-solid fa-arrow-right-long"></i>
-                                                </span>
-                                                <div class="d-flex flex-column gap-2 py-2 ps-5">
-                                                    @foreach($building->services as $service)
-                                                        <div>
-                                                            <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
-                                                        <span class="p-2">{{$service->name}}</span>
+                                    <div class="ps-5">
+                                        @if ($building->available)
+                                            <span>Disponibile</span>
+                                        @else
+                                            <span>Non disponibile</span>
+                                        @endif
+                                    </div>
+                                
+                                    <div class="py-4">
+                                        <span class="text-address fw-bolder">
+                                            <i class="fa-solid fa-bell-concierge"></i>
+                                            Servizi
+                                            <i class="fa-solid fa-arrow-right-long"></i>
+                                        </span>
+
+                                        <div class="d-flex flex-column gap-2 py-2 ps-5">
+                                            @foreach($building->services as $service)
+                                                <div>
+                                                    <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
+                                                    <span class="p-2">{{$service->name}}
+                                                    </span>
                                                         </div>
                                                     @endforeach
                                                 </div>
-            
-                                                {{-- <a href="{{route('admin.visits.show', $building->id)}}">Vedi le tue statistiche</a> --}}
-            
-                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
