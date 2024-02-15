@@ -73,9 +73,12 @@
                                             
     
                                             {{-- modify button --}}
-                                            <button class="btn btn-sm btn-warning btn-edit-index">
-                                                <b>Modifica</b>
-                                            </button>
+                                            <a href="{{route('admin.buildings.edit', $building->id)}}">
+                                                <button class="btn btn-sm btn-warning btn-edit-index">
+                                                    <b>Modifica</b>
+                                                </button>
+                                            </a>
+                                            
                                             
                                             {{-- delete button --}}
                                             <button class="btn btn-sm btn-danger btn-delete-building" type="button" data-bs-toggle="modal" data-bs-target="#modal-{{$building->id}}">
@@ -90,7 +93,7 @@
                                     
                                             <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
                                                 {{-- <button class="btn btn-sm bg-primary text-light"><b>Sponsorizza</b></button> --}}
-                                                <button class="btn-53">
+                                                <button class="btn-sponsor-index">
                                                     <div class="original">Sponsorizza</div>
                                                     <div class="letters">
                                                       

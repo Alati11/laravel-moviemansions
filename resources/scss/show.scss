@@ -2,7 +2,18 @@
     background-color: #96B7AE !important;
     color: white !important;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons-show-header {
+    display: flex;
+    gap: 24px;
+
+    i {
+        font-size: 20px;
+        cursor: pointer;
+    }
 }
 
 .img-show-cover {
@@ -10,8 +21,12 @@
     transition: trasmorm 0.2s;
 }
 
-.img-show-cover:hover {
-    transform: scale(1.1);
+.scrollable-column {
+    max-height: 660px;
+}
+
+.service-icon-show {
+    width: 16px;
 }
 
 .text-description,
@@ -27,6 +42,11 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.map-show-info {
+    padding-right: 70px;
+    padding-bottom: 100px;
+}
+
 .icon-map {
-    width: 50px;
+    width: 40px;
 }
