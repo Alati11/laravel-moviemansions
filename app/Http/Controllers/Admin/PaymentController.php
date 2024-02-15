@@ -11,6 +11,7 @@ use App\Models\Building;
 use App\Models\BuildingSponsorship;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class PaymentController extends Controller
 {
@@ -87,18 +88,43 @@ class PaymentController extends Controller
             $result->transaction;
         }
 
-
-        $currentDate = date("Y-m-d H:i:s");
-        $currentDateMin = date("Y-m-d H:i:s", strtotime('+' . $sponsorship->duration . 'hours', strtotime($currentDate)));
-
         if ($result) {
+
+            $currentDate = Carbon::now();
+
+            
+            // $currentEndDate = BuildingSponsorship::where('building_id', $buildingId)->max('ending_date');
+            
+            
+            // Verifica se ci sono sponsorizzazioni precedenti per il building
+            $existSponsorship = BuildingSponsorship::where('building_id', $buildingId)
+            ->where('sponsorship_id', $sponsorshipId)
+            ->orderBy('ending_date', 'desc')
+            ->first();
+    
+            if ($existSponsorship) {
+                // Se esiste una sponsorizzazione precedente, prolunga la sponsorizzazione
+                $newStartDate = Carbon::parse($existSponsorship->ending_date);
+            } else {
+                // Altrimenti, inizia una nuova sponsorizzazione dalla data attuale
+                $newStartDate = Carbon::now();
+            }
+
+            // Calcolo la nuova data di fine della sponsorizzazione
+            $newEndDate = $newStartDate->copy()->addHours($sponsorship->duration);
+
+
+
             $building_sponsorship = new BuildingSponsorship();
             $building_sponsorship->building_id = $buildingId;
             $building_sponsorship->sponsorship_id = $sponsorshipId;
-            $building_sponsorship->starting_date = $currentDate;
-            $building_sponsorship->ending_date = $currentDateMin;
+            $building_sponsorship->starting_date = $newStartDate;
+            $building_sponsorship->ending_date = $newEndDate;
             $building_sponsorship->save();
         }
+
+        // Elimina le sponsorizzazioni scadute
+        BuildingSponsorship::where('ending_date', '<', Carbon::now())->delete();
 
         return response()->json($result);
     }
