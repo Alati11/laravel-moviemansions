@@ -150,7 +150,7 @@
                                             Servizi
                                         </span>
 
-                                        <div class="d-flex flex-column gap-2 py-2 ps-5">
+                                        <div class="d-flex gap-4 py-2 justify-content-center">
                                             @foreach($building->services as $service)
                                                 <div>
                                                     <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
@@ -169,7 +169,7 @@
                             <div class="map-show-info">
                                 <div class="d-flex justify-content-center align-items-center">
                                         <img class="icon-map" src="{{Vite::asset('resources/img/icons/maps.png')}}" alt="">
-                                    <p id="address" class="mb-0 w-50 text-center">
+                                    <p id="address" class="mb-0 text-center">
                                         {{ $building->address }}
                                     </p>
                                 </div>
@@ -180,7 +180,7 @@
 
 
                             {{-- sponsor e stats --}}
-                            <div class="d-flex justify-content-around py-4 align-items-center">
+                            <div class="d-flex justify-content-around align-items-center">
                                 <div>
                                     {{-- Bottone sponsorizza --}}
                                     @if        ($building->sponsorships->isNotEmpty())
@@ -189,23 +189,12 @@
                                                 <b>Prolunga Sponsorizzazione</b>
                                             </button>
                                         </a>
-                                        {{-- @foreach ($building->sponsorships as $sponsorship)
-                                            <p>La sponsorizzazione termina: {{ $sponsorship->name }}: {{ $sponsorship->pivot->ending_date }}
-                                            </p>
-                                        @endforeach --}}
-                                    {{-- @if ($building->sponsorships->isNotEmpty())
-                                    @php
-                                        $latestSponsorship = $building->sponsorships->last();
-                                    @endphp
-                                        <p>La sponsorizzazione termina: {{ $latestSponsorship->name }}: {{$latestSponsorship->pivot->ending_date }}
-                                        </p>
-                                    @endif
                                     @else 
                                         <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">
-                                            <button class="btn btn-sm bg-primary text-light">
+                                            <button class="btn btn-sm sponsor-show-btn">
                                                 <b>Sponsorizza</b>
                                             </button>
-                                        </a> --}}
+                                        </a>
                                     @endif
                                 </div>
 
@@ -219,6 +208,24 @@
                                         </button>
                                     </a>
                                 </div>
+                            </div>
+
+                            <div class="sponsorship-show-info py-3 d-flex flex-column align-items-center">
+                                    @if ($building->sponsorships->isNotEmpty())
+                                    @php
+                                        $latestSponsorship = $building->sponsorships->last();
+                                    @endphp
+                                        <p class="mb-0">
+                                            <small>
+                                                Sponsorizzazione attiva <i class="fa-solid fa-arrow-right-long"></i>
+                                                <b>{{ $latestSponsorship->name }}</b>
+                                            </small>
+                                            
+                                        </p>
+                                        <p class="mb-0">
+                                            <small>Termina il <i class="fa-solid fa-arrow-right-long"></i> <b>{{$latestSponsorship->pivot->ending_date }}</b></small>
+                                        </p>
+                                    @endif
                             </div>
         
                         </div>
