@@ -2,10 +2,7 @@
 @section('content')
 
 <div class="container">
-    <div class="d-flex align-items-center justify-content-between">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Profile') }}
-        </h2>
+    <div class="d-flex align-items-center justify-content-end py-4">
 
         <span class="logout-image">
             <a href="{{ route('logout') }}" onclick="event.preventDefault();

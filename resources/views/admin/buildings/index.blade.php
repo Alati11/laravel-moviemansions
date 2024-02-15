@@ -14,9 +14,13 @@
             <div class="row">
                 {{-- Se ci sono appartamenti --}}
                 @if ($buildings->count() > 0)
-                <div class="pt-5 d-flex justify-content-center index-header align-items-center gap-3">
-                    <h2 class="text-secondary mb-0">I tuoi immobili</h2>
-                    <img class="pb-4" src="{{Vite::asset('resources/img/icons/my-mansions.png')}}" alt="">
+                <div class="pt-5 d-flex index-header align-items-center justify-content-end gap-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                        <p>
+                            <small class="mb-0 title-section">I tuoi immobili</small>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="d-flex flex-wrap justify-content-center row-gap-5 py-5">
