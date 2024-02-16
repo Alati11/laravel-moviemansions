@@ -1,42 +1,45 @@
+// .chart-title {
+//     text-align: center;
+//     margin-bottom: 30px;
+//     padding: 10px; 
+//     color: gray; 
+// }
 
-.chart-title {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 10px; 
-    color: gray; 
+.stats-img img {
+    width: 50px;
 }
 
 .chart-container {
     max-width: 90%;
-    display: flex; 
-    align-items: center; 
-    margin: 0 auto; 
-    gap: 10px; 
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 10px;
 
     .chart {
-        max-height: 500px; 
-        max-width: 80%; 
-        font-size: 15px; 
-        font-weight: 300; 
+        max-height: 500px;
+        max-width: 80%;
+        font-size: 15px;
+        font-weight: 300;
     }
 }
 
 .chart-des {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    max-width: 20%; 
-    gap: 10px; 
-    padding: 20px; 
+    max-width: 20%;
+    gap: 10px;
+    padding: 20px;
 
     span {
         text-align: center;
-        max-width: 100%; 
-        font-size: 20px; 
+        max-width: 100%;
+        font-size: 20px;
         font-weight: 500;
     }
 
     i {
-        font-size: 30px; 
-        color : #5B8E81;
+        font-size: 30px;
+        color: #5B8E81;
     }
 }

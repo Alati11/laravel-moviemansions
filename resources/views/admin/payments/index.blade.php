@@ -35,11 +35,12 @@
     </div>
 
     <div class="d-flex flex-column align-items-center">
-        <div id="dropin-container" class="w-50"></div>
 
-        <button id="submit-button" class="payment-btn">
-            <span>Conferma pagamento</span>
-        </button>        
+      <div id="dropin-container" class="w-50"></div>
+
+      <button id="submit-button" class="payment-btn">
+        <span>Conferma pagamento</span>
+      </button>        
     </div>
   
 </section>

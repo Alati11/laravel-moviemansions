@@ -96,30 +96,37 @@
     
                                         </div>
     
-                                        <p class="card-text"><small class="text-body-secondary">Ultima Modifica: {{$building->updated_at}} </small></p>
+                                        <p class="card-text-index">
+                                            <small class="text-body-secondary">Ultima Modifica: {{ \Carbon\Carbon::parse($building->updated_at)->format('d F Y H:i') }}</small>
+                                        </p>
     
-                                        {{-- Sponsorship button --}}
-                                    
-                                            <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
-                                                <button class="btn-sponsor-index">
-                                                    <div class="original">Sponsorizza</div>
-                                                    <div class="letters">
-                                                      
-                                                      <span>S</span>
-                                                      <span>p</span>
-                                                      <span>o</span>
-                                                      <span>n</span>
-                                                      <span>s</span>
-                                                      <span>o</span>
-                                                      <span>r</span>
-                                                      <span>i</span>
-                                                      <span>z</span>
-                                                      <span>z</span>
-                                                      <span>a</span>
-                                                    </div>
-                                                </button>
-                                            </a>
                                         
+                                        @if        ($building->sponsorships->isNotEmpty())
+                                            <div>
+                                                <span class="badge rounded-pill sponsor-badge position-absolute  text-bg-success ">Sponsor attiva</span>
+                                            </div>
+                                        @endif
+
+                                        {{-- Sponsorship button --}}
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
+                                            <button class="btn-sponsor-index">
+                                                <div class="original">Sponsorizza</div>
+                                                <div class="letters">
+                                                      
+                                                    <span>S</span>
+                                                    <span>p</span>
+                                                    <span>o</span>
+                                                    <span>n</span>
+                                                    <span>s</span>
+                                                    <span>o</span>
+                                                    <span>r</span>
+                                                    <span>i</span>
+                                                    <span>z</span>
+                                                    <span>z</span>
+                                                    <span>a</span>
+                                                </div>
+                                            </button>
+                                        </a>
                                         
                                     </div> 
                                 </div>

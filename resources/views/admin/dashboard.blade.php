@@ -4,6 +4,13 @@
 <div class="container">
     
     <div class="row justify-content-center py-5">
+        <div class="pb-5 d-flex justify-content-end">
+            <div class="d-flex flex-column align-items-center dash-img-header">
+                <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
+                <small>Dashboard</small>
+            </div>
+        </div>
+
         <div class="col">
             <div class="card card-dash">
                 <div class="card-header-dash card-title-dash"> <b>{{ __('In questa sezione puoi') }}</b></div>
@@ -14,8 +21,6 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
-                        {{-- {{ __('Benvenuto nel tuo pannello di controllo!') }} --}}
 
                     <div class="d-flex card-option">
                         <p class="card-text">Modificare le impostazioni del tuo profilo <span class="dash-arrow">&RightArrow;</span></p>

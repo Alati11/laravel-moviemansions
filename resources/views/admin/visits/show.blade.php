@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="chart-title">Le statistiche di {{$building->title}}</h2>
+    <div class="container py-5">
+        <div class="d-flex justify-content-end stats-img">
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{Vite::asset('resources/img/icons/coin-up.png')}}" alt="">
+            <p>
+                <small class="color-green chart-title">Le statistiche di {{$building->title}}</small>
+            </p>
+            </div>
+        </div>
+    </div>
+    
     {{-- <p>{{$monthlyCountsNum}}</p> --}}
     <div class="chart-container mb-5">
         <canvas class=" chart" id="visitsChart"></canvas>

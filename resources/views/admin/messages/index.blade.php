@@ -2,7 +2,13 @@
 
 @section('content')
 <section class="section-msg">
-    <h1 class="title-msg" >Messaggi</h1>
+    <div class="py-5 d-flex justify-content-end">
+        <div class="d-flex flex-column align-items-center messages-img">
+            <img src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
+            <small class="title-msg">Messaggi</small>
+        </div>
+    </div>
+    
     @foreach ($buildings as $building)
         <div class="building-wrap">
             <h4 class="accordion-title">
@@ -51,7 +57,6 @@
                 <p>Non hai ancora ricevuto messaggi per questo edificio! 
                     <i class="fa-solid fa-heart-crack"></i>
                 <p>
-                <p> <span class="spons-link">Sponsorizza il tuo appartamento</span> per aumentare la visibilità dell'annuncio</p>
             </div>
             @endif
         </div>
