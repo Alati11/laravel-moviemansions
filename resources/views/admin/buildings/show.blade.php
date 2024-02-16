@@ -196,10 +196,40 @@
                                             </button>
                                         </a>
                                     @endif
+                                    {{-- Countdown --}}
+                                    <div class="col-12 sponsorship-show-info py-3 d-flex flex-column">
+                                        @if ($building->sponsorships->isNotEmpty())
+                                            @php
+                                                $latestSponsorship = $building->sponsorships->last();
+                                            @endphp
+                                                <p class="mb-0">
+                                                    <small>
+                                                        Sponsorizzazione attiva
+                                                    </small>
+                                                    
+                                                </p>
+                                                {{-- <p class="mb-0">
+                                                    <small>Termina il <i class="fa-solid fa-arrow-right-long"></i> <b>{{ \Carbon\Carbon::parse($latestSponsorship->pivot->ending_date)->format('d F Y H:i') }}</b></small>
+                                                </p> --}}
+                                                
+                                                <div id="countdown"></div>
+    
+                                            @php
+                                                $endingDate = $latestSponsorship->pivot->ending_date;
+                                                $now = now();
+                                                $remainingTimeInSeconds = max(Carbon\Carbon::parse($endingDate)->diffInSeconds($now), 0);
+                                            @endphp
+    
+                                        @else 
+                                        <p class="mb-0">
+                                            <small>Nessuna sponsorizzazione attiva</small>
+                                        </p>
+                                        @endif
+                                </div>
                                 </div>
 
                                 {{-- stats --}}
-                                <div class="show-building-stat">
+                                <div class="show-building-stat align-self-start">
                                     <a href="{{route('admin.visits.show', $building->id)}}" >
                                         <button class="btn btn-sm btn-secondary">
                                             Visualizza Statistiche
@@ -209,30 +239,6 @@
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="sponsorship-show-info py-3 d-flex flex-column align-items-center">
-                                    @if ($building->sponsorships->isNotEmpty())
-                                    @php
-                                        $latestSponsorship = $building->sponsorships->last();
-                                    @endphp
-                                        <p class="mb-0">
-                                            <small>
-                                                Sponsorizzazione attiva <i class="fa-solid fa-arrow-right-long"></i>
-                                                <b>{{ $latestSponsorship->name }}</b>
-                                            </small>
-                                            
-                                        </p>
-                                        <p class="mb-0">
-                                            <small>Termina il <i class="fa-solid fa-arrow-right-long"></i> <b>{{$latestSponsorship->pivot->ending_date }}</b></small>
-                                        </p>
-
-                                    @else 
-                                    <p class="mb-0">
-                                        <small>Nessuna sponsorizzazione attiva</small>
-                                    </p>
-                                    @endif
-                            </div>
-        
                         </div>
                     </div>
                 </div>
@@ -245,9 +251,39 @@
 @section('javascript')
 
     <script>
+    // Funzione countdown
+    function formatCountdown(timeInSeconds) {
+        var days = Math.floor(timeInSeconds / (3600 * 24));
+        var hours = Math.floor((timeInSeconds % (3600 * 24)) / 3600);
+        var minutes = Math.floor((timeInSeconds % 3600) / 60);
+        var seconds = Math.floor(timeInSeconds % 60);
+
+        return days + ' giorni ' + hours + ' ore ' + minutes + ' minuti ' + seconds + ' secondi';
+    }
+
+    // Countdown
+    var remainingTimeInSeconds = {{ $remainingTimeInSeconds ?? 0 }};
+    var countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+        remainingTimeInSeconds--;
+
+        if (remainingTimeInSeconds >= 0) {
+            countdownElement.innerHTML = formatCountdown(remainingTimeInSeconds);
+            setTimeout(updateCountdown, 1000);
+        } else {
+            countdownElement.innerHTML = 'Scaduto';
+        }
+    }
+
+    updateCountdown();
         const apiKey = 'pqHD68XXAijUehCtM4HFFAVamZjQMA1W';
         const addressElement = document.getElementById('address');
         const address = addressElement.textContent || addressElement.innerText;
+
+    // Fine funzione
+
+
         console.log(address);
         const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address)}.json?key=${apiKey}`;
         console.log(url);
