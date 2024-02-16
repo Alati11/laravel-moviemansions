@@ -235,7 +235,7 @@ class BuildingSeeder extends Seeder
 
             [
                 'title' => "Hatfield House: il set preferito di Hollywood ",
-                'user_id' => 9,
+                'user_id' => 3,
                 'rooms' => 223,
                 'beds' => 200,
                 'description' => "Con le sue 223 stanze Hatfield House ha in passato fatto da sfondo a diverse pellicole e serie tv, oltre settanta in totale, conquistando registi e scenografi. Solo nel 2020 Hatfield House è apparsa in pellicole di grande successo come Enola Holmes con Millie Bobbie Brown e ‘the Crown’, ma negli anni precedenti aveva ospitato anche ‘Lara Croft: Tomb Raider, V per vendetta, più di un Batman e Mortdecai, oltre che in diverse pellicole dirette tra Tim Burton tra cui La Fabbrica di Cioccolato e Il mistero di Sleepy Hollow.",
@@ -331,7 +331,7 @@ class BuildingSeeder extends Seeder
 
             [
                 'title' => 'Ghostbusters - Stazione dei vigili del fuoco',
-                'user_id' => 9,
+                'user_id' => 8,
                 'rooms' => 40,
                 'beds' => 20,
                 'description' => "Non è proprio una abitazione, ma una stazione dei vigili del fuoco e si trova a Manhattan. Impossibile non riconoscerla: è il quartier generale degli acchiappafantasmi di «Ghostbuster», nel film del 1984. Pur essendo ancora in funzione, ospita spesso incontri e convention a tema, diventando temporaneamente una residenza per circa 20 persone.",
