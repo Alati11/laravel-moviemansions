@@ -136,7 +136,7 @@ class VisitSeeder extends Seeder
             ],
             [
                 "building_id" => 1,
-                "time" => "2024-01-18:45:30",
+                "time" => "2024-01-03 18:45:30",
                 "ip_address" => "192.168.8.91"
             ],
             [
