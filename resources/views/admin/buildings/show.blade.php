@@ -150,7 +150,7 @@
                                             Servizi
                                         </span>
 
-                                        <div class="d-flex gap-4 py-2 justify-content-center">
+                                        <div class="d-flex flex-wrap gap-4 py-2 justify-content-center">
                                             @foreach($building->services as $service)
                                                 <div>
                                                     <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
