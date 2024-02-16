@@ -11,23 +11,14 @@
 
 // carosello
 
+.progress {
+    --bs-progress-bg: #D3BF6A !important;
+    --bs-progress-bar-bg: #598C80 !important;
+}
+
 .progress-bar-create {
     padding: 26px 0;
-
-    .progress-bar-info {
-        padding: 4px;
-
-        .check {
-            font-size: 20px;
-        }
-    }
 }
-
-.field-done {
-    color: grey;
-}
-
-
 
 .create-section {
     padding: 20px;
@@ -61,7 +52,6 @@
 }
 
 
-
 .slider-btns {
     display: flex;
     gap: 26px;
@@ -89,43 +79,72 @@
 }
 
 
-// create building button
-
-.create-building-btn {
-    padding: 0.1em 0.25em;
-    width: 13em;
-    height: 3.2em;
-    background-color: #5B8D81;
-    border: 0.08em solid #fff;
-    border-radius: 0.3em;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.create-building-btn span {
+.button-create-ann {
     position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.2rem;
+    padding-inline: 1.1rem;
+    background-color: #5A8D81;
+    border-radius: 9999px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    bottom: 0.4em;
-    width: 8.25em;
-    height: 1.5em;
-    background-color: #5B8D81;
-    border-radius: 0.2em;
-    font-size: 1.5em;
-    color: #fff;
-    border: 0.08em solid #fff;
-    box-shadow: 0 0.3em 0.1em 0.019em #D3BF6A;
+    justify-content: center;
+    cursor: pointer;
+    color: #ffff;
+    gap: 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
 }
 
-.create-building-btn span:hover {
-    transition: all 0.5s;
-    transform: translate(0, 0.4em);
-    box-shadow: 0 0 0 0 #fff;
+.icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
 }
 
-.create-building-btn span:not(hover) {
-    transition: all 1s;
+.button-create-ann:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+}
+
+.button-create-ann:hover .icon {
+    transform: translate(4px);
+}
+
+.button-create-ann:hover::before {
+    animation: shine 1.5s ease-out infinite;
+}
+
+.button-create-ann::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0) 70%);
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+}
+
+@keyframes shine {
+    0% {
+        left: -100px;
+    }
+
+    60% {
+        left: 100%;
+    }
+
+    to {
+        left: 100%;
+    }
 }
 
 // Responsive

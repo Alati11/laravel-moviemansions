@@ -3,7 +3,7 @@
 @section('content')
     <section>
         @if(session()->has('message_destroy'))
-            <div class="container p-2 w-50 mx-auto">
+            <div class="container p-4 w-50 mx-auto">
                 <div class="alert alert-danger text-center">
                     <i class="fa-solid fa-circle-check"></i>
                     {{ session()->get('message_destroy') }}
@@ -12,8 +12,6 @@
         @endif
         <div class="container">
             <div class="row">
-                {{-- Se ci sono appartamenti --}}
-                @if ($buildings->count() > 0)
                 <div class="pt-5 d-flex index-header align-items-center justify-content-end gap-3">
                     <div class="d-flex flex-column align-items-center">
                         <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
@@ -22,6 +20,9 @@
                         </p>
                     </div>
                 </div>
+                
+                {{-- Se ci sono appartamenti --}}
+                @if ($buildings->count() > 0)
 
                 <div class="d-flex flex-wrap justify-content-center row-gap-5 py-5">
                     @foreach ($buildings as $building)
@@ -104,10 +105,28 @@
                                         @if        ($building->sponsorships->isNotEmpty())
                                             <div>
                                                 <span class="badge rounded-pill sponsor-badge position-absolute  text-bg-success ">Sponsor attiva</span>
-                                            </div>
+                                            </div>    
                                         @endif
 
                                         {{-- Sponsorship button --}}
+                                        @if        ($building->sponsorships->isNotEmpty())
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
+                                            <button class="btn-sponsor-index">
+                                                <div class="original">Estendi</div>
+                                                <div class="letters">
+                                                      
+                                                    <span>E</span>
+                                                    <span>s</span>
+                                                    <span>t</span>
+                                                    <span>e</span>
+                                                    <span>n</span>
+                                                    <span>d</span>
+                                                    <span>i</span>
+                                                </div>
+                                            </button>
+                                        </a>
+                                
+                                        @else
                                         <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
                                             <button class="btn-sponsor-index">
                                                 <div class="original">Sponsorizza</div>
@@ -127,7 +146,7 @@
                                                 </div>
                                             </button>
                                         </a>
-                                        
+                                        @endif
                                     </div> 
                                 </div>
                             </div>
@@ -138,7 +157,16 @@
                 {{-- Se non ci sono appartamenti --}}
                 @else
                 <div class="col-9 d-flex flex-column justify-content-center align-items-center py-5">
-                    <h3 class="pb-4">Non hai ancora registrato nessun appartamento, inizia ora!</h3>
+
+                    <div class="info mb-5 info-no-buildings">
+                        <div class="info__icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m12 1.5c-5.79844 0-10.5 4.70156-10.5 10.5 0 5.7984 4.70156 10.5 10.5 10.5 5.7984 0 10.5-4.7016 10.5-10.5 0-5.79844-4.7016-10.5-10.5-10.5zm.75 15.5625c0 .1031-.0844.1875-.1875.1875h-1.125c-.1031 0-.1875-.0844-.1875-.1875v-6.375c0-.1031.0844-.1875.1875-.1875h1.125c.1031 0 .1875.0844.1875.1875zm-.75-8.0625c-.2944-.00601-.5747-.12718-.7808-.3375-.206-.21032-.3215-.49305-.3215-.7875s.1155-.57718.3215-.7875c.2061-.21032.4864-.33149.7808-.3375.2944.00601.5747.12718.7808.3375.206.21032.3215.49305.3215.7875s-.1155.57718-.3215.7875c-.2061.21032-.4864.33149-.7808.3375z"></path></svg>
+                        </div>
+                        <div class="info__title">
+                            <b>Non hai ancora registrato nessun appartamento!</b>
+                        </div>
+                    </div>
+
                     <a href="{{route('admin.buildings.create')}}">
                         <button class="register-btn">
                             Registrane uno
@@ -146,11 +174,11 @@
                                 <div class="arrow"></div>
                             </div>
                         </button>
-                    </a>
-                    
+                    </a>       
                 </div>
                 @endif
             </div>
         </div>
     </section>
 @endsection
+

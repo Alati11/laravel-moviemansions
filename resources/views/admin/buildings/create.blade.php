@@ -13,27 +13,15 @@
             </div>
         </div>
 
-        <div class="progress-bar-create d-flex justify-content-center gap-4">
-            <div class="progress-bar-info">
-                <span id="first-num">Titolo e Immagini</span>
-                <span class="d-none check" id="first-check"><i class="fa-solid fa-circle-check color-green"></i></span>
-            </div>
-            
-            <div class="progress-bar-info">
-                <span id="second-num">Indirizzo e Descrizione</span>
-                <span class="d-none check" id="second-check"><i class="fa-solid fa-circle-check"></i></span>
-            </div>
+        {{-- progress-bar --}}
 
-            <div class="progress-bar-info">
-                <span id="third-num">Informazioni Generali</span>
-                <span class="d-none check" id="third-check"><i class="fa-solid fa-circle-check"></i></span>
-            </div>
-
-            <div class="progress-bar-info">
-                <span id="fourth-num">Crea Annuncio</span>
-                <span class="d-none check" id="fourth-check"><i class="fa-solid fa-circle-check"></i></span>
+        <div class="py-4">
+            <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 3px">
+                <div class="progress-bar" style="width: 3%" id="progress-bar-create"></div>
             </div>
         </div>
+        
+        
 
 
         <form action="{{route('admin.buildings.store')}}" method="POST" enctype="multipart/form-data">
@@ -195,33 +183,52 @@
             
         
 
-            {{-- sezione Sponsorizzazione --}}
+            {{--Ultima sezione --}}
             <div class="create-section last-section" data-index="3">
 
-                <div class="information">
-                    <p class="mb-0">
-                        Qual'è il modo migliore per avere più visualizzazioni al proprio immobile?
-                    </p>
-                    <p class="mb-0">
-                        Acquistando una sponsorizzazione avrai il tuo alloggio in evidenza, questo vuol dire che qualunque utente voglia affittare un appartamento vedrà il tuo annuncio tra i primi risultati!  
-                    </p>
-                    <p class="mb-0">
-                        Se vuoi capire quale tipo di sponsorizzazione fa al caso tuo, da un occhio ai <a href="" class="text-primary">tipi di sponsorizzazione.</a>
-                    </p>
+                
 
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        
+                        <div class="information d-flex flex-column h-100 justify-content-center">
+
+                            <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                <h2 class="color-green pb-4 text-center">Sei <span class="color-gold">pronto</span> per <span class="color-gold">partire</span> con <span class="color-gold">Movie</span> <span class="color-green">Mansion</span></h2>
+        
+                            <p class="mb-0">
+                                Se hai controllato bene tutte le sezioni precedenti è il momento di creare il tuo annuncio e rendere <b>visibile</b> agli occhi di tutti il tuo immobile!
+                            </p>
+                            </div>
+                            
+        
+                            <p class="mb-0 flex-grow-1 d-flex flex-column justify-content-end">
+                                <small>
+                                    Cliccando su <b>Crea Annuncio</b> acconsenti a rendere visibili e pubbliche tutte le informazioni correlate all'immobile e al trattamento dei tuoi dati secondo l'<b>articolo 4</b> del Regolamento Europeo.
+                                </small>
+                            </p>
+        
+                        </div>
+                    </div>
+
+                    <div class="col-8 pb-5">
+                        <img src="{{Vite::asset('resources/img/create-last-img.png')}}" alt="" class="img-fluid">
+                    </div>
                 </div>
 
-                <select name="sponsorship_id" class="form-control my-3" id="sponsorship_id">
-                    <option value="">Scegli una Sponsorizzazione (Opzionale)</option>
-                    @foreach($sponsorships as $sponsorship)
-                        <option @selected(old('sponsorship_id') == $sponsorship->id) value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>
-                    @endforeach
-                </select>
-
                 <div class="form-button">
-                    <button type="submit" id="form-btn" class="create-building-btn">
-                        <span> Crea annuncio </span>
-                    </button>
+                
+                    <button class="button-create-ann" type="submit" id="form-btn">
+                        Crea Annuncio
+                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                          <path
+                            clip-rule="evenodd"
+                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+                      
                 </div>
         
             </div>
@@ -262,16 +269,7 @@
 
     //progress bar
 
-    //checks
-    const firstCheck = document.getElementById('first-check');
-    const secondCheck = document.getElementById('second-check');
-    const thirdCheck = document.getElementById('third-check');
-    const fourthCheck = document.getElementById('fourth-check');
-    //nums
-    const firstNum = document.getElementById('first-num');
-    const secondNum = document.getElementById('second-num');
-    const thirdNum = document.getElementById('third-num');
-    const fourthNum = document.getElementById('fourth-num');
+    const progressBar = document.getElementById('progress-bar-create');
 
 
 
@@ -309,16 +307,19 @@
                 prevBtn.classList.remove('d-none')
 
                 if(currentSectionIndex === 1) {
-                    firstNum.classList.add('field-done')
-                    firstCheck.classList.remove('d-none')
+
+                    progressBar.style.width = "33%";
+
                 } else if(currentSectionIndex === 2) {
-                    secondNum.classList.add('field-done')
-                    secondCheck.classList.remove('d-none')
+
+                    progressBar.style.width = "66%";
+
                 } else if(currentSectionIndex === 3) {
-                    thirdNum.classList.add('field-done')
-                    thirdCheck.classList.remove('d-none')
+
+                    progressBar.style.width = "99%";
+
                 }
-                
+    
             }
 
             if (currentSectionIndex === sections.length - 1 ) {
@@ -341,6 +342,20 @@
                 prevBtn.classList.add('d-none')
                 sliderBtns.classList.remove('justify-content-between')
                 sliderBtns.classList.add('justify-content-end')
+            } 
+
+            if(currentSectionIndex === 0) {
+
+                progressBar.style.width = "3%";
+
+            } else if(currentSectionIndex === 1) {
+
+                progressBar.style.width = "33%";
+
+            } else if(currentSectionIndex === 2) {
+
+                progressBar.style.width = "66%";
+
             } 
 
         });

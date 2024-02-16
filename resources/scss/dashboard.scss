@@ -11,7 +11,7 @@
 }
 
 .card-title-dash {
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     color: white;
     background-color: #96B7AE;
@@ -22,7 +22,7 @@
 }
 
 .card-text {
-    font-size: 20px;
+    font-size: 16px;
     margin-right: 20px;
 
 }
@@ -32,9 +32,12 @@
     color: gray;
 }
 
-.icon {
-    width: 32px;
+.dash-icon {
+    .icon {
+        width: 24px;
+    }
 }
+
 
 .card-option {
     padding: 14px;

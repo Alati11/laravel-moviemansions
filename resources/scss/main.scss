@@ -112,6 +112,10 @@ main {
     }
 }
 
+.info.info-no-buildings {
+    background-color: #ADC5BC;
+}
+
 
 .create-header {
     display: flex;
@@ -247,7 +251,7 @@ main {
     border: 0;
     border-radius: 20px;
     color: var(--secondary-color);
-    padding: 0.5em 1.8em;
+    padding: 0.3em 1.5em;
     background: var(--primary-color);
     display: flex;
     transition: 0.2s;
@@ -302,12 +306,12 @@ main {
 .sponsor-btn {
     position: absolute;
     bottom: -16px;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
 
     button {
-        width: 70%;
+        width: 60%;
     }
 }
 
@@ -357,9 +361,8 @@ main {
     display: block;
     font-weight: 700;
     overflow: hidden;
-    padding: 4px 6px;
+    padding: 2px 6px;
     position: relative;
-    text-transform: uppercase;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
 }
