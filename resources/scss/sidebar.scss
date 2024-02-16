@@ -1,10 +1,13 @@
 .sidebar {
     width: 220px;
     position: sticky;
+    color: white;
     top: 0;
     z-index: 900;
     overflow-y: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-image: url('/resources/img/sidebar-bg.png');
+    background-color: #5A8D80;
 
     img {
         width: 36px;
@@ -35,7 +38,7 @@
 
                 .user-role {
                     font-size: 14px;
-                    text-decoration: underline gray;
+                    text-decoration: underline white;
                 }
             }
         }

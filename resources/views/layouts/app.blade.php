@@ -105,7 +105,7 @@
                                 </span>
     
                                 <div class="user-role">
-                                    <small class="text-secondary">Host</small>
+                                    <small class="text-light">Host</small>
                                 </div>
                             </div>
                         </div>

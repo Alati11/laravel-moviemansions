@@ -2,10 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-secondary my-4 dash-title">
-        {{ __('Benvenuto nel tuo pannello di controllo!') }}
-    </h2>
-    <div class="row justify-content-center">
+    
+    <div class="row justify-content-center py-5">
         <div class="col">
             <div class="card card-dash">
                 <div class="card-header-dash card-title-dash"> <b>{{ __('In questa sezione puoi') }}</b></div>
@@ -54,17 +52,6 @@
                             </a>
                         </span>
                     </div>
-
-                    <div class="d-flex card-option">
-                        <p class="card-text">Sponsorizzare il tuo immobile  <span class="dash-arrow">&RightArrow;</span></p>
-                        <span class="dash-icon">
-                            <a href="#">
-                                <img class="icon" src="{{Vite::asset('resources/img/icons/sponsorship.png')}}" alt="">
-                            </a>
-                        </span>
-                    </div>
-
-                  
 
                 </div>
             </div>

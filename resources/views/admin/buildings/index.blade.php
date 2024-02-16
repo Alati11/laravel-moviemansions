@@ -14,9 +14,13 @@
             <div class="row">
                 {{-- Se ci sono appartamenti --}}
                 @if ($buildings->count() > 0)
-                <div class="pt-5 d-flex justify-content-center index-header align-items-center gap-3">
-                    <h2 class="text-secondary mb-0">I tuoi immobili</h2>
-                    <img class="pb-4" src="{{Vite::asset('resources/img/icons/my-mansions.png')}}" alt="">
+                <div class="pt-5 d-flex index-header align-items-center justify-content-end gap-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{Vite::asset('resources/img/icons/my-apartments.png')}}" alt="">
+                        <p>
+                            <small class="mb-0 title-section">I tuoi immobili</small>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="d-flex flex-wrap justify-content-center row-gap-5 py-5">
@@ -32,9 +36,14 @@
                                     </div>
                                     <div class="modal-body">
                                         <h3>Vuoi davvero eliminare <span class="color-green">{{$building->title}}</span> ?</h3>
+                                        <p>
+                                            <small>
+                                                Ricordati che perderai tutte le informazioni associate a questo immobile e non sarà più visibile per nessuno.
+                                            </small>
+                                        </p>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-info text-light" data-bs-dismiss="modal">Annulla</button>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-info btn-cancel text-light" data-bs-dismiss="modal">Annulla</button>
                                         <form action="{{route('admin.buildings.destroy', $building->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')

@@ -5,29 +5,33 @@
 <section>
     <div class="container py-5">
         <div class="create-header">
-            <h2 class="text-secondary create-title">Aggiungi un Immobile</h2>
-            <img src="{{Vite::asset('resources/img/icons/create-icon.png')}}" alt="">
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{Vite::asset('resources/img/icons/create-icon.png')}}" alt="">
+                <p>
+                    <small class="color-green create-title">Aggiungi un Immobile</small>
+                </p>
+            </div>
         </div>
 
         <div class="progress-bar-create d-flex justify-content-center gap-4">
             <div class="progress-bar-info">
-                <span id="first-num">1 | Titolo e Immagini</span>
-                <span class="d-none check" id="first-check">&#10003;</span>
+                <span id="first-num">Titolo e Immagini</span>
+                <span class="d-none check" id="first-check"><i class="fa-solid fa-circle-check color-green"></i></span>
             </div>
             
             <div class="progress-bar-info">
-                <span id="second-num">2 | Indirizzo e Descrizione</span>
-                <span class="d-none check" id="second-check">&#10003;</span>
+                <span id="second-num">Indirizzo e Descrizione</span>
+                <span class="d-none check" id="second-check"><i class="fa-solid fa-circle-check"></i></span>
             </div>
 
             <div class="progress-bar-info">
-                <span id="third-num">3 | Informazioni Generali</span>
-                <span class="d-none check" id="third-check">&#10003;</span>
+                <span id="third-num">Informazioni Generali</span>
+                <span class="d-none check" id="third-check"><i class="fa-solid fa-circle-check"></i></span>
             </div>
 
             <div class="progress-bar-info">
-                <span id="fourth-num">4 | Crea Annuncio</span>
-                <span class="d-none check" id="fourth-check">&#10003;</span>
+                <span id="fourth-num">Crea Annuncio</span>
+                <span class="d-none check" id="fourth-check"><i class="fa-solid fa-circle-check"></i></span>
             </div>
         </div>
 
