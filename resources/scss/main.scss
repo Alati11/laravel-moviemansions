@@ -112,6 +112,10 @@ main {
     }
 }
 
+.info.info-no-buildings {
+    background-color: #ADC5BC;
+}
+
 
 .create-header {
     display: flex;
@@ -247,7 +251,7 @@ main {
     border: 0;
     border-radius: 20px;
     color: var(--secondary-color);
-    padding: 0.5em 1.8em;
+    padding: 0.3em 1.5em;
     background: var(--primary-color);
     display: flex;
     transition: 0.2s;
