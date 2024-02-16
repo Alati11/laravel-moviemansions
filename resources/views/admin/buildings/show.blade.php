@@ -208,9 +208,6 @@
                                                     </small>
                                                     
                                                 </p>
-                                                {{-- <p class="mb-0">
-                                                    <small>Termina il <i class="fa-solid fa-arrow-right-long"></i> <b>{{ \Carbon\Carbon::parse($latestSponsorship->pivot->ending_date)->format('d F Y H:i') }}</b></small>
-                                                </p> --}}
                                                 
                                                 <div id="countdown"></div>
     
@@ -271,18 +268,16 @@
         if (remainingTimeInSeconds >= 0) {
             countdownElement.innerHTML = formatCountdown(remainingTimeInSeconds);
             setTimeout(updateCountdown, 1000);
-        } else {
-            countdownElement.innerHTML = 'Scaduto';
-        }
+        } 
     }
 
     updateCountdown();
+    // Fine funzione
+
+        // map function
         const apiKey = 'pqHD68XXAijUehCtM4HFFAVamZjQMA1W';
         const addressElement = document.getElementById('address');
         const address = addressElement.textContent || addressElement.innerText;
-
-    // Fine funzione
-
 
         console.log(address);
         const url = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(address)}.json?key=${apiKey}`;

@@ -306,12 +306,12 @@ main {
 .sponsor-btn {
     position: absolute;
     bottom: -16px;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
 
     button {
-        width: 70%;
+        width: 60%;
     }
 }
 
@@ -361,9 +361,8 @@ main {
     display: block;
     font-weight: 700;
     overflow: hidden;
-    padding: 4px 6px;
+    padding: 2px 6px;
     position: relative;
-    text-transform: uppercase;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
 }

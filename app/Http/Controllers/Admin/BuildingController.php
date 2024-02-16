@@ -111,30 +111,6 @@ class BuildingController extends Controller
             $new_building->services()->attach($data['services']);
         }
 
-        // Controllo per l'attach sponsorships
-        if ($data['sponsorship_id']) {
-            $startingDate = now();
-
-            switch ($data['sponsorship_id']) {
-                case 1:
-                    $endingDate = $startingDate->copy()->addHours(24);
-                    break;
-                case 2:
-                    $endingDate = $startingDate->copy()->addHours(72);
-                    break;
-                case 3:
-                    $endingDate = $startingDate->copy()->addHours(144);
-                    break;
-                default:
-                    $endingDate = $startingDate->copy()->addHours(24);
-                    break;
-            }
-        }
-
-        // Attach Sponsors
-        if ($request->has('sponsorship_id') & $data['sponsorship_id'] !== null) {
-            $new_building->sponsorships()->attach($data['sponsorship_id'], ['starting_date' => $startingDate, 'ending_date' => $endingDate]);
-        }
 
         //Attach images
         if ($request->hasFile('images')) {
@@ -178,8 +154,6 @@ class BuildingController extends Controller
             'latitude' => 40.7128,
             'longitude' => -74.0060,
         ];
-
-        
     }
 
     /**
@@ -285,7 +259,7 @@ class BuildingController extends Controller
                     break;
             }
         }
-        
+
         //sync sponsorship
         if ($request->has('sponsorships')) {
             $building->sponsorships()->sync($data['sponsorships']);

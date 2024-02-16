@@ -105,10 +105,28 @@
                                         @if        ($building->sponsorships->isNotEmpty())
                                             <div>
                                                 <span class="badge rounded-pill sponsor-badge position-absolute  text-bg-success ">Sponsor attiva</span>
-                                            </div>
+                                            </div>    
                                         @endif
 
                                         {{-- Sponsorship button --}}
+                                        @if        ($building->sponsorships->isNotEmpty())
+                                        <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
+                                            <button class="btn-sponsor-index">
+                                                <div class="original">Estendi</div>
+                                                <div class="letters">
+                                                      
+                                                    <span>E</span>
+                                                    <span>s</span>
+                                                    <span>t</span>
+                                                    <span>e</span>
+                                                    <span>n</span>
+                                                    <span>d</span>
+                                                    <span>i</span>
+                                                </div>
+                                            </button>
+                                        </a>
+                                
+                                        @else
                                         <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
                                             <button class="btn-sponsor-index">
                                                 <div class="original">Sponsorizza</div>
@@ -128,6 +146,7 @@
                                                 </div>
                                             </button>
                                         </a>
+                                        @endif
                                     </div> 
                                 </div>
                             </div>
@@ -155,11 +174,11 @@
                                 <div class="arrow"></div>
                             </div>
                         </button>
-                    </a>
-                    
+                    </a>       
                 </div>
                 @endif
             </div>
         </div>
     </section>
 @endsection
+
