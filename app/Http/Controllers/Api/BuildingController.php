@@ -91,20 +91,35 @@ class BuildingController extends Controller
         }
 
         if ($services) {
-            $queryBuilder->whereHas('services', function ($subquery) use ($services) {
-                $subquery->whereIn('service_id', function ($query) use ($services) {
-                    $query->select('id')
-                        ->from('services')
-                        ->whereIn('name', $services);
+            foreach ($services as $service) {
+                $queryBuilder->whereHas('services', function ($subquery) use ($service) {
+                    $subquery->where('name', $service);
                 });
-            });
+            }
         }
 
 
-        $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
 
-        return response()->json(['buildings' => $buildings]);
+        // $buildings = $queryBuilder->with('services', 'images', 'sponsorships')->get();
+
+        // Query per ottenere gli edifici sponsorizzati
+        // $sponsoredBuildings = $queryBuilder->has('sponsorships')->with('services', 'images', 'sponsorships')->orderByDesc('id')->get();
+
+        // Query per ottenere tutti gli edifici
+        // $buildings = Building::with('services', 'images', 'sponsorships')->get();
+        $buildings = $queryBuilder->with('services', 'images', 'sponsorships')
+            ->leftJoin('building_sponsorship', 'buildings.id', '=', 'building_sponsorship.building_id')
+            ->orderByDesc('building_sponsorship.sponsorship_id')
+            ->get();
+
+
+        return response()->json([
+            'buildings' => $buildings,
+        ]);
     }
+
+
+
     public function show(Building $building)
     {
         // $post = Post::with('category','tags')->where('slug',$slug)->first();
