@@ -15,137 +15,81 @@ class MessageSeeder extends Seeder
     {
         $messages = [
             [
-                "building_id" => 2,
-                "guest_email" => "elena.tulipano@example.com",
-                "name" => "Elena",
-                "surname" => "Tulipano",
-                "text" => "Hello, I'm interested in details about apartments in Building 2. Can you share information on lease terms, amenities, and any current promotions available?",
+                "building_id" => 5,
+                "guest_email" => "meryl@gmail.com",
+                "name" => "Meryl",
+                "surname" => "Streep",
+                "text" => "Salve, sono interessata a conoscere i dettagli sugli appartamenti alla proprietà. Potrebbe condividere informazioni sulle condizioni di locazione, i servizi e le attuali promozioni disponibili?",
             ],
             [
                 "building_id" => 1,
-                "guest_email" => "john.smith@example.com",
-                "name" => "John",
-                "surname" => "Smith",
-                "text" => "Hello, I'm interested in details about apartments in Building 1. Can you share information on lease terms, amenities, and any current promotions available?"
-            ],
-            [
-                "building_id" => 2,
-                "guest_email" => "alice.johnson@example.com",
-                "name" => "Alice",
-                "surname" => "Johnson",
-                "text" => "Hi there! Exploring options for apartments in Building 2. Could you provide details on floor plans, pricing, and any special features available?"
-            ],
-            [
-                "building_id" => 3,
-                "guest_email" => "bob.williams@example.com",
-                "name" => "Bob",
-                "surname" => "Williams",
-                "text" => "Hey, I'm looking into Building 3. Can you give me insights on square footage, pet policies, and community facilities?"
-            ],
-            [
-                "building_id" => 4,
-                "guest_email" => "emma.davis@example.com",
-                "name" => "Emma",
-                "surname" => "Davis",
-                "text" => "Hello! Interested in apartments in Building 4. What's the neighborhood like, and are there any nearby parks or recreational areas?"
-            ],
-            [
-                "building_id" => 5,
-                "guest_email" => "ryan.miller@example.com",
-                "name" => "Ryan",
-                "surname" => "Miller",
-                "text" => "Hi, checking out Building 5. Can you provide details on parking options, security features, and any upcoming community events?"
-            ],
-            [
-                "building_id" => 6,
-                "guest_email" => "olivia.anderson@example.com",
-                "name" => "Olivia",
-                "surname" => "Anderson",
-                "text" => "Hey there! Exploring Building 6. What's the leasing process like, and are there any move-in specials available?"
-            ],
-            [
-                "building_id" => 7,
-                "guest_email" => "daniel.brown@example.com",
-                "name" => "Daniel",
-                "surname" => "Brown",
-                "text" => "Hi, looking for info on Building 7. How does lease renewal work, and are there any planned renovations in the near future?"
+                "guest_email" => "brad@gmail.com",
+                "name" => "Brad",
+                "surname" => "Pitt",
+                "text" => "Buongiorno, sono interessato a ricevere informazioni sugli appartamenti in questa proprietà. Potrebbe gentilmente fornire dettagli sulle condizioni di locazione, i servizi e le attuali promozioni?",
             ],
             [
                 "building_id" => 8,
-                "guest_email" => "sophia.johnson@example.com",
-                "name" => "Sophia",
-                "surname" => "Johnson",
-                "text" => "Hello! Interested in Building 8. Can you share resident reviews, information on community activities, and what makes living there unique?"
+                "guest_email" => "julia@gmail.com",
+                "name" => "Julia",
+                "surname" => "Roberts",
+                "text" => "Ciao! Sto esplorando le opzioni per gli appartamenti in questa proprietà. Potrebbe darmi maggiori dettagli sui piani, prezzi e eventuali caratteristiche speciali disponibili?",
+            ],
+            [
+                "building_id" => 8,
+                "guest_email" => "leonardo@gmail.com",
+                "name" => "Leonardo",
+                "surname" => "DiCaprio",
+                "text" => "Salve, sto valutando di affittare la proprietà. Potrebbe darmi informazioni sulla metratura, le politiche sugli animali domestici e le strutture della comunità?",
             ],
             [
                 "building_id" => 1,
-                "guest_email" => "matthew.lee@example.com",
+                "guest_email" => "cate@gmail.com",
+                "name" => "Cate",
+                "surname" => "Blanchett",
+                "text" => "Buongiorno! Sono interessata ad affittare la proprietà. Com'è il quartiere e ci sono parchi o aree ricreative nelle vicinanze?",
+            ],
+            [
+                "building_id" => 1,
+                "guest_email" => "george@example.com",
+                "name" => "George",
+                "surname" => "Clooney",
+                "text" => "Ciao, sto dando un'occhiata alla proprietà. Potrebbe fornire dettagli sulle opzioni di parcheggio, le caratteristiche di sicurezza e gli eventi comunitari imminenti?",
+            ],
+            [
+                "building_id" => 6,
+                "guest_email" => "charlize@gmail.com",
+                "name" => "Charlize",
+                "surname" => "Theron",
+                "text" => "Ehi là! Sto esplorando la proprietà. Com'è il processo di locazione e ci sono offerte speciali per il trasloco?",
+            ],
+            [
+                "building_id" => 7,
+                "guest_email" => "tom@gmail.com",
+                "name" => "Tom",
+                "surname" => "Hanks",
+                "text" => "Ciao, sto cercando informazioni sulla proprietà. Come funziona il rinnovo del contratto di locazione e ci sono ristrutturazioni pianificate nel prossimo futuro?",
+            ],
+            [
+                "building_id" => 2,
+                "guest_email" => "natalie@gmail.com",
+                "name" => "Natalie",
+                "surname" => "Portman",
+                "text" => "Buongiorno! Sono interessata alla proprietà. Potrebbe condividere recensioni degli inquilini, informazioni sulle attività della comunità e cosa rende unica la vita lì?",
+            ],
+            [
+                "building_id" => 3,
+                "guest_email" => "matthew@gmail.com",
                 "name" => "Matthew",
-                "surname" => "Lee",
-                "text" => "Hello, I'm interested in details about apartments in Building 1. Can you share information on lease terms, amenities, and any current promotions available?"
+                "surname" => "McConaughey",
+                "text" => "Salve, sono interessato a conoscere i dettagli sugli appartamenti alla proprietà. Potrebbe condividere informazioni sulle condizioni di locazione, i servizi e le attuali promozioni disponibili?",
             ],
             [
                 "building_id" => 2,
-                "guest_email" => "grace.taylor@example.com",
-                "name" => "Grace",
-                "surname" => "Taylor",
-                "text" => "Hi there! Exploring options for apartments in Building 2. Could you provide details on floor plans, pricing, and any special features available?"
-            ],
-            [
-                "building_id" => 3,
-                "guest_email" => "ethan.clark@example.com",
-                "name" => "Ethan",
-                "surname" => "Clark",
-                "text" => "Hey, I'm looking into Building 3. Can you give me insights on square footage, pet policies, and community facilities?"
-            ],
-            [
-                "building_id" => 4,
-                "guest_email" => "ava.wilson@example.com",
-                "name" => "Ava",
-                "surname" => "Wilson",
-                "text" => "Hello! Interested in apartments in Building 4. What's the neighborhood like, and are there any nearby parks or recreational areas?"
-            ],
-            [
-                "building_id" => 5,
-                "guest_email" => "liam.harris@example.com",
-                "name" => "Liam",
-                "surname" => "Harris",
-                "text" => "Hi, checking out Building 5. Can you provide details on parking options, security features, and any upcoming community events?"
-            ],
-            [
-                "building_id" => 6,
-                "guest_email" => "isabella.king@example.com",
-                "name" => "Isabella",
-                "surname" => "King",
-                "text" => "Hey there! Exploring Building 6. What's the leasing process like, and are there any move-in specials available?"
-            ],
-            [
-                "building_id" => 7,
-                "guest_email" => "william.green@example.com",
-                "name" => "William",
-                "surname" => "Green",
-                "text" => "Hi, looking for info on Building 7. How does lease renewal work, and are there any planned renovations in the near future?"
-            ],
-            [
-                "building_id" => 8,
-                "guest_email" => "emily.jones@example.com",
-                "name" => "Emily",
-                "surname" => "Jones",
-                "text" => "Hello! Interested in Building 8. Can you share resident reviews, information on community activities, and what makes living there unique?"
-            ],
-            [
-                "building_id" => 1,
-                "guest_email" => "chris.taylor@example.com",
-                "name" => "Chris",
-                "surname" => "Taylor",
-                "text" => "Hello, I'm interested in details about apartments in Building 1. Can you share information on lease terms, amenities, and any current promotions available?"
-            ],
-            [
-                "building_id" => 2,
-                "guest_email" => "laura.wilson@example.com",
-                "name" => "Laura",
-                "surname" => "Wilson",
-                "text" => "Hi there! Exploring options for apartments in Building 2. Could you provide details on floor plans, pricing, and any special features available?"
+                "guest_email" => "emma@gmail.com",
+                "name" => "Emma",
+                "surname" => "Watson",
+                "text" => "Ehilà! Sto esplorando le opzioni per gli appartamenti alla proprietà. Potrebbe fornire dettagli sui piani, prezzi e eventuali caratteristiche speciali disponibili?",
             ],
         ];
 
