@@ -24,7 +24,7 @@
             <div class="card register-card">
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         {{-- name --}}
@@ -107,6 +107,34 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" >
 
                                 @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            {{-- dropdown information --}}
+                            <div class="btn-group ps-3">
+
+                                <button class="dropdown-toggle register-information-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &#x1F6C8
+                                </button>
+                                <p class="dropdown-menu p-2">
+                                    Utilizza la mail con la quale pubblichi i tuoi annunci <span class="text-warning">&#9993;</span>
+                                </p>
+
+                            </div>
+                        </div>
+                        
+                        {{-- immagine profilo --}}
+
+                        <div class="mb-4 d-flex register-input">
+                            <label for="profile_pic" class="col-md-4 col-form-label text-md-right">Foto profilo</label>
+
+                            <div class="col-md-6">
+                                <input id="profile_pic" type="file" class="form-control" name="profile_pic" accept=".jpg,.png,.jpeg,.webp">
+
+                                @error('profile_pic')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
