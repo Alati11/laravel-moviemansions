@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 form-upd-profile">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 form-upd-profile" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -42,10 +42,19 @@
             <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="date_of_birth" value="{{old('date_of_birth', $user->date_of_birth)}}" autofocus>
             @error('date_of_birth')
             <span class="invalid-feedback" role="alert">
-                <strong>User age must be between 16 and 100 years old</strong>
+                <strong>Devi avere tra 16 e 100 anni</strong>
                 {{-- <strong>{{$errors->get('date_of_birth')}}</strong> --}}
             </span>
             @enderror
+        </div>
+
+        <div class="mb-2">
+            <label for="profile_pic">{{__('Cambia Foto Profilo')}}</label>
+            <input class="form-control" type="file" name="profile_pic" id="profile_pic" accept=".png, .jpg, .jpeg, .webp">
+            <div class="profile-wrap">
+                <span> La tua immagine profilo attuale: </span>
+                <img class="profile-pic" src="{{asset('storage/'. $user->profile_pic)}}">
+            </div>           
         </div>
 
         <div class="mb-2">
