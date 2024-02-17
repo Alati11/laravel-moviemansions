@@ -12,6 +12,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            // Slega la chiave esterna impostandola a null
+            $user->buildings()->update(['user_id' => 9]);
+        });
+    }
+
     public function buildings()
     {
         return $this->hasMany(Building::class);

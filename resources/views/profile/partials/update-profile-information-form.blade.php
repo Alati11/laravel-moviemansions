@@ -52,8 +52,13 @@
             <label for="profile_pic">{{__('Cambia Foto Profilo')}}</label>
             <input class="form-control" type="file" name="profile_pic" id="profile_pic" accept=".png, .jpg, .jpeg, .webp">
             <div class="profile-wrap">
-                <span> La tua immagine profilo attuale: </span>
-                <img class="profile-pic" src="{{asset('storage/'. $user->profile_pic)}}">
+                @if (isset($user->profile_pic))
+                    <span> La tua immagine profilo attuale: </span>
+                    <img class="profile-pic" src="{{asset('storage/'. $user->profile_pic)}}">
+                @else
+                    <span>Non hai ancora scelto una immagine di profilo</span>
+                @endif
+                
             </div>           
         </div>
 
