@@ -129,7 +129,7 @@
                         {{-- immagine profilo --}}
 
                         <div class="mb-4 d-flex register-input">
-                            <label for="profile_pic" class="col-md-4 col-form-label text-md-right">Foto profilo</label>
+                            <label for="profile_pic" class="col-md-4 col-form-label text-md-right">Profile Picture (Optional)</label>
 
                             <div class="col-md-6">
                                 <input id="profile_pic" type="file" class="form-control" name="profile_pic" accept=".jpg,.png,.jpeg,.webp">
