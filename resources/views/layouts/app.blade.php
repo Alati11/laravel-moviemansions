@@ -96,7 +96,8 @@
 
                         <div class="user-container">
                             <span class="user-image">
-                                <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt="">
+                                {{-- <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt=""> --}}
+                                <img src="{{asset('storage/'.Auth::user()->profile_pic)}}">
                             </span>
         
                             <div>
