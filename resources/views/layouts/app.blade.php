@@ -96,7 +96,13 @@
 
                         <div class="user-container">
                             <span class="user-image">
-                                <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt="">
+                                {{-- <img src="{{Vite::asset('resources/img/icons/user-2.png')}}" alt=""> --}}
+                                @if (isset(Auth::user()->profile_pic))
+                                    <img src="{{asset('storage/'.Auth::user()->profile_pic)}}">
+                                @else
+                                    <img src="{{Vite::asset('resources/img/icons/user-3.png')}}">
+                                @endif
+                                
                             </span>
         
                             <div>
