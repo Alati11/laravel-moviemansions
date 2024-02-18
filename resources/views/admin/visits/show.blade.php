@@ -24,7 +24,7 @@
     <div class="chart-container mb-5">
         <div class="chart-des">
             <img src="{{Vite::asset('resources/img/icons/coin-up.png')}}" alt="">
-            <span><a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">Sponsorizza il tuo appartamento!</a></span>
+            <span class="add-sponsorship"><a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}">Sponsorizza il tuo appartamento!</a></span>
         </div>
         <canvas class="chart" id="msgChart"></canvas>
         

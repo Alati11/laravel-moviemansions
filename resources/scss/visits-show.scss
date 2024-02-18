@@ -9,6 +9,13 @@
     width: 50px;
 }
 
+.add-sponsorship {
+    &:hover{
+        scale: 1.2;
+        color: #5B8E81;
+    }
+}
+
 .chart-container {
     max-width: 90%;
     display: flex;
