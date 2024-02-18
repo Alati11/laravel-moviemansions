@@ -566,6 +566,23 @@ main {
     .login-container {
         padding-top: 60px;
     }
+
+    .section-msg {
+        .form-select {
+        margin-bottom: 20px; 
+        font-size: 1rem;  
+       max-width: 100%; 
+        text-wrap: wrap;
+        
+        option {
+            font-size: 0.8rem; 
+            text-wrap: wrap;
+            white-space: collapse;
+
+        }
+        }
+    }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////
