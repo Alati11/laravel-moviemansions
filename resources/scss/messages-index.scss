@@ -4,6 +4,12 @@
     margin: 0 auto;
 }
 
+.fun-wrap {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
 .messages-img img {
     width: 30px;
 }
@@ -50,6 +56,7 @@
 
 .building-wrap {
     margin-bottom: 30px;
+    display: none; 
 }
 
 .surname {
@@ -102,6 +109,30 @@
 }
 
 
+.hide-icon { 
+    display: none;
+}
+
+.show-building {
+    display: block; 
+}
+
+.msg-select-title {
+    color: gray;
+    font-size: 1.3rem; 
+    padding: 5px; 
+    margin-left: 3px; 
+}
+
+.form-select {
+    margin-bottom: 20px; 
+}
+
+.text-gray {
+    color: gray; 
+}
+//accordion: sass modifier
+
 $accordion-bg: white;
 $accordion-border-color: grey;
 $accordion-button-color: black;
@@ -111,3 +142,17 @@ $accordion-button-active-color: white;
 $accordion-icon-active-color : white;
 $accordion-button-active-bg: #5A8D81;
 $accordion-button-focus-box-shadow: none;
+
+//select: sass modifier
+
+$input-font-family: "Quicksand", sans-serif;
+$form-select-color: white; 
+$form-select-border-color: #D2BF6A;
+$form-select-focus-border-color: #5A8D81;
+$input-btn-focus-color:  #D2BF6A;
+$input-bg : #5A8D81;
+$form-select-indicator-color: white;
+$form-select-font-size: 1.5rem; 
+
+
+
