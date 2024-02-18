@@ -124,8 +124,27 @@
     margin-left: 3px; 
 }
 
-.form-select {
+.form-select.msg {
     margin-bottom: 20px; 
+    color: white; 
+    background-color: #5A8D81;
+    font-family:  "Quicksand", sans-serif;
+    border-color: #D2BF6A;
+    font-size: 1.3rem;
+    padding: 10px; 
+
+    &:focus {
+        border-color: #D2BF6A;
+        box-shadow: 0 0 0 #5A8D81;
+    }
+
+    option {
+        padding: 5px; 
+    }
+}
+
+.select-msg-wrap {
+    max-width: 100%;
 }
 
 .text-gray {
@@ -145,14 +164,9 @@ $accordion-button-focus-box-shadow: none;
 
 //select: sass modifier
 
-$input-font-family: "Quicksand", sans-serif;
-$form-select-color: white; 
-$form-select-border-color: #D2BF6A;
-$form-select-focus-border-color: #5A8D81;
-$input-btn-focus-color:  #D2BF6A;
-$input-bg : #5A8D81;
-$form-select-indicator-color: white;
-$form-select-font-size: 1.5rem; 
+
+
+
 
     
 

@@ -9,13 +9,15 @@
         </div>
     </div>
     @if ($buildings->count() !== 0)
+    <div class="">
+        <select class="form-select msg" name="chose-building" id="chose-building">
+            <option value="" >Scegli uno dei tuoi appartamenti</option>
+            @foreach ($buildings as $building)
+            <option value="{{ $building->id }}">{{$building->title}}</option>
+            @endforeach
+        </select>
+    </div>
     
-    <select class="form-select" name="chose-building" id="chose-building">
-        <option value="" >Scegli uno dei tuoi appartamenti</option>
-        @foreach ($buildings as $building)
-        <option value="{{ $building->id }}">{{$building->title}}</option>
-        @endforeach
-    </select>
 
     <div class="fun-wrap">
         <img id="icon-msg-fun" src="{{Vite::asset('resources/img/icons/msg-fun.png')}}" alt="">
