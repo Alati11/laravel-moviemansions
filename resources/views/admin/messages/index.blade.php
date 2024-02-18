@@ -5,7 +5,7 @@
     <div class="py-5 d-flex justify-content-end">
         <div class="d-flex flex-column align-items-center messages-img">
             <img src="{{Vite::asset('resources/img/icons/messages.png')}}" alt="">
-            <small class="title-msg">Messaggi</small>
+            <small class="title-msg color-green">Messaggi</small>
         </div>
     </div>
     @if ($buildings->count() !== 0)

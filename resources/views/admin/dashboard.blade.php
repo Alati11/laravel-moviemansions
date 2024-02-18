@@ -7,7 +7,7 @@
         <div class="pb-5 d-flex justify-content-end">
             <div class="d-flex flex-column align-items-center dash-img-header">
                 <img src="{{Vite::asset('resources/img/icons/dashboard.png')}}" alt="">
-                <small>Dashboard</small>
+                <small class="color-green">Dashboard</small>
             </div>
         </div>
 
