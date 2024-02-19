@@ -1,16 +1,46 @@
-// .chart-title {
-//     text-align: center;
-//     margin-bottom: 30px;
-//     padding: 10px; 
-//     color: gray; 
-// }
+// Button
+
+.back-btn-stats {
+    display: flex;
+    height: 1.8em;
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: #5A8D80;
+}
+
+.back-btn-stats>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+    fill: white;
+}
+
+.back-btn-stats:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+.back-btn-stats:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+}
+
 
 .stats-img img {
     width: 50px;
 }
 
 .add-sponsorship {
-    &:hover{
+    &:hover {
         scale: 1.2;
         color: #5B8E81;
     }
