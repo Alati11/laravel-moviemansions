@@ -80,3 +80,25 @@
         color: #5B8E81;
     }
 }
+
+@media (max-width: 575.98px) {
+    .chart-des {
+        padding: 0px;
+
+        span {
+            font-size: 9px;
+        }
+
+        img {
+            width: 80%;
+        }
+    }
+
+    .back-btn-stats {
+        width: 40px;
+    }
+
+    .title-stat {
+        width: 50%;
+    }
+}
