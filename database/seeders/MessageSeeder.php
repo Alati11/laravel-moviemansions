@@ -22,7 +22,7 @@ class MessageSeeder extends Seeder
                 "text" => "Salve, sono interessata a conoscere i dettagli sugli appartamenti alla proprietà. Potrebbe condividere informazioni sulle condizioni di locazione, i servizi e le attuali promozioni disponibili?",
             ],
             [
-                "building_id" => 1,
+                "building_id" => 14,
                 "guest_email" => "brad@gmail.com",
                 "name" => "Brad",
                 "surname" => "Pitt",
@@ -43,21 +43,21 @@ class MessageSeeder extends Seeder
                 "text" => "Salve, sto valutando di affittare la proprietà. Potrebbe darmi informazioni sulla metratura, le politiche sugli animali domestici e le strutture della comunità?",
             ],
             [
-                "building_id" => 1,
+                "building_id" => 14,
                 "guest_email" => "cate@gmail.com",
                 "name" => "Cate",
                 "surname" => "Blanchett",
                 "text" => "Buongiorno! Sono interessata ad affittare la proprietà. Com'è il quartiere e ci sono parchi o aree ricreative nelle vicinanze?",
             ],
             [
-                "building_id" => 1,
+                "building_id" => 14,
                 "guest_email" => "george@example.com",
                 "name" => "George",
                 "surname" => "Clooney",
                 "text" => "Ciao, sto dando un'occhiata alla proprietà. Potrebbe fornire dettagli sulle opzioni di parcheggio, le caratteristiche di sicurezza e gli eventi comunitari imminenti?",
             ],
             [
-                "building_id" => 6,
+                "building_id" => 14,
                 "guest_email" => "charlize@gmail.com",
                 "name" => "Charlize",
                 "surname" => "Theron",

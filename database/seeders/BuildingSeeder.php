@@ -22,7 +22,7 @@ class BuildingSeeder extends Seeder
 
             [
                 'title' => 'Harry Potter: Privet Drive',
-                'user_id' => 9,
+                'user_id' => 1,
                 'rooms' => 15,
                 'beds' => 4,
                 'description' => "Ecco la casa utilizzata per rappresentare gli interni di Privet Drive, Little Whinging, Surrey: ovvero, la casa d'infanzia di Harry Potter! Per gli ospiti paganti, ci sono due camere con quattro letti ciascuna, un camino e un giardino interno, oltre a una colazione inglese inclusa in ogni soggiorno.",
@@ -120,7 +120,7 @@ class BuildingSeeder extends Seeder
 
             [
                 'title' => 'Casa di Walter White: Breaking Bad',
-                'user_id' => 1,
+                'user_id' => 9,
                 'rooms' => 9,
                 'beds' => 3,
                 'description' => "La casa di Walter White è la meta ideale per ogni fan di Breaking Bad. Situata ad Albuquerque, nel New Mexico, è uno dei luoghi più iconici della serie, in cui si svolgono alcune delle scene chiave e più intense. È la dimora dove Walter vive con la moglie Skyler, il figlio Walter Junior e la piccola Holly.",
@@ -219,7 +219,7 @@ class BuildingSeeder extends Seeder
 
             [
                 'title' => 'Casa di Jep Gambardella - La Grande Bellezza',
-                'user_id' => 9,
+                'user_id' => 1,
                 'rooms' => 17,
                 'beds' => 8,
                 'description' => "La casa di Jep è un meraviglioso attico in Piazza del Colosseo, Roma, un maestoso palazzo rosso, per l’esattezza al civico 9. Potete godervi l’androne bianco, con colonne imperiali e marmi importanti. Se arrivate dopo mezzogiorno potrete anche incontrare Jep che scende a far colazione.",
@@ -235,7 +235,7 @@ class BuildingSeeder extends Seeder
 
             [
                 'title' => "Hatfield House: il set preferito di Hollywood ",
-                'user_id' => 3,
+                'user_id' => 9,
                 'rooms' => 223,
                 'beds' => 200,
                 'description' => "Con le sue 223 stanze Hatfield House ha in passato fatto da sfondo a diverse pellicole e serie tv, oltre settanta in totale, conquistando registi e scenografi. Solo nel 2020 Hatfield House è apparsa in pellicole di grande successo come Enola Holmes con Millie Bobbie Brown e ‘the Crown’, ma negli anni precedenti aveva ospitato anche ‘Lara Croft: Tomb Raider, V per vendetta, più di un Batman e Mortdecai, oltre che in diverse pellicole dirette tra Tim Burton tra cui La Fabbrica di Cioccolato e Il mistero di Sleepy Hollow.",
