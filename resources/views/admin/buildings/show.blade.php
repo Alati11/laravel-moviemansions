@@ -53,13 +53,13 @@
         
                             <div class="d-flex card-option">
                                 <div class="row flex-wrap justify-content-between fix-m">
-                                    <div class="col-8 d-flex my-4">
+                                    <div class="col-12 col-sm-8 d-flex my-4">
                                         <img class="img-fluid rounded img-show-cover" src="{{ asset('storage/'. $building->image)}}" alt="">
                                     </div>
                                      
-                                    <div class="col-4 overflow-y-scroll scrollable-column">
+                                    <div class="col-12 col-sm-4 overflow-y-auto scrollable-column text-center">
                                         @foreach($building->images as $image)
-                                            <img class="img-plus w-100 rounded img-show-cover my-4" src="{{ asset('storage/'. $image->url)}}" alt="">
+                                            <img class="img-plus rounded img-show-cover my-4" src="{{ asset('storage/'. $image->url)}}" alt="">
                                         @endforeach
                                     </div>
                                 
@@ -75,7 +75,7 @@
                                     {{-- indirizzo --}}
                                     <div class="py-4 border position-relative mb-5 w-75 px-2">
                                         <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
-                                            <i class="fa-solid fa-map-pin text-secondary"></i> Indirizzo
+                                            <i class="fa-solid fa-map-pin text-secondary d-none d-sm-inline"></i> Indirizzo
                                         </span>
     
                                         <p class="text-center">
@@ -87,10 +87,10 @@
                                    <div class="py-3 border position-relative w-75 px-2 mb-5">
 
                                         <span class="text-description fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
-                                            <i class="fa-solid fa-comment-dots text-secondary"></i> Descrizione dell'edificio 
+                                            <i class="fa-solid fa-comment-dots text-secondary d-none d-sm-inline"></i> Descrizione dell'edificio 
                                         </span> 
 
-                                        <p class="text-center"> {{$building->description}}
+                                        <p class="text-center mt-2"> {{$building->description}}
                                         </p>
 
                                    </div>
@@ -98,12 +98,12 @@
                                    {{-- numero stanze ecc --}}
                                     <div class="py-3 border position-relative w-75 px-2 mb-5">
                                         
-                                            <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
-                                                <i class="fa-solid fa-clipboard text-secondary"></i> 
+                                            <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2 text-nowrap">
+                                                <i class="fa-solid fa-clipboard text-secondary d-none d-sm-inline"></i> 
                                                 Lo spazio 
                                             </span>
     
-                                        <div class="d-flex flex-column gap-3 ps-5">
+                                        <div class="d-flex flex-column gap-3 ps-sm-5 text-center text-sm-start">
                 
                                             <span>
                                                 <b class="color-green">Numero stanze:</b> {{$building->rooms}}
@@ -128,11 +128,11 @@
                                     <div class="py-3 border position-relative w-75 px-2 mb-5">
 
                                         <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
-                                            <i class="fa-solid fa-circle-exclamation text-secondary"></i>
+                                            <i class="fa-solid fa-circle-exclamation text-secondary d-none d-sm-inline"></i>
                                             Dispondibilità
                                         </span>
                                                     
-                                        <div class="ps-5">
+                                        <div class="text-center ps-sm-5 text-sm-start">
                                             @if ($building->available)
                                                 <span>Disponibile</span>
                                             @else
@@ -146,11 +146,11 @@
                                     <div class="py-4 border position-relative w-75 px-2 mb-5">
 
                                         <span class="text-address fw-bolder position-absolute top-0 start-50 translate-middle bg-white px-2">
-                                            <i class="fa-solid fa-bell-concierge text-secondary"></i>
+                                            <i class="fa-solid fa-bell-concierge text-secondary d-none d-sm-inline"></i>
                                             Servizi
                                         </span>
 
-                                        <div class="d-flex flex-wrap gap-4 py-2 justify-content-center">
+                                        <div class="d-flex flex-wrap gap-4 py-2 justify-content-center text-center">
                                             @foreach($building->services as $service)
                                                 <div>
                                                     <img class="service-icon-show" src="{{ asset('storage/'. $service->icon)}}">
@@ -173,9 +173,7 @@
                                         {{ $building->address }}
                                     </p>
                                 </div>
-                                <div class="d-flex flex-column align-items-center pt-3">
-                                    <div id="map" class="map-container"></div>
-                                </div>
+                                <div id="map" class="map-container mx-auto mt-3"></div>
                             </div>
 
 

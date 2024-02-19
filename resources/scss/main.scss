@@ -77,13 +77,6 @@ main {
     background-color: #D3BF6A;
 }
 
-.map-container {
-    width: 400px;
-    height: 400px;
-    border: 1px solid grey;
-    box-shadow: 0px 3px 4px 2px lightgray;
-}
-
 .img-plus {
     width: 600px;
 }
@@ -569,17 +562,17 @@ main {
 
     .section-msg {
         .form-select {
-        margin-bottom: 20px; 
-        font-size: 1rem;  
-        max-width: 100%; 
-        text-wrap: wrap;
-        
-        option {
-            font-size: 0.8rem; 
+            margin-bottom: 20px;
+            font-size: 1rem;
+            max-width: 100%;
             text-wrap: wrap;
-            white-space: collapse;
 
-        }
+            option {
+                font-size: 0.8rem;
+                text-wrap: wrap;
+                white-space: collapse;
+
+            }
         }
     }
 
@@ -590,9 +583,9 @@ main {
 /// 
 
 .profile-pic {
-    width: 30px; 
+    width: 30px;
 }
 
 .profile-wrap {
-    padding: 3px 6px; 
+    padding: 3px 6px;
 }
