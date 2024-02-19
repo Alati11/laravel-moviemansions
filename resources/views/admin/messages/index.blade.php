@@ -48,6 +48,9 @@
                                         <span class="surname">{{ $message->surname}}</span>
                                     </p>
                                     <p>( {{ $message->guest_email}} )</p>
+                                    <p id="timecontainer">
+                                        <span id="timestamp">{{$message->created_at}}</span>
+                                    </p>
                                 </div>
                                 
                                 
@@ -119,6 +122,31 @@
         });
     });
 
+    function convertiTimestamp(timestam) {
+  const data = new Date(timestam);
+  
+  const giorno = data.getDate().toString().padStart(2, '0');
+  const mese = (data.getMonth() + 1).toString().padStart(2, '0');
+  const anno = data.getFullYear();
+  
+  const ore = data.getHours().toString().padStart(2, '0');
+  const minuti = data.getMinutes().toString().padStart(2, '0');
+  
+  const formatoData = `${giorno}-${mese}-${anno}`;
+  const formatoOra = `${ore}:${minuti}`;
+  
+  return `${formatoData}, ${formatoOra}`;
+}
+
+    const timestampElement = document.getElementById('timestamp');
+    const timestamp = timestampElement.textContent;
+    
+
+    const formattedDate = convertiTimestamp(timestamp);
+    console.log(formattedDate)
+
+    const pElement = document.getElementById('timecontainer');
+    pElement.innerHTML = `<span >${formattedDate}</span>`;
 
     </script>
 
