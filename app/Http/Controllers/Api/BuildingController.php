@@ -123,7 +123,7 @@ class BuildingController extends Controller
     public function show(Building $building)
     {
         // $post = Post::with('category','tags')->where('slug',$slug)->first();
-        $building->load('services', 'images', 'sponsorships');
+        $building->load('user', 'services', 'images', 'sponsorships');
 
         return response()->json([
             'building' => $building

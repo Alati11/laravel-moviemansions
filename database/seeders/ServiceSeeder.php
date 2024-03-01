@@ -17,56 +17,56 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 "name" => "Wi-Fi",
-                "url" => "/img/services/wifi.png"
+                "icon" => "/img/services/wi-fi.png"
             ],
 
             [
                 "name" => "Piscina",
-                "url" => "/img/services/piscina.png"
+                "icon" => "/img/services/piscina.png"
             ],
 
             [
                 "name" => "Ristorante",
-                "url" => "/img/services/ristorante.png"
+                "icon" => "/img/services/ristorante.png"
             ],
 
             [
                 "name" => "Palestra",
-                "url" => "/img/services/palestra.png"
+                "icon" => "/img/services/palestra.png"
             ],
 
             [
                 "name" => "Servizio in camera",
-                "url" => "/img/services/camera.png"
+                "icon" => "/img/services/servizio.png"
             ],
 
             [
                 "name" => "Colazione inclusa",
-                "url" => "/img/services/colazione.png"
+                "icon" => "/img/services/colazione.png"
             ],
 
             [
                 "name" => "Parcheggio",
-                "url" => "/img/services/parcheggio.png"
+                "icon" => "/img/services/parcheggio.png"
             ],
             [
                 "name" => "Centro benessere",
-                "url" => "/img/services/spa.png"
+                "icon" => "/img/services/spa.png"
             ],
 
             [
                 "name" => "Navetta aeroportuale",
-                "url" => "/img/services/bus.png"
+                "icon" => "/img/services/navetta.png"
             ],
 
             [
                 "name" => "Animali ammessi",
-                "url" => "/img/services/animali.png"
+                "icon" => "/img/services/animali.png"
             ],
 
             [
                 "name" => "Reception 24 ore",
-                "url" => "/img/services/reception.png"
+                "icon" => "/img/services/reception.png"
             ]
         ];
 
@@ -74,7 +74,7 @@ class ServiceSeeder extends Seeder
             $new_service = new Service();
 
             $new_service->name = $service['name'];
-            $new_service->icon = $service['url'];
+            $new_service->icon = $service['icon'];
             $new_service->slug = Str::slug($service['name']);
 
             $new_service->save();

@@ -60,6 +60,10 @@
 
                             <div class="col-lg-3 col-md-6 col-12 p-2">
                                 <div class="card mb-5 building-card h-100">
+                                @if        ($building->sponsorships->isNotEmpty())
+                                    <span class="sponsor-active"></span>
+                                @endif
+                                    
 
                                     <img src="{{asset('storage/'. $building->image)}}" class="card-img-top img-fluid" alt="...">
     
@@ -102,17 +106,17 @@
                                         </p>
     
                                         
-                                        @if        ($building->sponsorships->isNotEmpty())
+                                        {{-- @if        ($building->sponsorships->isNotEmpty())
                                             <div>
                                                 <span class="badge rounded-pill sponsor-badge position-absolute  text-bg-success ">Sponsor attiva</span>
                                             </div>    
-                                        @endif
+                                        @endif --}}
 
                                         {{-- Sponsorship button --}}
                                         @if        ($building->sponsorships->isNotEmpty())
                                         <a href="{{ route('admin.sponsorships.index', ['building_id' => $building->id]) }}" class="sponsor-btn">
                                             <button class="btn-sponsor-index">
-                                                <div class="original">Estendi</div>
+                                                <div class="original">Estendi Sponsor</div>
                                                 <div class="letters">
                                                       
                                                     <span>E</span>
