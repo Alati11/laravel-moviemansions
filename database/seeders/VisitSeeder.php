@@ -174,6 +174,31 @@ class VisitSeeder extends Seeder
                 "time" => "2024-02-15 02:40:50",
                 "ip_address" => "192.168.10.189"
             ],
+            [
+                "building_id" => 24,
+                "time" => "2024-01-08 09:20:35",
+                "ip_address" => "192.168.2.200"
+            ],
+            [
+                "building_id" => 24,
+                "time" => "2024-01-15 14:45:10",
+                "ip_address" => "203.120.67.33"
+            ],
+            [
+                "building_id" => 24,
+                "time" => "2024-02-02 18:10:22",
+                "ip_address" => "172.16.10.15"
+            ],
+            [
+                "building_id" => 24,
+                "time" => "2024-02-09 23:35:55",
+                "ip_address" => "198.51.200.18"
+            ],
+            [
+                "building_id" => 24,
+                "time" => "2024-02-18 10:05:30",
+                "ip_address" => "10.0.0.124"
+            ],
         ];
 
         foreach ($visits as $visit) {
