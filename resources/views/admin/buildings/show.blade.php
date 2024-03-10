@@ -9,11 +9,11 @@
                     {{ session()->get('message_create') }}
                 </div>
             </div>
-        @elseif(session()->has('message_restore'))
+        @elseif(session()->has('message_edit'))
             <div class="container p-2 w-50 mx-auto">
                 <div class="alert alert-success text-center">
                     <i class="fa-solid fa-circle-check"></i>
-                    {{ session()->get('message_restore') }}
+                    {{ session()->get('message_edit') }}
                 </div>
             </div>
         @endif

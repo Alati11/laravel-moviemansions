@@ -75,7 +75,7 @@
                     <label class="form-check-label" for="service-{{$service->id}}">
                         {{$service->name}}
                     </label>
-                    <input name="services[]" class="form-check-input services-checkbox" type="checkbox" value="{{$service->id}}" id="service-{{$service->id}}" @checked(in_array($service->id, old('services', [])))>
+                    <input name="services[]" class="form-check-input services-checkbox" type="checkbox" value="{{$service->id}}" id="service-{{$service->id}}" @checked(in_array($service->id, old('services', $building->services->pluck('id')->toArray())))>
                 </div>    
             @endforeach
             </div>

@@ -17,12 +17,12 @@ class ImageSeeder extends Seeder
         $images = [
             [
                 'building_id' => '1',
-                'url' => '/img/buildings/privet_drive.jpg'
+                'url' => '/img/buildings/privet-drive-1.webp'
             ],
 
             [
                 'building_id' => '1',
-                'url' => '/img/buildings/privet_drive_1.jpg'
+                'url' => '/img/buildings/privet-drive-2.jpg'
             ],
 
             [
@@ -92,12 +92,12 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '8',
-                'url' => '/img/buildings/casa-cohen.jpg'
+                'url' => '/img/buildings/casa-o.c..jpg'
             ],
 
             [
                 'building_id' => '8',
-                'url' => '/img/buildings/casa-cohen-2.jpg'
+                'url' => '/img/buildings/casa-o.c.-2.jpg'
             ],
 
             [
@@ -112,7 +112,7 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '10',
-                'url' => '/img/buildings/Jimmies-House-Pulp-Fiction.jpg'
+                'url' => '/img/buildings/Jimmies-House-Pulp-Fiction.webp'
             ],
 
             [
@@ -137,17 +137,17 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '12',
-                'url' => '/img/buildings/casa-montalbano-2.jpg'
+                'url' => '/img/buildings/casa-montalbano-2.webp'
             ],
 
             [
                 'building_id' => '13',
-                'url' => '/img/buildings/jack_gambardella.jpg'
+                'url' => '/img/buildings/jep_gambardella.jpg'
             ],
 
             [
                 'building_id' => '13',
-                'url' => '/img/buildings/jack_gambardella-1.jpg'
+                'url' => '/img/buildings/jep_gambardella_1.jpg'
             ],
 
             [
@@ -167,12 +167,12 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '15',
-                'url' => '/img/buildings/Cullen-House.jpg'
+                'url' => '/img/buildings/residence-hoke.webp'
             ],
 
             [
                 'building_id' => '15',
-                'url' => '/img/buildings/Cullen-House-2.jpg'
+                'url' => '/img/buildings/residence-hoke-living.webp'
             ],
 
             [
@@ -197,22 +197,22 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '18',
-                'url' => '/img/buildings/wolf-wall-street-house.jpg'
+                'url' => '/img/buildings/wolf-wall-street-house.webp'
             ],
 
             [
                 'building_id' => '18',
-                'url' => '/img/buildings/wolf-wall-street-house-2.jpg'
+                'url' => '/img/buildings/wolf-wall-street-house-2.webp'
             ],
 
             [
                 'building_id' => '19',
-                'url' => '/img/buildings/il-padrino-house.jpg'
+                'url' => '/img/buildings/godfather-exterior.webp'
             ],
 
             [
                 'building_id' => '19',
-                'url' => '/img/buildings/il-padrino-house-2.jpg'
+                'url' => '/img/buildings/godfather-living.webp'
             ],
 
             [
@@ -247,7 +247,7 @@ class ImageSeeder extends Seeder
 
             [
                 'building_id' => '23',
-                'url' => '/img/buildings/house-of-gucci.jpg'
+                'url' => '/img/buildings/house-of-gucci.webp'
             ],
 
             [

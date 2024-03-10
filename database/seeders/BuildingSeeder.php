@@ -31,7 +31,7 @@ class BuildingSeeder extends Seeder
                 'address' => '12 Picket Post Close, Martins Heron, Bracknell, Berkshire, RG12 9BX, Regno Unito',
                 'latitude' => 51.4087298552668,
                 'longitude' => -0.7214620313143193,
-                'image' => '/img/privet_drive_thumb.jpg',
+                'image' => '/img/privet-drive.jpg',
                 'available' => true,
                 'slug' => ''
             ],
@@ -87,7 +87,7 @@ class BuildingSeeder extends Seeder
             ],
 
             [
-                'title' => 'Palazzo Padmè (Casinò incuso)',
+                'title' => 'Palazzo Padmè',
                 'user_id' => 9,
                 'rooms' => 86,
                 'beds' => 12,
@@ -260,7 +260,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' 184 6th St, St. Helens, Oregon, USA.',
                 'latitude' => 45.86356148095886,
                 'longitude' => -122.80363407389937,
-                'image' => '/img/residence_hook_thumb.jpg',
+                'image' => '/img/residence-hoke.jpg',
                 'available' => true,
                 'slug' => ''
             ],
@@ -324,7 +324,7 @@ class BuildingSeeder extends Seeder
                 'address' => ' 110 Longfellow Avenue, Staten Island, New York, USA.',
                 'latitude' => 40.60676231295868,
                 'longitude' => -74.09792118946451,
-                'image' => '/img/padrino_thumb.jpg',
+                'image' => '/img/godfather.webp',
                 'available' => true,
                 'slug' => ''
             ],
